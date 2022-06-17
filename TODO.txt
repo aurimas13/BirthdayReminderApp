@@ -1,1 +1,2 @@
-Implement sys instead of print and std error instead of error
+TODO list:
+1) Implement sys instead of print and std error instead of error
