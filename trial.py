@@ -3,16 +3,28 @@ import time
 import csv
 import os
 import pandas as pd
-file = open("/Users/aurimasnausedas/Documents/Python/birthdayApp/cbirthday_data.csv")
-print(type(file))
-csvreader = csv.reader(file)
-header = []
-header = next(csvreader)
-print(header)
+import csv
 rows = []
-for row in csvreader('clean_birth_date'):
-    rows.append(row)
+with open("birthday_data.csv", "r") as file:
+    csvreader = csv.reader(file)
+    header = next(csvreader)
+    for row in csvreader:
+        rows.append(row)
+print(header)
 print(rows)
+
+# file = open('/Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/birthday_data.csv')
+# print(type(file))
+# csvreader = csv.reader(file)
+# header = []
+# header = next(csvreader)
+# print(header)
+# rows = []
+# for row in csvreader:
+#     rows.append(row)
+# print(rows)
+# file.close()
+
 # col_list = ['first_name',  'last_name', 'clean_birth_date']
 # df = pd.read_csv("/Users/aurimasnausedas/Documents/Python/birthdayApp/Clean_Player_Birthdays.csv", usecols=col_list)
 # # df_2 = df.to_csv(index = False)
@@ -23,11 +35,11 @@ print(rows)
 # print(time.strftime(('%y%m%d')))
 # birthdayFile = 'clean-player-birthda-advanced-visualization-sharing-in-data-world-QueryResult.csv'
 
-def checkTodaysBirthdays():
-    file_df = pd.read_csv("/Users/aurimasnausedas/Documents/Python/birthdayApp/clean-player-birthda-advanced-visualization-sharing-in-data-world-QueryResult.csv")
-    # fileName = open(file_df, 'r')
-    fileName = open(file_df, newline='', encoding='utf-8')
-    print(fileName)
+# def checkTodaysBirthdays():
+#     file_df = pd.read_csv("/Users/aurimasnausedas/Documents/Python/birthdayApp/clean-player-birthda-advanced-visualization-sharing-in-data-world-QueryResult.csv")
+#     # fileName = open(file_df, 'r')
+#     fileName = open(file_df, newline='', encoding='utf-8')
+#     print(fileName)
     # if type(spreadsheet) == pd.core.frame.DataFrame:
 
     # today = time.strftime('%m%d')
