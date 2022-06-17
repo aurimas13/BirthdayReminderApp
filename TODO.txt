@@ -1,2 +1,3 @@
 TODO list:
 1) Implement sys instead of print and std error instead of error
+2) Check if input is correct (birtday_data, characters_tv, etc
