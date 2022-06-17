@@ -1,16 +1,27 @@
-# This is a sample Python script.
+def checkTodaysBirthdays():
+    fileName = open('/Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/birthday_data.csv', 'r')
+    csvreader = csv.reader(fileName)
+    today = time.strftime('%m-%d')
+    flag = 0
+    rows = []
+    today_birthdays = []
+    for row in csvreader:
+        rows.append(row)
+    for item in rows:
+        try:
+            if datetime.strptime(item[2], '%Y-%m-%d').strftime('%m-%d') == today:
+                print(f'{item[0]} {item[1]} has birthday today')
+                today_birthdays.append(item)
+                # print(item)
+                flag = 1
+            elif flag == 0:
+                os.system('notify-send "No Birthdays Today"')
+            else:
+                continue
+        except Exception as error:
+            print(item[2], error)
 
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+    return today_birthdays
 
-
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
-
-
-# Press the green button in the gutter to run the script.
 if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+ checkTodaysBirthdays()

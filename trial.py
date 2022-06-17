@@ -34,13 +34,13 @@ for item in rows:
             print(False)
     except Exception as error:
         print(item[2], error)
-
-print(datetime.strptime(date_str, '%Y-%m-%d' ).strftime('%m-%d')) # formatting to month-day
+#
+# print(datetime.strptime(date_str, '%Y-%m-%d' ).strftime('%m-%d')) # formatting to month-day
 
 # date_object = datetime.strptime(date_str, '%Y-%m-%d').strftime('%m-%d')
 # print(type(date_object))
 # print(date_object)  # printed in default formatting
-file.close()
+# file.close()
 
 # col_list = ['first_name',  'last_name', 'clean_birth_date']
 # df = pd.read_csv("/Users/aurimasnausedas/Documents/Python/birthdayApp/Clean_Player_Birthdays.csv", usecols=col_list)
@@ -51,28 +51,33 @@ file.close()
 # # print(df.loc[2]["clean_birth_date"])
 # print(time.strftime(('%y%m%d')))
 # birthdayFile = 'clean-player-birthda-advanced-visualization-sharing-in-data-world-QueryResult.csv'
-def checkTodaysBirthdays(rows):
-#     fileName = open(file_df, newline='', encoding='utf-8')
-#     print(fileName)
-#     if type(spreadsheet) == pd.core.frame.DataFrame:
-#
+def checkTodaysBirthdays():
+    fileName = open('/Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/birthday_data.csv', 'r')
+    csvreader = csv.reader(fileName)
     today = time.strftime('%m-%d')
     flag = 0
-    for line in rows:
-        if today in line:
-            print(True)
-        # else:
-        #     print('Come on')
-#            line = line.split(' ')
-#            flag = 1
-#            # line[1] contains Name and line[2] contains Surname
-#            os.system('notify-send "Birthdays Today: ' + line[1]
-#                      + ' ' + line[2] + '"')
-#     if flag == 0:
-#         os.system('notify-send "No Birthdays Today!"')
-#
+    rows = []
+    today_birthdays = []
+    for row in csvreader:
+        rows.append(row)
+    for item in rows:
+        try:
+            if datetime.strptime(item[2], '%Y-%m-%d').strftime('%m-%d') == today:
+                print(f'{item[0]} {item[1]} has birthday today')
+                today_birthdays.append(item)
+                # print(item)
+                flag = 1
+            elif flag == 0:
+                os.system('notify-send "No Birthdays Today"')
+            else:
+                continue
+        except Exception as error:
+            print(item[2], error)
+
+    return today_birthdays
+
 if __name__ == '__main__':
- checkTodaysBirthdays(rows)
+ checkTodaysBirthdays()
 
 # def checkBirthdays():
 #     myBrthdayFile = '/Users/aurimasnausedas/Documents/Python/birthdayApp/birthdays.csv'
