@@ -26,6 +26,8 @@ def checkTodaysBirthdays(filePath):
                 print({'Error': "Date is in the future"})
             elif not is_not_empty_name(item[0]):
                 print({'Error': 'Empty name field'})
+            elif not is_valid_email(item[1]):
+                print({'Error': 'Invalid email'})
             else:
                 if parsed_date and parsed_date.strftime('%m-%d') == time.strftime('%m-%d'):
                     print(f'{item[0]} has birthday today')
@@ -65,11 +67,11 @@ def is_not_empty_name(name):
 
 
 def is_valid_email(email):
-    regex = '^[a-z0-9]+[\._]?[ a-z0-9]+[@]\w+[. ]\w{2,3}$'
-    if(re.search(regex,email)):
-        print("Valid Email")
+    regex = '^[a-zA-Z0-9]+[\._]?[ a-zA-Z0-9]+[@]\w+[. ]\w{2,3}$'
+    if(re.search(regex, email)):
+        return True
     else:
-        print("Invalid Email")
+        return False
 
 
 if __name__ == '__main__':
@@ -77,5 +79,7 @@ if __name__ == '__main__':
     checkTodaysBirthdays(sys.argv[1])
     # print(is_date_in_past(date_2, '%Y-%m-%d'))
     # print(datetime.now().strftime('%m-%d'))
-    email = 'ryan@one.lt'
-    is_valid_email()
+    # email = 'ryan@one.lt'
+    # email2 = 'anna..def@higgins.com'
+    # print(is_valid_email(email))
+    # print(is_valid_email(email2))
