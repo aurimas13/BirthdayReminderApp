@@ -10,34 +10,57 @@ def checkTodaysBirthdays(filePath):
     fileName = open(filePath, 'r')
 
     csvreader = csv.reader(fileName)
-    today = time.strftime('%m-%d')
-
-    flag = 0
-
-    rows = []
+    next(csvreader)
+    # today_date = datetime.now().strftime('%Y-%m-%d') #time.strftime('%m-%d')
+    # print(today_date)
+    # today_month = datetime.now().strftime('%m-%d')
+    # print(today_month)
     todays_birthdays = []
-
-    for row in csvreader:
-        rows.append(row)
-
-    for item in rows:
-
+    for item in csvreader:
         try:
-            if datetime.strptime(item[2], '%Y-%m-%d').strftime('%m-%d') == today:
-                print(f'{item[0]} {item[1]} has birthday today')
-                todays_birthdays.append(item)
-                # print(item)
-                flag = 1
-            elif flag == 0:
-                os.system('notify-send "No Birthdays Today"')
+            parsed_date, fmt = try_parsing_date(item[2])
+            if valid_date(item[2], fmt) == True:
+                if parsed_date and parsed_date.strftime('%m-%d') == time.strftime('%m-%d'):
+                    print(f'{item[0]} has birthday today')
+                    todays_birthdays.append(item)
             else:
-                continue
+                print({'error': "Invalid date"})
         except Exception as error:
-            print(item[2], error)
+            print(item, error)
 
     print(todays_birthdays)
     return todays_birthdays
 
 
+def try_parsing_date(text):
+    for fmt in ('%Y-%m-%d', '%m-%d'):
+        try:
+            return datetime.strptime(text, fmt), fmt
+        except ValueError:
+            pass
+    return {'error': 'Wrong format'}
+    # raise ValueError('no valid date format found')
+
+
+def valid_date(date, fmt):
+    if fmt == '%Y-%m-%d':
+        isValidDate = True
+        try:
+            date = datetime.strptime(date, "%Y-%m-%d")
+            print("Date is valid.")
+        except ValueError:
+            isValidDate = False
+    elif fmt == '%m-%d':
+        # month, day = date.split('-')
+        isValidDate = True
+        try:
+            date = datetime.strptime(date, "%m-%d")
+            print("Date is valid.")
+        except ValueError:
+            isValidDate = False
+    return isValidDate
+
+
+
 if __name__ == '__main__':
- checkTodaysBirthdays(sys.argv[0])
+ checkTodaysBirthdays(sys.argv[1])
