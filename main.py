@@ -1,11 +1,13 @@
 # Python program For Birthday Reminder Application
+import sys
+
 import time
 from datetime import datetime
 import os
 import csv
 
-def checkTodaysBirthdays():
-    fileName = open('/Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/birthday_data.csv', 'r')
+def checkTodaysBirthdays(filePath):
+    fileName = open(filePath, 'r')
 
     csvreader = csv.reader(fileName)
     today = time.strftime('%m-%d')
@@ -38,4 +40,4 @@ def checkTodaysBirthdays():
 
 
 if __name__ == '__main__':
- checkTodaysBirthdays()
+ checkTodaysBirthdays(sys.argv[0])
