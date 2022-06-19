@@ -1,6 +1,6 @@
 # Python program For Birthday Reminder Application
 import sys
-
+import re
 import time
 from datetime import datetime
 import os
@@ -19,12 +19,17 @@ def checkTodaysBirthdays(filePath):
     for item in csvreader:
         try:
             parsed_date, fmt = try_parsing_date(item[2])
-            if valid_date(item[2], fmt) == True:
+            if fmt is None:
+                print({'Error': "Invalid date"})
+            # elif valid_date(item[2], fmt) == True:
+            elif not is_date_in_past(item[2], fmt):
+                print({'Error': "Date is in the future"})
+            elif not is_not_empty_name(item[0]):
+                print({'Error': 'Empty name field'})
+            else:
                 if parsed_date and parsed_date.strftime('%m-%d') == time.strftime('%m-%d'):
                     print(f'{item[0]} has birthday today')
                     todays_birthdays.append(item)
-            else:
-                print({'error': "Invalid date"})
         except Exception as error:
             print(item, error)
 
@@ -38,29 +43,39 @@ def try_parsing_date(text):
             return datetime.strptime(text, fmt), fmt
         except ValueError:
             pass
-    return {'error': 'Wrong format'}
-    # raise ValueError('no valid date format found')
+    return {'error': 'Wrong format'}, None
 
 
-def valid_date(date, fmt):
-    if fmt == '%Y-%m-%d':
-        isValidDate = True
-        try:
-            date = datetime.strptime(date, "%Y-%m-%d")
+def is_date_in_past(date, format):
+    now = datetime.now().date()
+    isPast = True
+    if format == '%Y-%m-%d':
+        if datetime.strptime(date, format).date() < now:
             print("Date is valid.")
-        except ValueError:
-            isValidDate = False
-    elif fmt == '%m-%d':
-        # month, day = date.split('-')
-        isValidDate = True
-        try:
-            date = datetime.strptime(date, "%m-%d")
-            print("Date is valid.")
-        except ValueError:
-            isValidDate = False
-    return isValidDate
+            isPast = True
+        else:
+            isPast = False
+    return isPast
 
+
+def is_not_empty_name(name):
+    if name == '':
+        return False
+    return True
+
+
+def is_valid_email(email):
+    regex = '^[a-z0-9]+[\._]?[ a-z0-9]+[@]\w+[. ]\w{2,3}$'
+    if(re.search(regex,email)):
+        print("Valid Email")
+    else:
+        print("Invalid Email")
 
 
 if __name__ == '__main__':
- checkTodaysBirthdays(sys.argv[1])
+    # date_2 = '2022-06-18'
+    checkTodaysBirthdays(sys.argv[1])
+    # print(is_date_in_past(date_2, '%Y-%m-%d'))
+    # print(datetime.now().strftime('%m-%d'))
+    email = 'ryan@one.lt'
+    is_valid_email()
