@@ -35,6 +35,7 @@ def checkBirthdaysInAWeek(filePath):
 
         try:
             parsed_date, fmt = try_parsing_date(item[2])
+            # if not is_valid_input():
             if fmt is None:
                 print({'Error': "Invalid date"})
             # elif valid_date(item[2], fmt) == True:
@@ -66,15 +67,19 @@ def checkBirthdaysInAWeek(filePath):
     multiple_email_sends(list_of_birthdays_in_a_week, list_to_sent, list_bday_days)
     return list_of_birthdays_in_a_week, list_to_sent, list_bday_days
 
+# def is_valid_input():
 
 def calculate_time_left(birthdays_list):
-    d0 = datetime.strptime(birthdays_list[0], '%m-%d')
-    d1 = datetime.now().date()
-    d2 = date(d1.year, d1.month, d1.day) # if year is 2022 but takes as 2023 even though months are different like 23-01 - 22-12, it should calulcate this
-    d3 = date(d1.year, d0.month, d0.day) # if year is 2023 but it takes as 2023 :(
-    delta = d3 - d2
-    if delta.days <= 7:
-        return delta # Output should say 7 days
+    bday_to_be = datetime.strptime(birthdays_list[0], '%m-%d')
+    current_date = datetime.now().date()
+    year = current_date.year
+    if current_date.month == 12 and current_date.day >= 25:
+        year = current_date.year + 1
+    d1 = date(year, current_date.month, current_date.day) # if year is 2022 but takes as 2023 as of todayeven though months are different like 23-01 - 22-12, it should calulcate this
+    d2 = date(year, bday_to_be.month, bday_to_be.day) # if year is 2023 but it takes as 2023 :(
+    delta = d2 - d1
+    if delta.days == 7:
+        return f"{delta.days} day" # Output should say 7 days
     else:
         print("Not any birthdays expected within a week") # Sitas nereikalingas nes niekada nebus call'inamas
 
@@ -120,12 +125,12 @@ def is_valid_email(email):
     else:
         return False
 
-def send_email(name,birthday_name,date,days_left,to_email):
+def send_email(name, birthday_name, date, days_left, to_email):
     msg = MIMEMultipart()
     msg['From'] = USR
     msg['To'] = to_email
     msg['Subject'] = f'Birthday Reminder: {birthday_name}\'s birthday on {date}\'s'
-    message = f'Hi {name}, This is a reminder that {birthday_name}\'s will be celebrating their birthday on {date}\'s. There are {days_left} left to get a present!'
+    message = f'Hi {name}, This is a reminder that {birthday_name}\'s will be celebrating their birthday on {date}\'s. There are {days_left}s left to get a present!'
     msg.attach(MIMEText(message))
 
     mailserver = smtplib.SMTP('smtp.gmail.com',587)
@@ -149,9 +154,9 @@ if __name__ == '__main__':
     # # seven_days = datetime.now().date()-timedelta(days=7)
     # # print(seven_days)
     # # print(datetime.strptime(seven_days, '%Y %m %d'))
-    # d0 = datetime.strptime(i, '%m-%d')
-    # d1 = datetime.now().date()
-    # d2 = date(d1.year, d1.month, d1.day)
-    # d3 = date(d1.year, d0.month, d0.day)
+    # d0 = datetime.strptime('01-01', '%m-%d')
+    # d1 = datetime.strptime('2022-12-25', '%Y-%m-%d')
+    # d2 = date(d1.year, d1.month,  d1.day)  # if year is 2022 but takes as 2023 as of todayeven though months are different like 23-01 - 22-12, it should calulcate this
+    # d3 = date(d1.year, d0.month, d0.day)  # if year is 2023 but it takes as 2023 :(
     # delta = d3 - d2
     # print(delta.days)
