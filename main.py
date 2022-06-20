@@ -74,13 +74,13 @@ def calculate_time_left(birthdays_list):
     d3 = date(d1.year, d0.month, d0.day) # if year is 2023 but it takes as 2023 :(
     delta = d3 - d2
     if delta.days <= 7:
-        return delta
+        return delta # Output should say 7 days
     else:
-        print("Not any birthdays expected wthin a week") # Sitas nereikalingas nes niekada nebus call'inamas
+        print("Not any birthdays expected within a week") # Sitas nereikalingas nes niekada nebus call'inamas
 #
 #
 def multiple_email_sends(birthday_individual, to_sent, days):
-    print(days[1])
+    # print(days[1])
     for bday in birthday_individual:
         for item in to_sent:
             send_email(item[0],bday[0],days[0],days[1],item[1])
@@ -125,7 +125,7 @@ def send_email(name,birthday_name,date,days_left,to_email):
     msg['From'] = USR
     msg['To'] = to_email
     msg['Subject'] = f'Birthday Reminder: {birthday_name}\'s birthday on {date}\'s'
-    message = f'Hi {name}, This is a reminder that {birthday_name}\'s will be celebrating their birthday on {date}\'s. There are {days_left}s left to get a present!'
+    message = f'Hi {name}, This is a reminder that {birthday_name}\'s will be celebrating their birthday on {date}\'s. There are {days_left} left to get a present!'
     msg.attach(MIMEText(message))
 
     mailserver = smtplib.SMTP('smtp.gmail.com',587)
