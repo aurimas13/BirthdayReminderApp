@@ -77,8 +77,8 @@ def calculate_time_left(birthdays_list):
         return delta # Output should say 7 days
     else:
         print("Not any birthdays expected within a week") # Sitas nereikalingas nes niekada nebus call'inamas
-#
-#
+
+
 def multiple_email_sends(birthday_individual, to_sent, days):
     # print(days[1])
     for bday in birthday_individual:
