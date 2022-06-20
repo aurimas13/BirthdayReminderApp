@@ -8,3 +8,4 @@ DONE 6) Invalid kai netinkamas emailas (ar yra tik)
 7) Parasyti testus
 8) Update README.md
 9) CLI suhandle'inti standard error, std output, kad terminal parasytu viska
+10) How to load env variable from .env

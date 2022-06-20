@@ -1,16 +1,21 @@
 # Python program For Birthday Reminder Application
 import re
 import time
-from datetime import datetime
+from datetime import datetime, date, timedelta
 import csv
 import os
 import smtplib
 import sys
 
 from configparser import ConfigParser
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+from dotenv import load_dotenv
+
 # Setting environment variables:
-USER = os.getenv('USER')
-PASSWORD = os.environ.get('PSW')
+load_dotenv()
+USR = os.getenv('USR')
+PSW = os.getenv('PSW')
 
 
 def checkTodaysBirthdays(filePath):
@@ -19,12 +24,7 @@ def checkTodaysBirthdays(filePath):
     csvreader = csv.reader(fileName)
     next(csvreader)
 
-#     body = f'Subject: Birthday Reminder: {item[0]}\'s birthday on {item}%(date)s
-# Body:
-# Hi %(name)s,
-# This is a reminder that %(name_of_birthday_person)s will be celebrating their
-# birthday on %(date)s.
-# There are %(amount_of_days)s left to get a present!'
+    now = datetime.now().date()
     todays_birthdays = []
     for item in csvreader:
         try:
@@ -40,13 +40,32 @@ def checkTodaysBirthdays(filePath):
                 print({'Error': 'Invalid email'})
             else:
                 if parsed_date and parsed_date.strftime('%m-%d') == time.strftime('%m-%d'):
-                    print(f'{item[0]} has birthday today')
+                    birthday_name = item[0]
+                    birthday_date = time.strftime('%m-%d')
+                    print('hi')
+                    print(birthday_date)
+                    # days_until_birthday = birthday_date - now
+                    # print(days_until_birthday)
+                    # print(birthday_calculation_before_a_week(item[2]))
+                    print(f'{birthday_name} has birthday today')
                     todays_birthdays.append(item)
+
+            # send_email(item[0],birthday_name,today,birthday_date,user[1])
         except Exception as error:
             print(item, error)
 
     print(todays_birthdays)
     return todays_birthdays
+
+# def send_emails(name):
+#     for i in  checkTodaysBirthdays()
+
+def birthday_calculation_before_a_week(date):
+    subtract = date - timedelta(days=7)
+    if subtract == 7:
+        return True
+    else:
+        return False
 
 
 def try_parsing_date(text):
@@ -83,15 +102,12 @@ def is_valid_email(email):
     else:
         return False
 
-def send_email(name, ):
-    from email.MIMEMultipart import MIMEMultipart
-    from email.MIMEText import MIMEText
-
+def send_email(name,birthday_name,date,birthday_date,to_email):
     msg = MIMEMultipart()
-    msg['From'] = 'aurimas.nausedas@gmail.com'
-    msg['To'] = 'aurimas.nausedas@gmail.com'
+    msg['From'] = USR
+    msg['To'] = to_email
     msg['Subject'] = 'Trial'
-    message = f'Hi {name}, This is a reminder that {birthday_name}\'s will be celebrating their birthday on {date}\'s. There are {date-birthday_date}\'s left to get a present!'
+    message = f'Hi {name}, This is a reminder that {birthday_name}\'s will be celebrating their birthday on {date}\'s. There are {birthday_date}\'s left to get a present!'
     msg.attach(MIMEText(message))
 
     mailserver = smtplib.SMTP('smtp.gmail.com',587)
@@ -101,38 +117,11 @@ def send_email(name, ):
     mailserver.starttls()
     # re-identify ourselves as an encrypted connection
     mailserver.ehlo()
-    mailserver.login(USER, PASSWORD)
+    mailserver.login(USR, PSW)
 
-    mailserver.sendmail(USER,'aurimas.nausedas@gmail.com',msg.as_string())
+    mailserver.sendmail(USR,'aurimas.nausedas@gmail.com',msg.as_string())
 
     mailserver.quit()
-
-
-# def send_email(subject, body_text, emails):
-#     """
-#     Send an email
-#     """
-#     base_path = os.path.dirname(os.path.abspath('/Users/aurimasnausedas/Documents/Python/BirthdayReminderApp
-# '))
-#     config_path = os.path.join(base_path, "email.ini")
-#     if os.path.exists(config_path):
-#         cfg = ConfigParser()
-#         cfg.read(config_path)
-#     else:
-#         print("Config not found! Exiting!")
-#         sys.exit(1)
-#     host = cfg.get("smtp", "server")
-#     from_addr = cfg.get("smtp", "from_addr")
-#     BODY = "\r\n".join((
-#             "From: %s" % from_addr,
-#             "To: %s" % ', '.join(emails),
-#             "Subject: %s" % subject ,
-#             "",
-#             body_text
-#             ))
-#     server = smtplib.SMTP(host)
-#     server.sendmail(from_addr, emails, BODY)
-#     server.quit()
 
 
 if __name__ == '__main__':
@@ -149,3 +138,7 @@ if __name__ == '__main__':
     # body_text = "Python rules them all!"
     # send_email(subject, body_text, emails)
     print(datetime.now().date().strftime('%m-%d'))
+    # send_email("Aurimas", 'Guga', 21, 21)
+    print(PSW)
+    seven_days = datetime.now().date()-timedelta(days=7)
+    print(seven_days)
