@@ -30,7 +30,6 @@ def checkBirthdaysInAWeek(filePath):
     print(time.strftime('%m-%d'))
     list_of_birthdays_in_a_week = []
     list_to_sent = []
-    list_bday_days = []
     for item in csvreader:
 
         try:
@@ -46,44 +45,60 @@ def checkBirthdaysInAWeek(filePath):
                 print({'Error': 'Invalid email'})
             else:
                 if parsed_date and parsed_date.strftime('%m-%d') == birthday_in_a_week:
+                    # print(parsed_date.strftime('%m-%d') == birthday_in_a_week)
+                    # print(parsed_date.strftime('%m-%d'))
+                    # print((today + timedelta(days=7)).strftime('%m-%d'))
                     birthday_name = item[0]
+                    d1 = parsed_date.strptime(item[2], '%Y-%m-%d')
+                    print(d1.year, d1.month, d1.day)
+                    print(type(birthday_in_a_week))
+                    d2 = date(d1.year, d1.month, d1.day)
+                    print(d2)
+                    # date = datetime.strptime(birthday_in_a_week, '%m-%d')
+                    # print(d2)
+                    print(today.year, today.month, today.day)
+                    # birthday_date = time.strftime('%m-%d')
+                    # print('hi')
+                    # print(birthday_date)
+                    # days_until_birthday = birthday_date - now
+                    # print(days_until_birthday)
+                    # print(birthday_calculation_before_a_week(item[2]))
                     print(f'{birthday_name} will have birthday in a week')
                     list_of_birthdays_in_a_week.append(item)
-                    list_bday_days.append(birthday_in_a_week)
-                    days_left = calculate_time_left(list_bday_days)
-                    list_bday_days.append(days_left)
+                    list_of_birthdays_in_a_week.append(birthday_in_a_week)
+                    days_left = calculate_time_left(list_of_birthdays_in_a_week)
+                    list_of_birthdays_in_a_week.append(days_left)
                 else:
                     list_to_sent.append(item)
 
         except Exception as error:
             print(item, error)
 
-    # print(list_of_birthdays_in_a_week)
-    # print(list_to_sent)
-    # print(list_bday_days[0])
-    # print(list_bday_days[1])
-    # print(calculate_time_left(list_bday_days))
-    multiple_email_sends(list_of_birthdays_in_a_week, list_to_sent, list_bday_days)
-    return list_of_birthdays_in_a_week, list_to_sent, list_bday_days
+    print(list_of_birthdays_in_a_week)
+    print(list_to_sent)
+    print(calculate_time_left(list_of_birthdays_in_a_week))
+    multiple_email_sends(list_of_birthdays_in_a_week, list_to_sent)
+    return list_of_birthdays_in_a_week, list_to_sent
 
 
 def calculate_time_left(birthdays_list):
-    d0 = datetime.strptime(birthdays_list[0], '%m-%d')
+
+    d0 = datetime.strptime(birthdays_list[1], '%m-%d')
     d1 = datetime.now().date()
-    d2 = date(d1.year, d1.month, d1.day) # if year is 2022 but takes as 2023 even though months are different like 23-01 - 22-12, it should calulcate this
-    d3 = date(d1.year, d0.month, d0.day) # if year is 2023 but it takes as 2023 :(
+    d2 = date(d1.year, d1.month, d1.day)
+    d3 = date(d1.year, d0.month, d0.day)
     delta = d3 - d2
     if delta.days <= 7:
-        return delta
+        return delta.days
     else:
         print("Not any birthdays expected wthin a week") # Sitas nereikalingas nes niekada nebus call'inamas
-#
-#
-def multiple_email_sends(birthday_individual, to_sent, days):
-    print(days[1])
+
+
+def multiple_email_sends(birthday_individual, to_sent):
     for bday in birthday_individual:
+        print(bday)
         for item in to_sent:
-            send_email(item[0],bday[0],days[0],days[1],item[1])
+            send_email(item[0],bday[0],6,6,item[1])
 
 
 def try_parsing_date(text):
