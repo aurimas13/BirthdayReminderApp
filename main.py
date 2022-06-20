@@ -1,20 +1,30 @@
 # Python program For Birthday Reminder Application
-import sys
 import re
 import time
 from datetime import datetime
-import os
 import csv
+import os
+import smtplib
+import sys
+
+from configparser import ConfigParser
+# Setting environment variables:
+USER = os.getenv('USER')
+PASSWORD = os.environ.get('PSW')
+
 
 def checkTodaysBirthdays(filePath):
     fileName = open(filePath, 'r')
-
+    today = datetime.now().date().strftime('%m-%d')
     csvreader = csv.reader(fileName)
     next(csvreader)
-    # today_date = datetime.now().strftime('%Y-%m-%d') #time.strftime('%m-%d')
-    # print(today_date)
-    # today_month = datetime.now().strftime('%m-%d')
-    # print(today_month)
+
+#     body = f'Subject: Birthday Reminder: {item[0]}\'s birthday on {item}%(date)s
+# Body:
+# Hi %(name)s,
+# This is a reminder that %(name_of_birthday_person)s will be celebrating their
+# birthday on %(date)s.
+# There are %(amount_of_days)s left to get a present!'
     todays_birthdays = []
     for item in csvreader:
         try:
@@ -73,6 +83,57 @@ def is_valid_email(email):
     else:
         return False
 
+def send_email(name, ):
+    from email.MIMEMultipart import MIMEMultipart
+    from email.MIMEText import MIMEText
+
+    msg = MIMEMultipart()
+    msg['From'] = 'aurimas.nausedas@gmail.com'
+    msg['To'] = 'aurimas.nausedas@gmail.com'
+    msg['Subject'] = 'Trial'
+    message = f'Hi {name}, This is a reminder that {birthday_name}\'s will be celebrating their birthday on {date}\'s. There are {date-birthday_date}\'s left to get a present!'
+    msg.attach(MIMEText(message))
+
+    mailserver = smtplib.SMTP('smtp.gmail.com',587)
+    # identify ourselves to smtp gmail client
+    mailserver.ehlo()
+    # secure our email with tls encryption
+    mailserver.starttls()
+    # re-identify ourselves as an encrypted connection
+    mailserver.ehlo()
+    mailserver.login(USER, PASSWORD)
+
+    mailserver.sendmail(USER,'aurimas.nausedas@gmail.com',msg.as_string())
+
+    mailserver.quit()
+
+
+# def send_email(subject, body_text, emails):
+#     """
+#     Send an email
+#     """
+#     base_path = os.path.dirname(os.path.abspath('/Users/aurimasnausedas/Documents/Python/BirthdayReminderApp
+# '))
+#     config_path = os.path.join(base_path, "email.ini")
+#     if os.path.exists(config_path):
+#         cfg = ConfigParser()
+#         cfg.read(config_path)
+#     else:
+#         print("Config not found! Exiting!")
+#         sys.exit(1)
+#     host = cfg.get("smtp", "server")
+#     from_addr = cfg.get("smtp", "from_addr")
+#     BODY = "\r\n".join((
+#             "From: %s" % from_addr,
+#             "To: %s" % ', '.join(emails),
+#             "Subject: %s" % subject ,
+#             "",
+#             body_text
+#             ))
+#     server = smtplib.SMTP(host)
+#     server.sendmail(from_addr, emails, BODY)
+#     server.quit()
+
 
 if __name__ == '__main__':
     # date_2 = '2022-06-18'
@@ -83,3 +144,8 @@ if __name__ == '__main__':
     # email2 = 'anna..def@higgins.com'
     # print(is_valid_email(email))
     # print(is_valid_email(email2))
+    # emails = ["mike@someAddress.org", "someone@gmail.com"]
+    # subject = "Test email from Python"
+    # body_text = "Python rules them all!"
+    # send_email(subject, body_text, emails)
+    print(datetime.now().date().strftime('%m-%d'))
