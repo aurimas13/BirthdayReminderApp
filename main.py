@@ -61,7 +61,7 @@ def checkBirthdaysInAWeek(input_file):
 
 def is_valid_input(fmt, item, idx):
     if fmt is None:
-        raise Exception({'Error':f'Invalid date for {item[0]}. Date give is {item[2]}'})
+        raise Exception({'Error' : f'Invalid date for {item[0]}. Date give is {item[2]}'})
         # print({'Error': f'Invalid date for {item[0]}. Date give is {item[2]}'})
         # return False
     # elif valid_date(item[2], fmt) == True:
@@ -73,15 +73,15 @@ def is_valid_input(fmt, item, idx):
         #     template = f'Date is in the future for {item[0]}. Date given is {item[2]}'
         #     message = template.format(type(ex).__name__, ex.args)
         #     print(message)
-        raise Exception('Error':f'Date is in the future for {item[0]}. Date given is {item[2]}'})
+        raise Exception('Error' : f'Date is in the future for {item[0]}. Date given is {item[2]}'})
         # print({'Error': f'Date is in the future for {item[0]}. Date given is {item[2]}'})
         # return False
     elif not is_not_empty_name(item[0]):
-        raise Exception({'Error':f'Empty name field is for email at row {idx}'})
+        raise Exception({'Error' : f'Empty name field is for email at row {idx}'})
         # print({'Error': f'Empty name field is for email at row {idx}'})
         # return False
     elif not is_valid_email(item[1]):
-        raise Exception('Error':f'Invalid email for {item[0]}'})
+        raise Exception({'Error' : f'Invalid email for {item[0]}'})
         # print({'Error': f'Invalid email for {item[0]}'})
         # return False
     else:
