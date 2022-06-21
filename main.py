@@ -73,7 +73,7 @@ def is_valid_input(fmt, item, idx):
         #     template = f'Date is in the future for {item[0]}. Date given is {item[2]}'
         #     message = template.format(type(ex).__name__, ex.args)
         #     print(message)
-        raise Exception('Error' : f'Date is in the future for {item[0]}. Date given is {item[2]}'})
+        raise Exception({'Error' : f'Date is in the future for {item[0]}. Date given is {item[2]}'})
         # print({'Error': f'Date is in the future for {item[0]}. Date given is {item[2]}'})
         # return False
     elif not is_not_empty_name(item[0]):
