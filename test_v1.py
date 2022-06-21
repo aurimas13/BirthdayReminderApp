@@ -14,7 +14,7 @@ import csv
 # print(header)
 # print(rows)
 
-file = open('/Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/birthday_data.csv')
+file = open('/Public/Datasets/birthday_data.csv')
 csvreader = csv.reader(file)
 # header = []
 # header = next(csvreader)
@@ -52,7 +52,7 @@ for item in rows:
 # print(time.strftime(('%y%m%d')))
 # birthdayFile = 'clean-player-birthda-advanced-visualization-sharing-in-data-world-QueryResult.csv'
 def checkTodaysBirthdays():
-    fileName = open('/Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/birthday_data.csv', 'r')
+    fileName = open('/Public/Datasets/birthday_data.csv', 'r')
     csvreader = csv.reader(fileName)
     today = time.strftime('%m-%d')
     flag = 0
