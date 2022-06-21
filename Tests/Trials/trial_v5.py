@@ -160,9 +160,9 @@ def options():
     if i == 1:
         print('Choose data: 1 - test_data, 2 - test_two')
         if int(input()) == 1:
-           checkBirthdaysInAWeek('/Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/test_data.csv')
+           checkBirthdaysInAWeek('/Datasets/test_data.csv')
         else:
-            checkBirthdaysInAWeek('/Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/test_data_two.csv')
+            checkBirthdaysInAWeek('/Datasets/test_data_two.csv')
 if __name__ == '__main__':
     options()
 #     checkBirthdaysInAWeek(sys.argv[1])
