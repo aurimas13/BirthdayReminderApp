@@ -1,4 +1,4 @@
-# Python program For Birthday Reminder Application
+ Python program For Birthday Reminder Application
 import re
 import time
 from datetime import datetime, date, timedelta
@@ -18,22 +18,20 @@ USR = os.getenv('USR')
 PSW = os.getenv('PSW')
 
 
-def checkBirthdaysInAWeek(filePath):
+def checkBirtdaysInAWeek(filePath):
     fileName = open(filePath, 'r')
     today = datetime.now().date().strftime('%m-%d')
     csvreader = csv.reader(fileName)
     next(csvreader)
 
-    today = datetime.now().date()
-    birthday_in_a_week = (today + timedelta(days=7)).strftime('%m-%d')
-    print(birthday_in_a_week)
-    print(time.strftime('%m-%d'))
-    list_of_birthdays_in_a_week = []
-    list_to_sent = []
+    now = datetime.now().date()
+    bday_in_a_week = (now + timedelta(days=7)).strftime('%m-%d')
+    print(bday_in_a_week)
+    todays_birthdays = []
     for item in csvreader:
-
         try:
             parsed_date, fmt = try_parsing_date(item[2])
+            # if parsed_date.date() + timedelta(days=7) == :
             if fmt is None:
                 print({'Error': "Invalid date"})
             # elif valid_date(item[2], fmt) == True:
@@ -44,61 +42,32 @@ def checkBirthdaysInAWeek(filePath):
             elif not is_valid_email(item[1]):
                 print({'Error': 'Invalid email'})
             else:
-                if parsed_date and parsed_date.strftime('%m-%d') == birthday_in_a_week:
-                    # print(parsed_date.strftime('%m-%d') == birthday_in_a_week)
-                    # print(parsed_date.strftime('%m-%d'))
-                    # print((today + timedelta(days=7)).strftime('%m-%d'))
+                # if parsed_date and parsed_date.strftime('%m-%d') == time.strftime('%m-%d'):
+                if parsed_date and parsed_date.strftime('%m-%d') == bday_in_a_week:
                     birthday_name = item[0]
-                    d1 = parsed_date.strptime(item[2], '%Y-%m-%d')
-                    print(d1.year, d1.month, d1.day)
-                    print(type(birthday_in_a_week))
-                    d2 = date(d1.year, d1.month, d1.day)
-                    print(d2)
-                    # date = datetime.strptime(birthday_in_a_week, '%m-%d')
-                    # print(d2)
-                    print(today.year, today.month, today.day)
-                    # birthday_date = time.strftime('%m-%d')
-                    # print('hi')
-                    # print(birthday_date)
-                    # days_until_birthday = birthday_date - now
-                    # print(days_until_birthday)
-                    # print(birthday_calculation_before_a_week(item[2]))
-                    print(f'{birthday_name} will have birthday in a week')
-                    list_of_birthdays_in_a_week.append(item)
-                    list_of_birthdays_in_a_week.append(birthday_in_a_week)
-                    days_left = calculate_time_left(list_of_birthdays_in_a_week)
-                    list_of_birthdays_in_a_week.append(days_left)
-                else:
-                    list_to_sent.append(item)
+                    birthday_date = time.strftime('%m-%d')
+                    print('hi')
+                    print(birthday_date)
+                    print(datetime.strptime(item[2],'%Y-%m-%d'))
+                    print(f'{birthday_name} will have birthday in a week ')
+                    todays_birthdays.append(item)
 
+            # send_email(item[0],birthday_name,today,birthday_date,user[1])
         except Exception as error:
             print(item, error)
 
-    print(list_of_birthdays_in_a_week)
-    print(list_to_sent)
-    print(calculate_time_left(list_of_birthdays_in_a_week))
-    multiple_email_sends(list_of_birthdays_in_a_week, list_to_sent)
-    return list_of_birthdays_in_a_week, list_to_sent
+    print(todays_birthdays)
+    return todays_birthdays
 
+# def send_emails(name):
+#     for i in  checkTodaysBirthdays()
 
-def calculate_time_left(birthdays_list):
-
-    d0 = datetime.strptime(birthdays_list[1], '%m-%d')
-    d1 = datetime.now().date()
-    d2 = date(d1.year, d1.month, d1.day)
-    d3 = date(d1.year, d0.month, d0.day)
-    delta = d3 - d2
-    if delta.days <= 7:
-        return delta.days
+def birthday_calculation_before_a_week(date):
+    subtract = date - timedelta(days=7)
+    if subtract == 7:
+        return True
     else:
-        print("Not any birthdays expected wthin a week") # Sitas nereikalingas nes niekada nebus call'inamas
-
-
-def multiple_email_sends(birthday_individual, to_sent):
-    for bday in birthday_individual:
-        print(bday)
-        for item in to_sent:
-            send_email(item[0],bday[0],6,6,item[1])
+        return False
 
 
 def try_parsing_date(text):
@@ -135,12 +104,12 @@ def is_valid_email(email):
     else:
         return False
 
-def send_email(name,birthday_name,date,days_left,to_email):
+def send_email(name,birthday_name,date,birthday_date,to_email):
     msg = MIMEMultipart()
     msg['From'] = USR
     msg['To'] = to_email
-    msg['Subject'] = f'Birthday Reminder: {birthday_name}\'s birthday on {date}\'s'
-    message = f'Hi {name}, This is a reminder that {birthday_name}\'s will be celebrating their birthday on {date}\'s. There are {days_left}s left to get a present!'
+    msg['Subject'] = 'Trial'
+    message = f'Hi {name}, This is a reminder that {birthday_name}\'s will be celebrating their birthday on {date}\'s. There are {birthday_date}\'s left to get a present!'
     msg.attach(MIMEText(message))
 
     mailserver = smtplib.SMTP('smtp.gmail.com',587)
@@ -157,16 +126,48 @@ def send_email(name,birthday_name,date,days_left,to_email):
     mailserver.quit()
 
 
+# def send_email(subject, body_text, emails):
+#     """
+#     Send an email
+#     """
+#     base_path = os.path.dirname(os.path.abspath('/Users/aurimasnausedas/Documents/Python/BirthdayReminderApp
+# '))
+#     config_path = os.path.join(base_path, "email.ini")
+#     if os.path.exists(config_path):
+#         cfg = ConfigParser()
+#         cfg.read(config_path)
+#     else:
+#         print("Config not found! Exiting!")
+#         sys.exit(1)
+#     host = cfg.get("smtp", "server")
+#     from_addr = cfg.get("smtp", "from_addr")
+#     BODY = "\r\n".join((
+#             "From: %s" % from_addr,
+#             "To: %s" % ', '.join(emails),
+#             "Subject: %s" % subject ,
+#             "",
+#             body_text
+#             ))
+#     server = smtplib.SMTP(host)
+#     server.sendmail(from_addr, emails, BODY)
+#     server.quit()
+
+
 if __name__ == '__main__':
-    checkBirthdaysInAWeek(sys.argv[1])
-    # i = '06-27'
-    # # print(datetime.now().date().strftime('%m-%d'))
-    # # seven_days = datetime.now().date()-timedelta(days=7)
-    # # print(seven_days)
-    # # print(datetime.strptime(seven_days, '%Y %m %d'))
-    # d0 = datetime.strptime(i, '%m-%d')
-    # d1 = datetime.now().date()
-    # d2 = date(d1.year, d1.month, d1.day)
-    # d3 = date(d1.year, d0.month, d0.day)
-    # delta = d3 - d2
-    # print(delta.days)
+    # date_2 = '2022-06-18'
+    checkBirtdaysInAWeek(sys.argv[1])
+    # print(is_date_in_past(date_2, '%Y-%m-%d'))
+    # print(datetime.now().strftime('%m-%d'))
+    # email = 'ryan@one.lt'
+    # email2 = 'anna..def@higgins.com'
+    # print(is_valid_email(email))
+    # print(is_valid_email(email2))
+    # emails = ["mike@someAddress.org", "someone@gmail.com"]
+    # subject = "Test email from Python"
+    # body_text = "Python rules them all!"
+    # send_email(subject, body_text, emails)
+    # print(datetime.now().date().strftime('%m-%d'))
+    # send_email("Aurimas", 'Guga', 21, 21)
+    # print(PSW)
+    # seven_days = datetime.now().date()-timedelta(days=7)
+    # print(seven_days)
