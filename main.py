@@ -21,7 +21,8 @@ from dotenv import load_dotenv
 load_dotenv()
 USR = os.getenv('USR')
 PSW = os.getenv('PSW')
-
+USR_ALT = os.getenv('USR_ALT')
+PSW_ALT = os.getenv('PSW_ALT')
 
 def birthday_file(file_path):
     try:
@@ -124,25 +125,28 @@ def is_valid_email(email):
 
 
 def send_email(name, birthday_name, bday_date, days_left, to_email):
+    message = f'Hi {name}, This is a reminder that {birthday_name}\'s will be celebrating their birthday on {bday_date}\'s. There are {days_left}s left to get a present!'
     msg = MIMEMultipart()
-    msg['From'] = USR
+    # msg['From'] = USR
+    msg['From'] = USR_ALT
     msg['To'] = to_email
     msg['Subject'] = f'Birthday Reminder: {birthday_name}\'s birthday on {bday_date}\'s'
-    message = f'Hi {name}, This is a reminder that {birthday_name}\'s will be celebrating their birthday on {bday_date}\'s. There are {days_left}s left to get a present!'
     msg.attach(MIMEText(message))
 
-    mailserver = smtplib.SMTP('smtp.gmail.com',587)
-    # identify ourselves to smtp gmail client
-    mailserver.ehlo()
-    # secure our email with tls encryption
-    mailserver.starttls()
-    # re-identify ourselves as an encrypted connection
-    mailserver.ehlo()
-    mailserver.login(USR, PSW)
-
-    mailserver.sendmail(USR,to_email,msg.as_string())
-
-    mailserver.quit()
+    try:
+        mailserver = smtplib.SMTP('smtp.gmail.com', 587)
+        mailserver.ehlo()
+        mailserver.starttls()
+        mailserver.ehlo()
+        # mailserver.login(USR, PSW)
+        mailserver.login(USR_ALT, PSW_ALT)
+        # mailserver.sendmail(USR,to_email,msg.as_string())
+        mailserver.sendmail(USR_ALT,to_email,msg.as_string())
+        mailserver.quit()
+        print('success')
+    except Exception as e:
+        print('fail', e)
+    # mailserver.quit()
 
 
 def options(read_path, cron):
@@ -157,6 +161,7 @@ def options(read_path, cron):
             checkBirthdaysInAWeek(read_path, send_emails=True)
         else:
             print('Please choose either 1 or 2')
+            options(read_path,cron)
 
 if __name__ == '__main__':
     arg_path = sys.argv[1]
