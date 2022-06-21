@@ -47,3 +47,4 @@ def test_is_valid_email_bad():
 def test_is_valid_email_invalid_string():
     with pytest.raises(InvalidTag, match=''):
         is_valid_email()
+
