@@ -1,4 +1,4 @@
-# Python program For Birthday Reminder Application
+ Python program For Birthday Reminder Application
 import re
 import time
 from datetime import datetime, date, timedelta
@@ -82,6 +82,21 @@ def is_valid_input(fmt, item, idx):
         return True
 
 
+# def calculate_time_left(birthdays_list):
+#     bday_to_be = datetime.strptime(birthdays_list[0], '%m-%d')
+#     current_date = datetime.now().date()
+#     year = current_date.year
+#     if current_date.month == 12 and current_date.day >= 25:
+#         year = current_date.year + 1
+#     d1 = date(year, current_date.month, current_date.day) # if year is 2022 but takes as 2023 as of todayeven though months are different like 23-01 - 22-12, it should calulcate this
+#     d2 = date(year, bday_to_be.month, bday_to_be.day) # if year is 2023 but it takes as 2023 :(
+#     delta = d2 - d1
+#     if delta.days == 7:
+#         return f"{delta.days} day" # Output should say 7 days
+#     else:
+#         print("Not any birthdays expected within a week") # Sitas nereikalingas nes niekada nebus call'inamas
+
+
 def multiple_email_sends(birthday_individual, to_send):
     days_left = 7
     today = datetime.now().date()
@@ -124,7 +139,6 @@ def is_valid_email(email):
         return True
     else:
         return False
-
 
 def send_email(name, birthday_name, bday_date, days_left, to_email):
     msg = MIMEMultipart()
