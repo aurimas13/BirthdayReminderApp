@@ -63,12 +63,25 @@ def is_valid_input(fmt, item, idx, to_print):
     result = None
     if fmt is None:
         result = f'ERROR: Invalid date for {item[0]} at row {idx}. Date given is {item[2]}'
+        # raise Exception(f'ERROR: Invalid date for {item[0]} at row {idx}. Date given is {item[2]}')
+        # print({'Error': f'Invalid date for {item[0]}. Date give is {item[2]}'})
+        # return False
+    # elif valid_date(item[2], fmt) == True:
     elif not is_date_in_past(item[2], fmt):
         result = f'ERROR: Date is in the future for {item[0]} at row {idx}. Date given is {item[2]}'
+        # raise Exception(f'ERROR: Date is in the future for {item[0]} at row {idx}. Date given is {item[2]}')
+        # print({'Error': f'Date is in the future for {item[0]}. Date given is {item[2]}'})
+        # return False
     elif not is_not_empty_name(item[0]):
         result = f'ERROR: Empty name field is for email {item[1]} at row {idx}'
+        # raise Exception(f'ERROR: Empty name field is for email {item[1]} at row {idx}')
+        # print({'Error': f'Empty name field is for email at row {idx}'})
+        # return False
     elif not is_valid_email(item[1]):
         result = f'ERROR: Invalid email for {item[0]} at row {idx}'
+        # raise Exception(f'ERROR: Invalid email for {item[0]} at row {idx}')
+        # print({'Error': f'Invalid email for {item[0]}'})
+        # return False
     else:
         res = True
 
@@ -93,7 +106,7 @@ def try_parsing_date(text):
             return datetime.strptime(text, fmt), fmt
         except ValueError:
             pass
-    return {'ERROR': 'Wrong format'}, None
+    return {'error': 'Wrong format'}, None
 
 
 def is_date_in_past(date, date_format):
@@ -145,7 +158,7 @@ def send_email(name, birthday_name, bday_date, days_left, to_email):
 
 
 def options(read_path):
-    print('Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails')
+    print('Choose 1 to validate the persons birthday or 2 to check for upcoming birthdays and send emails')
     i = int(input())
     if i == 1:
         checkBirthdaysInAWeek(read_path, send_emails=False)
