@@ -12,3 +12,4 @@ DONE - 10) How to load env variable from .env
 11) Check that it tries sending three times - emails can always be sent successfully in 3 retries,
 12) Make Cron work
 13) Prideti dar testu
+14) Patikrinti del logging
