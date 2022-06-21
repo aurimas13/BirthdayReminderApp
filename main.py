@@ -32,7 +32,7 @@ def birthday_file(file_path):
     except:
         print('Wrong input data file')
 
-def checkBirthdaysInAWeek(input_file):
+def checkBirthdaysInAWeek(input_file, send_emails=False):
     csv_file = birthday_file(input_file)
     today = datetime.now().date()
     birthday_in_a_week = (today + timedelta(days=7)).strftime('%m-%d')
@@ -42,50 +42,53 @@ def checkBirthdaysInAWeek(input_file):
 
         try:
             parsed_date, fmt = try_parsing_date(item[2])
-            if is_valid_input(fmt, item, idx) is True:
+            if is_valid_input(fmt, item, idx, not send_emails) is True:
                 if parsed_date and parsed_date.strftime('%m-%d') == birthday_in_a_week:
                     birthday_name = item[0]
                     print(f'{birthday_name} will have birthday in a week')
                     list_of_birthdays_in_a_week.append(item)
                 else:
                     list_to_send.append(item)
-            else:
-                print(True)
 
         except Exception as error:
             print(item, error)
 
-    multiple_email_sends(list_of_birthdays_in_a_week, list_to_send)
-    return list_of_birthdays_in_a_week, list_to_send
+    if send_emails:
+        multiple_email_sends(list_of_birthdays_in_a_week, list_to_send)
+    # return list_of_birthdays_in_a_week, list_to_send
 
 
-def is_valid_input(fmt, item, idx):
+def is_valid_input(fmt, item, idx, to_print):
+    res = False
+    result = None
     if fmt is None:
-        raise Exception(f'ERROR: Invalid date for {item[0]} at row {idx}. Date given is {item[2]}')
+        result = f'ERROR: Invalid date for {item[0]} at row {idx}. Date given is {item[2]}'
+        # raise Exception(f'ERROR: Invalid date for {item[0]} at row {idx}. Date given is {item[2]}')
         # print({'Error': f'Invalid date for {item[0]}. Date give is {item[2]}'})
         # return False
     # elif valid_date(item[2], fmt) == True:
     elif not is_date_in_past(item[2], fmt):
-        # try:
-        #     if not is_date_in_past(item[2], fmt):
-        #         return True
-        # except Exception as ex:
-        #     template = f'Date is in the future for {item[0]}. Date given is {item[2]}'
-        #     message = template.format(type(ex).__name__, ex.args)
-        #     print(message)
-        raise Exception(f'ERROR: Date is in the future for {item[0]} at row {idx}. Date given is {item[2]}')
+        result = f'ERROR: Date is in the future for {item[0]} at row {idx}. Date given is {item[2]}'
+        # raise Exception(f'ERROR: Date is in the future for {item[0]} at row {idx}. Date given is {item[2]}')
         # print({'Error': f'Date is in the future for {item[0]}. Date given is {item[2]}'})
         # return False
     elif not is_not_empty_name(item[0]):
-        raise Exception(f'ERROR: Empty name field is for email {item[1]} at row {idx}')
+        result = f'ERROR: Empty name field is for email {item[1]} at row {idx}'
+        # raise Exception(f'ERROR: Empty name field is for email {item[1]} at row {idx}')
         # print({'Error': f'Empty name field is for email at row {idx}'})
         # return False
     elif not is_valid_email(item[1]):
-        raise Exception(f'ERROR: Invalid email for {item[0]} at row {idx}')
+        result = f'ERROR: Invalid email for {item[0]} at row {idx}'
+        # raise Exception(f'ERROR: Invalid email for {item[0]} at row {idx}')
         # print({'Error': f'Invalid email for {item[0]}'})
         # return False
     else:
-        return True
+        res = True
+
+    if to_print and result is not None:
+        print(result)
+
+    return res
 
 
 def multiple_email_sends(birthday_individual, to_send):
@@ -154,15 +157,17 @@ def send_email(name, birthday_name, bday_date, days_left, to_email):
     mailserver.quit()
 
 
-def options():
+def options(read_path):
     print('Choose 1 to validate the persons birthday or 2 to check for upcoming birthdays and send emails')
     i = int(input())
     if i == 1:
-        print('Choose data: 1 - test_data, 2 - test_two')
-        if int(input()) == 1:
-           checkBirthdaysInAWeek('/Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/test_data.csv')
-        else:
-            checkBirthdaysInAWeek('/Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/test_data_two.csv')
+        checkBirthdaysInAWeek(read_path, send_emails=False)
+    elif i == 2:
+        checkBirthdaysInAWeek(read_path, send_emails=True)
+    else:
+        print('Please choose either 1 or 2')
+
 if __name__ == '__main__':
-    options()
+    arg_path = sys.argv[1]
+    options(arg_path)
 #     checkBirthdaysInAWeek(sys.argv[1])
