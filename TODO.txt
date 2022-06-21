@@ -10,3 +10,4 @@ DONE - 6) Invalid kai netinkamas emailas (ar yra tik)
 DONE - 9) Suhandle'inti standard error, std output, kad terminal parasytu viska
 DONE - 10) How to load env variable from .env
 11) Check that it tries sending three times - emails can always be sent successfully in 3 retries,
+12) Look again at the problem
