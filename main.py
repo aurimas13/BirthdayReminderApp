@@ -61,7 +61,6 @@ def is_valid_input(fmt, item, idx):
     if fmt is None:
         print({'Error': f'Invalid date for {item[0]}. Date give is {item[2]}'})
         return False
-    # elif valid_date(item[2], fmt) == True:
     elif not is_date_in_past(item[2], fmt):
         print({'Error': f'Date is in the future for {item[0]}. The date given is {item[2]}'})
         return False
