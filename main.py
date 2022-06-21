@@ -24,11 +24,13 @@ PSW = os.getenv('PSW')
 
 
 def birthday_file(file_path):
-    file_name = open(file_path, 'r')
-    csv_reader = csv.reader(file_name)
-    next(csv_reader)
-    return csv_reader
-
+    try:
+        file_name = open(file_path, 'r')
+        csv_reader = csv.reader(file_name)
+        next(csv_reader)
+        return csv_reader
+    except:
+        print('Wrong input data file')
 
 def checkBirthdaysInAWeek(input_file):
     csv_file = birthday_file(input_file)
@@ -59,17 +61,29 @@ def checkBirthdaysInAWeek(input_file):
 
 def is_valid_input(fmt, item, idx):
     if fmt is None:
-        print({'Error': f'Invalid date for {item[0]}. Date give is {item[2]}'})
-        return False
+        raise Exception({'Error':f'Invalid date for {item[0]}. Date give is {item[2]}'})
+        # print({'Error': f'Invalid date for {item[0]}. Date give is {item[2]}'})
+        # return False
+    # elif valid_date(item[2], fmt) == True:
     elif not is_date_in_past(item[2], fmt):
-        print({'Error': f'Date is in the future for {item[0]}. The date given is {item[2]}'})
-        return False
+        # try:
+        #     if not is_date_in_past(item[2], fmt):
+        #         return True
+        # except Exception as ex:
+        #     template = f'Date is in the future for {item[0]}. Date given is {item[2]}'
+        #     message = template.format(type(ex).__name__, ex.args)
+        #     print(message)
+        raise Exception('Error':f'Date is in the future for {item[0]}. Date given is {item[2]}'})
+        # print({'Error': f'Date is in the future for {item[0]}. Date given is {item[2]}'})
+        # return False
     elif not is_not_empty_name(item[0]):
-        print({'Error': f'Empty name field is for email at row {idx}'})
-        return False
+        raise Exception({'Error':f'Empty name field is for email at row {idx}'})
+        # print({'Error': f'Empty name field is for email at row {idx}'})
+        # return False
     elif not is_valid_email(item[1]):
-        print({'Error': f'Invalid email for {item[0]}'})
-        return False
+        raise Exception('Error':f'Invalid email for {item[0]}'})
+        # print({'Error': f'Invalid email for {item[0]}'})
+        # return False
     else:
         return True
 
