@@ -1,18 +1,23 @@
 # Python program For Birthday Reminder Application
+
+# Importing Regex
 import re
-import time
-from datetime import datetime, date, timedelta
+
+# Importing time modules
+from datetime import datetime, timedelta
+
+# Importing csv, os & sys
 import csv
 import os
-import smtplib
 import sys
 
-from configparser import ConfigParser
+# Setting email proxies
+import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from dotenv import load_dotenv
 
 # Setting environment variables:
+from dotenv import load_dotenv
 load_dotenv()
 USR = os.getenv('USR')
 PSW = os.getenv('PSW')
@@ -20,17 +25,15 @@ PSW = os.getenv('PSW')
 
 def birthday_file(file_path):
     file_name = open(file_path, 'r')
-    csvreader = csv.reader(file_name)
-    next(csvreader)
-    return csvreader
+    csv_reader = csv.reader(file_name)
+    next(csv_reader)
+    return csv_reader
 
 
 def checkBirthdaysInAWeek(input_file):
     csv_file = birthday_file(input_file)
     today = datetime.now().date()
     birthday_in_a_week = (today + timedelta(days=7)).strftime('%m-%d')
-    # print(birthday_in_a_week)
-    # print(time.strftime('%m-%d'))
     list_of_birthdays_in_a_week = []
     list_to_send = []
     for idx, item in enumerate(csv_file):
@@ -42,10 +45,6 @@ def checkBirthdaysInAWeek(input_file):
                     birthday_name = item[0]
                     print(f'{birthday_name} will have birthday in a week')
                     list_of_birthdays_in_a_week.append(item)
-                    # list_bday_days.append(birthday_in_a_week)
-                    # days_left = calculate_time_left(list_bday_days)
-                    # list_bday_days.append(days_left)
-                    # days_left = 7
                 else:
                     list_to_send.append(item)
             else:
@@ -54,12 +53,6 @@ def checkBirthdaysInAWeek(input_file):
         except Exception as error:
             print(item, error)
 
-    # print(list_of_birthdays_in_a_week)
-    # print(list_to_send)
-    # for i in list_bday_days:
-    #     print(i)
-        # print(list_bday_days[1])
-    # print(calculate_time_left(list_bday_days))
     multiple_email_sends(list_of_birthdays_in_a_week, list_to_send)
     return list_of_birthdays_in_a_week, list_to_send
 
@@ -100,16 +93,16 @@ def try_parsing_date(text):
     return {'error': 'Wrong format'}, None
 
 
-def is_date_in_past(date, format):
+def is_date_in_past(date, date_format):
     now = datetime.now().date()
-    isPast = True
-    if format == '%Y-%m-%d':
-        if datetime.strptime(date, format).date() < now:
+    is_past = True
+    if date_format == '%Y-%m-%d':
+        if datetime.strptime(date, date_format).date() < now:
             # print("Date is valid.")
-            isPast = True
+         is_past = True
         else:
-            isPast = False
-    return isPast
+         is_past = False
+    return is_past
 
 
 def is_not_empty_name(name):
