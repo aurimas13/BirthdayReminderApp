@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 # Python program For Birthday Reminder Application
 
 # Importing Regex
