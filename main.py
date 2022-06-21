@@ -162,4 +162,3 @@ if __name__ == '__main__':
     arg_path = sys.argv[1]
     cron = sys.argv[2]
     options(arg_path, cron)
-#     checkBirthdaysInAWeek(sys.argv[1])
