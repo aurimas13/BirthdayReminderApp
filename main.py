@@ -32,6 +32,7 @@ def birthday_file(file_path):
     except:
         print('Wrong input data file')
 
+
 def checkBirthdaysInAWeek(input_file, send_emails=False):
     csv_file = birthday_file(input_file)
     today = datetime.now().date()
@@ -60,20 +61,20 @@ def checkBirthdaysInAWeek(input_file, send_emails=False):
 
 def is_valid_input(fmt, item, idx, to_print):
     res = False
-    result = None
+    error_message = None
     if fmt is None:
-        result = f'ERROR: Invalid date for {item[0]} at row {idx}. Date given is {item[2]}'
+        error_message = f'ERROR: Invalid date for {item[0]} at row {idx}. Date given is {item[2]}'
     elif not is_date_in_past(item[2], fmt):
-        result = f'ERROR: Date is in the future for {item[0]} at row {idx}. Date given is {item[2]}'
+        error_message = f'ERROR: Date is in the future for {item[0]} at row {idx}. Date given is {item[2]}'
     elif not is_not_empty_name(item[0]):
-        result = f'ERROR: Empty name field is for email {item[1]} at row {idx}'
+        error_message = f'ERROR: Empty name field is for email {item[1]} at row {idx}'
     elif not is_valid_email(item[1]):
-        result = f'ERROR: Invalid email for {item[0]} at row {idx}'
+        error_message = f'ERROR: Invalid email for {item[0]} at row {idx}'
     else:
         res = True
 
-    if to_print and result is not None:
-        print(result)
+    if to_print and error_message is not None:
+        print(error_message)
 
     return res
 
@@ -144,17 +145,21 @@ def send_email(name, birthday_name, bday_date, days_left, to_email):
     mailserver.quit()
 
 
-def options(read_path):
-    print('Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails')
-    i = int(input())
-    if i == 1:
-        checkBirthdaysInAWeek(read_path, send_emails=False)
-    elif i == 2:
+def options(read_path, cron):
+    if int(cron) == 1:
         checkBirthdaysInAWeek(read_path, send_emails=True)
     else:
-        print('Please choose either 1 or 2')
+        print('Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails')
+        i = int(input())
+        if i == 1:
+            checkBirthdaysInAWeek(read_path, send_emails=False)
+        elif i == 2:
+            checkBirthdaysInAWeek(read_path, send_emails=True)
+        else:
+            print('Please choose either 1 or 2')
 
 if __name__ == '__main__':
     arg_path = sys.argv[1]
-    options(arg_path)
+    cron = sys.argv[2]
+    options(arg_path, cron)
 #     checkBirthdaysInAWeek(sys.argv[1])

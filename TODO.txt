@@ -1,5 +1,5 @@
 TODO list:
-1) Implement sys instead of print and std error instead of error
+DONE - 1) Implement sys instead of print and std error instead of error
 DONE - 2) Check if input is correct (test_data (DONE), birtday_data, characters_tv, etc
 DONE - 3) Handleinti errora kai yra invalid date ir kad butu metai zemesni nei siandien ar ateity
 DONE - 4) Sukurti kaip siusti emaila
@@ -7,6 +7,6 @@ DONE - 5) Invalid error kai nera vardo
 DONE - 6) Invalid kai netinkamas emailas (ar yra tik)
 7) Parasyti testus
 8) Update README.md
-9) CLI suhandle'inti standard error, std output, kad terminal parasytu viska
+DONE - 9) Suhandle'inti standard error, std output, kad terminal parasytu viska
 DONE - 10) How to load env variable from .env
 11) Check that it tries sending three times - emails can always be sent successfully in 3 retries,
