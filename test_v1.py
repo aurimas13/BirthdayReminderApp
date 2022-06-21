@@ -34,7 +34,7 @@ for item in rows:
             print(False)
     except Exception as error:
         print(item[2], error)
-#
+
 # print(datetime.strptime(date_str, '%Y-%m-%d' ).strftime('%m-%d')) # formatting to month-day
 
 # date_object = datetime.strptime(date_str, '%Y-%m-%d').strftime('%m-%d')
