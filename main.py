@@ -133,19 +133,19 @@ def send_email(name, birthday_name, bday_date, days_left, to_email):
     msg['Subject'] = f'Birthday Reminder: {birthday_name}\'s birthday on {bday_date}\'s'
     msg.attach(MIMEText(message))
 
-    try:
-        mailserver = smtplib.SMTP('smtp.gmail.com', 587)
-        mailserver.ehlo()
-        mailserver.starttls()
-        mailserver.ehlo()
-        # mailserver.login(USR, PSW)
-        mailserver.login(USR_ALT, PSW_ALT)
-        # mailserver.sendmail(USR,to_email,msg.as_string())
-        mailserver.sendmail(USR_ALT,to_email,msg.as_string())
-        mailserver.quit()
-        print('success')
-    except Exception as e:
-        print('fail', e)
+    # try:
+    mailserver = smtplib.SMTP('smtp.gmail.com', 587)
+    mailserver.ehlo()
+    mailserver.starttls()
+    mailserver.ehlo()
+    # mailserver.login(USR, PSW)
+    mailserver.login(USR_ALT, PSW_ALT)
+    # mailserver.sendmail(USR,to_email,msg.as_string())
+    mailserver.sendmail(USR_ALT,to_email,msg.as_string())
+    mailserver.quit()
+    #     print('success')
+    # except Exception as e:
+    #     print('fail', e)
     # mailserver.quit()
 
 
