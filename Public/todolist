@@ -5,9 +5,10 @@ DONE - 3) Handleinti errora kai yra invalid date ir kad butu metai zemesni nei s
 DONE - 4) Sukurti kaip siusti emaila
 DONE - 5) Invalid error kai nera vardo
 DONE - 6) Invalid kai netinkamas emailas (ar yra tik)
-7) Parasyti testus
+DONE - 7) Parasyti testus
 8) Update README.md
 DONE - 9) Suhandle'inti standard error, std output, kad terminal parasytu viska
 DONE - 10) How to load env variable from .env
 11) Check that it tries sending three times - emails can always be sent successfully in 3 retries,
 12) Make Cron work
+13) Prideti dar testu
