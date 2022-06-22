@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 # Python program For Birthday Reminder Application
 
 # Importing Regex
@@ -25,11 +26,17 @@ PSW = os.getenv('PSW')
 USR_ALT = os.getenv('USR_ALT')
 PSW_ALT = os.getenv('PSW_ALT')
 
-def birthday_file(file_path):
+def birthday_file(file_path) -> object:
+    '''
+
+    :param file_path:
+    :return: object
+    '''
     try:
         file_name = open(file_path, 'r')
         csv_reader = csv.reader(file_name)
         next(csv_reader)
+        print(type(csv_reader))
         return csv_reader
     except:
         print('Wrong input data file')
@@ -145,12 +152,11 @@ def send_email(name, birthday_name, bday_date, days_left, to_email):
             mailserver.login(USR_ALT, PSW_ALT)
             # mailserver.sendmail(USR,to_email,msg.as_string())
             mailserver.sendmail(USR_ALT,to_email,msg.as_string())
-            mailserver.quit()
-        except:
-            # reconnect
-        else:
+            print('success', to_email)
             break
-    else:
+        except:
+            continue
+    mailserver.quit()
         # we failed all the attempts
     #     print('success')
     # except Exception as e:
