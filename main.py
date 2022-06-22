@@ -232,8 +232,8 @@ def options(read_path, cron) -> None:
         checkBirthdaysInAWeek(read_path, send_emails=False)
     elif cron.isdigit() and int(cron) == 2: # aprasyti README
         checkBirthdaysInAWeek(read_path, send_emails=True)
+    # elif str(cron) != int() or int(cron) != 1:
     else: # aprasyti README
-    # elif str(cron) != int() or int(cron) != 1: # sutvarkyti sita
         print('Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails')
         i = int(input())
         if i == 1:
