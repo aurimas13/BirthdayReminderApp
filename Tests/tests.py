@@ -17,12 +17,20 @@ def test_correct_parsing_date_md():
 
 def test_is_date_in_past_old():
     date_old = '1990-07-09'
-    assert is_date_in_past(date_old) is True, 'Date should be older than today'
+    date_format = '%Y-%m-%d'
+    assert is_date_in_past(date_old, date_format) is True, 'Date should be older than today'
 
 
 def test_is_date_in_past_future():
     date_future = '2990-07-09'
-    assert is_date_in_past(date_future) is False, "Correct it is in the past"
+    date_format = '%Y-%m-%d'
+    assert is_date_in_past(date_future, date_format) is False, "Correct date is in the past"
+
+
+# def test_is_date_in_past_past_month_day():
+#     date_future = '05-09'
+#     date_format = '%%m-%d'
+#     assert is_date_in_past(date_future, date_format) is True, "Correct date is in the past"
 
 
 def test_is_not_empty_name_empty():
@@ -47,4 +55,4 @@ def test_is_valid_email_bad():
 
 def test_is_valid_email_invalid_string():
     with pytest.raises(InvalidTag):
-        is_valid_email()
+        is_valid_email(InvalidTag)

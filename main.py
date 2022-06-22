@@ -67,7 +67,6 @@ def checkBirthdaysInAWeek(input_file, send_emails=False) -> None:
             if is_valid_input(fmt, item, idx, not send_emails) is True:
                 if parsed_date and parsed_date.strftime('%m-%d') == birthday_in_a_week:
                     birthday_name = item[0]
-                    print(f'{birthday_name} will have birthday in a week')
                     list_of_birthdays_in_a_week.append(item)
                 else:
                     list_to_send.append(item)
@@ -76,7 +75,23 @@ def checkBirthdaysInAWeek(input_file, send_emails=False) -> None:
             print(item, error)
 
     if send_emails:
+        print(f'{birthday_name} will have birthday in a week')
         multiple_email_sends(list_of_birthdays_in_a_week, list_to_send)
+
+
+def try_parsing_date(date) -> Union[Any, Any]:
+    '''
+    Parsing the input of a date.
+
+    :param date: str
+    :return: datetime or dict, str or None
+    '''
+    for fmt in ('%Y-%m-%d', '%m-%d'):
+        try:
+            return datetime.strptime(date, fmt), fmt
+        except ValueError:
+            pass
+    return {'ERROR': 'Wrong format'}, None
 
 
 def is_valid_input(fmt, item, idx, to_print) -> bool:
@@ -125,21 +140,6 @@ def multiple_email_sends(birthday_individual, to_send) -> None:
             send_email(item[0], bday[0], future_date, days_left, item[1])
 
 
-def try_parsing_date(date) -> Union[Any, Any]:
-    '''
-    Parsing the input of a date.
-
-    :param date: str
-    :return: datetime or dict, str or None
-    '''
-    for fmt in ('%Y-%m-%d', '%m-%d'):
-        try:
-            return datetime.strptime(date, fmt), fmt
-        except ValueError:
-            pass
-    return {'ERROR': 'Wrong format'}, None
-
-
 def is_date_in_past(date, date_format) -> bool:
     '''
     Looking if date is in the past.
@@ -148,14 +148,21 @@ def is_date_in_past(date, date_format) -> bool:
     :param date_format: str
     :return:
     '''
-    now = datetime.now().date()
+    now_ymd = datetime.now().date()
+    now_md = datetime.now().date().strftime('%m-%d')
     is_past = True
     if date_format == '%Y-%m-%d':
-        if datetime.strptime(date, date_format).date() < now:
+        if datetime.strptime(date, date_format).date() < now_ymd:
             # print("Date is valid.")
-         is_past = True
+            is_past = True
         else:
-         is_past = False
+            is_past = False
+    # elif date_format == '%m-%d':
+    #     if datetime.strptime(date, date_format).date().strftime('%m-%d') < now_md:
+    #         # print("Date is valid.")
+    #         is_past = True
+    #     else:
+    #         is_past = False
     return is_past
 
 
