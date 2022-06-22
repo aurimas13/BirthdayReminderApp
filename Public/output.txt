@@ -3,3 +3,7 @@ Cool Ole will have birthday in a week
 Brad Stevens will have birthday in a week
 Cool Ole will have birthday in a week
 
+ERROR: Invalid email for Laura Dreyfuss at row 4
+ERROR: Empty name field is for email TheoGermaine@goal.com at row 5
+ERROR: Invalid date for Anna Higgins at row 9. Date given is 02-30
+ERROR: Date is in the future for Tom Brady at row 10. Date given is 2075-10-22
