@@ -31,6 +31,7 @@ from typing import Union
 
 def birthday_file(file_path) -> object:
     '''
+    Converting a path of data file to the csv format that can be read.
 
     :param file_path:
     :return: object
@@ -39,13 +40,20 @@ def birthday_file(file_path) -> object:
         file_name = open(file_path, 'r')
         csv_reader = csv.reader(file_name)
         next(csv_reader)
-        print(type(csv_reader))
         return csv_reader
     except:
         print('Wrong input data file')
 
 
 def checkBirthdaysInAWeek(input_file, send_emails=False) -> None:
+    '''
+    Checking validity of an input_file and whether a birthday is in a week.
+    Then appending lists and sending the respective emails if there is at least one birthday in a week.
+
+    :param input_file: object
+    :param send_emails: bool
+    :return: None
+    '''
     csv_file = birthday_file(input_file)
     today = datetime.now().date()
     birthday_in_a_week = (today + timedelta(days=7)).strftime('%m-%d')
@@ -70,7 +78,16 @@ def checkBirthdaysInAWeek(input_file, send_emails=False) -> None:
         multiple_email_sends(list_of_birthdays_in_a_week, list_to_send)
 
 
-def is_valid_input(fmt, item, idx, to_print):
+def is_valid_input(fmt, item, idx, to_print) -> bool:
+    '''
+    Validating inputs of items provided.
+
+    :param fmt: str
+    :param item: str
+    :param idx: int
+    :param to_print: bool
+    :return:
+    '''
     res = False
     error_message = None
     if fmt is None:
@@ -91,6 +108,14 @@ def is_valid_input(fmt, item, idx, to_print):
 
 
 def multiple_email_sends(birthday_individual, to_send) -> None:
+    '''
+    Sending emails to every recipient of the to_send list and not to the list of birthday_individual persons.
+    Defining variables and passing the items of a list to send_email function.
+
+    :param birthday_individual: list
+    :param to_send: list
+    :return:
+    '''
     days_left = 7
     today = datetime.now().date()
     future_date = (today + timedelta(days=7)).strftime('%m-%d')
@@ -99,16 +124,29 @@ def multiple_email_sends(birthday_individual, to_send) -> None:
             send_email(item[0], bday[0], future_date, days_left, item[1])
 
 
-def try_parsing_date(text):
+def try_parsing_date(date) -> Union[datetime or dict, str or None]:
+    '''
+    Parsing the input of a date.
+
+    :param date: str
+    :return: datetime or dict, str or None
+    '''
     for fmt in ('%Y-%m-%d', '%m-%d'):
         try:
-            return datetime.strptime(text, fmt), fmt
+            return datetime.strptime(date, fmt), fmt
         except ValueError:
             pass
     return {'ERROR': 'Wrong format'}, None
 
 
 def is_date_in_past(date, date_format) -> bool:
+    '''
+    Looking if date is in the past.
+
+    :param date: str
+    :param date_format: str
+    :return:
+    '''
     now = datetime.now().date()
     is_past = True
     if date_format == '%Y-%m-%d':
@@ -121,12 +159,24 @@ def is_date_in_past(date, date_format) -> bool:
 
 
 def is_not_empty_name(name) -> bool:
+    '''
+    Checking if the input of a name column of csv file is not empty.
+
+    :param name: str
+    :return: bool
+    '''
     if name == '':
         return False
     return True
 
 
 def is_valid_email(email) -> bool:
+    '''
+    Checking through regex if an email is valid.
+
+    :param email: str
+    :return: bool
+    '''
     regex = '^[a-zA-Z0-9]+[\._]?[ a-zA-Z0-9]+[@]\w+[. ]\w{2,3}$'
     if(re.search(regex, email)):
         return True
@@ -135,6 +185,16 @@ def is_valid_email(email) -> bool:
 
 
 def send_email(name, birthday_name, bday_date, days_left, to_email) -> None:
+    '''
+    Sending an email to one recipient from the csv file by defining an SMTP client session object.
+
+    :param name: str
+    :param birthday_name: str
+    :param bday_date: str
+    :param days_left: int
+    :param to_email: str
+    :return: bool
+    '''
     message = f'Hi {name}, This is a reminder that {birthday_name}\'s will be celebrating their birthday on {bday_date}\'s. There are {days_left}s left to get a present!'
     msg = MIMEMultipart()
     # msg['From'] = USR
@@ -160,6 +220,13 @@ def send_email(name, birthday_name, bday_date, days_left, to_email) -> None:
 
 
 def options(read_path, cron) -> None:
+    '''
+    Choosing how to use the Python script.
+
+    :param read_path: object
+    :param cron: int or str
+    :return: None
+    '''
     if cron.isdigit() and int(cron) == 1: # aprasyti README
         checkBirthdaysInAWeek(read_path, send_emails=False)
     elif cron.isdigit() and int(cron) == 2: # aprasyti README
