@@ -47,7 +47,6 @@ def birthday_file(file_path):
         sys.stdout.write('Wrong input data file')
 
 
-
 def checkBirthdaysInAWeek(input_file, send_emails=False) -> None:
     """
     Checking validity of an input_file and whether a birthday is in a week.
