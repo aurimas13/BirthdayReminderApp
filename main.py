@@ -43,7 +43,7 @@ def birthday_file(file_path):
         csv_reader = csv.reader(file_name)
         next(csv_reader)
         return csv_reader
-    except:
+    except Exception:
         sys.stdout.write(f'Wrong input data file')
 
 
