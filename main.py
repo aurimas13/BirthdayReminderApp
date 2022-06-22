@@ -26,6 +26,9 @@ PSW = os.getenv('PSW')
 USR_ALT = os.getenv('USR_ALT')
 PSW_ALT = os.getenv('PSW_ALT')
 
+# Importing Union type
+from typing import Union
+
 def birthday_file(file_path) -> object:
     '''
 
@@ -42,7 +45,7 @@ def birthday_file(file_path) -> object:
         print('Wrong input data file')
 
 
-def checkBirthdaysInAWeek(input_file, send_emails=False):
+def checkBirthdaysInAWeek(input_file, send_emails=False) -> None:
     csv_file = birthday_file(input_file)
     today = datetime.now().date()
     birthday_in_a_week = (today + timedelta(days=7)).strftime('%m-%d')
@@ -65,7 +68,6 @@ def checkBirthdaysInAWeek(input_file, send_emails=False):
 
     if send_emails:
         multiple_email_sends(list_of_birthdays_in_a_week, list_to_send)
-    # return list_of_birthdays_in_a_week, list_to_send
 
 
 def is_valid_input(fmt, item, idx, to_print):
@@ -88,7 +90,7 @@ def is_valid_input(fmt, item, idx, to_print):
     return res
 
 
-def multiple_email_sends(birthday_individual, to_send):
+def multiple_email_sends(birthday_individual, to_send) -> None:
     days_left = 7
     today = datetime.now().date()
     future_date = (today + timedelta(days=7)).strftime('%m-%d')
@@ -106,7 +108,7 @@ def try_parsing_date(text):
     return {'ERROR': 'Wrong format'}, None
 
 
-def is_date_in_past(date, date_format):
+def is_date_in_past(date, date_format) -> bool:
     now = datetime.now().date()
     is_past = True
     if date_format == '%Y-%m-%d':
@@ -118,13 +120,13 @@ def is_date_in_past(date, date_format):
     return is_past
 
 
-def is_not_empty_name(name):
+def is_not_empty_name(name) -> bool:
     if name == '':
         return False
     return True
 
 
-def is_valid_email(email):
+def is_valid_email(email) -> bool:
     regex = '^[a-zA-Z0-9]+[\._]?[ a-zA-Z0-9]+[@]\w+[. ]\w{2,3}$'
     if(re.search(regex, email)):
         return True
@@ -132,7 +134,7 @@ def is_valid_email(email):
         return False
 
 
-def send_email(name, birthday_name, bday_date, days_left, to_email):
+def send_email(name, birthday_name, bday_date, days_left, to_email) -> None:
     message = f'Hi {name}, This is a reminder that {birthday_name}\'s will be celebrating their birthday on {bday_date}\'s. There are {days_left}s left to get a present!'
     msg = MIMEMultipart()
     # msg['From'] = USR
@@ -140,8 +142,6 @@ def send_email(name, birthday_name, bday_date, days_left, to_email):
     msg['To'] = to_email
     msg['Subject'] = f'Birthday Reminder: {birthday_name}\'s birthday on {bday_date}\'s'
     msg.attach(MIMEText(message))
-
-    # try:
     for i in range(2):
         try:
             mailserver = smtplib.SMTP('smtp.gmail.com', 587)
@@ -157,17 +157,15 @@ def send_email(name, birthday_name, bday_date, days_left, to_email):
         except:
             continue
     mailserver.quit()
-        # we failed all the attempts
-    #     print('success')
-    # except Exception as e:
-    #     print('fail', e)
-    # mailserver.quit()
 
 
-def options(read_path, cron):
-    if cron.isdigit() and int(cron) == 1: # sutvarkyti sita
+def options(read_path, cron) -> None:
+    if cron.isdigit() and int(cron) == 1: # aprasyti README
+        checkBirthdaysInAWeek(read_path, send_emails=False)
+    elif cron.isdigit() and int(cron) == 2: # aprasyti README
         checkBirthdaysInAWeek(read_path, send_emails=True)
-    elif str(cron) != int() or int(cron) != 1: # sutvarkyti sita
+    else: # aprasyti README
+    # elif str(cron) != int() or int(cron) != 1: # sutvarkyti sita
         print('Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails')
         i = int(input())
         if i == 1:
