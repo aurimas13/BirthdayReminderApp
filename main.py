@@ -18,18 +18,19 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
+# Importing Union type
+from typing import Union, Any
+
 # Setting environment variables:
-from dotenv import load_dotenv
+from dotenv import load_dotenv  # type:ignore
 load_dotenv()
 USR = os.getenv('USR')
 PSW = os.getenv('PSW')
 USR_ALT = os.getenv('USR_ALT')
 PSW_ALT = os.getenv('PSW_ALT')
 
-# Importing Union type
-from typing import Union
 
-def birthday_file(file_path) -> object:
+def birthday_file(file_path):
     '''
     Converting a path of data file to the csv format that can be read.
 
@@ -124,7 +125,7 @@ def multiple_email_sends(birthday_individual, to_send) -> None:
             send_email(item[0], bday[0], future_date, days_left, item[1])
 
 
-def try_parsing_date(date) -> Union[datetime or dict, str or None]:
+def try_parsing_date(date) -> Union[Any, Any]:
     '''
     Parsing the input of a date.
 
@@ -184,7 +185,7 @@ def is_valid_email(email) -> bool:
         return False
 
 
-def send_email(name, birthday_name, bday_date, days_left, to_email) -> None:
+def send_email(name, birthday_name, bday_date, days_left, to_email):
     '''
     Sending an email to one recipient from the csv file by defining an SMTP client session object.
 
@@ -202,9 +203,9 @@ def send_email(name, birthday_name, bday_date, days_left, to_email) -> None:
     msg['To'] = to_email
     msg['Subject'] = f'Birthday Reminder: {birthday_name}\'s birthday on {bday_date}\'s'
     msg.attach(MIMEText(message))
+    mailserver = smtplib.SMTP('smtp.gmail.com', 587)
     for i in range(2):
         try:
-            mailserver = smtplib.SMTP('smtp.gmail.com', 587)
             mailserver.ehlo()
             mailserver.starttls()
             mailserver.ehlo()
