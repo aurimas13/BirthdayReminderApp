@@ -135,15 +135,23 @@ def send_email(name, birthday_name, bday_date, days_left, to_email):
     msg.attach(MIMEText(message))
 
     # try:
-    mailserver = smtplib.SMTP('smtp.gmail.com', 587)
-    mailserver.ehlo()
-    mailserver.starttls()
-    mailserver.ehlo()
-    # mailserver.login(USR, PSW)
-    mailserver.login(USR_ALT, PSW_ALT)
-    # mailserver.sendmail(USR,to_email,msg.as_string())
-    mailserver.sendmail(USR_ALT,to_email,msg.as_string())
-    mailserver.quit()
+    for i in range(2):
+        try:
+            mailserver = smtplib.SMTP('smtp.gmail.com', 587)
+            mailserver.ehlo()
+            mailserver.starttls()
+            mailserver.ehlo()
+            # mailserver.login(USR, PSW)
+            mailserver.login(USR_ALT, PSW_ALT)
+            # mailserver.sendmail(USR,to_email,msg.as_string())
+            mailserver.sendmail(USR_ALT,to_email,msg.as_string())
+            mailserver.quit()
+        except:
+            # reconnect
+        else:
+            break
+    else:
+        # we failed all the attempts
     #     print('success')
     # except Exception as e:
     #     print('fail', e)
@@ -151,9 +159,9 @@ def send_email(name, birthday_name, bday_date, days_left, to_email):
 
 
 def options(read_path, cron):
-    if int(cron) == 1:
+    if cron.isdigit() and int(cron) == 1: # sutvarkyti sita
         checkBirthdaysInAWeek(read_path, send_emails=True)
-    else:
+    elif str(cron) != int() or int(cron) != 1: # sutvarkyti sita
         print('Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails')
         i = int(input())
         if i == 1:
@@ -163,7 +171,6 @@ def options(read_path, cron):
         else:
             print('Please choose either 1 or 2')
             options(read_path,cron)
-
 
 if __name__ == '__main__':
     arg_path = sys.argv[1]

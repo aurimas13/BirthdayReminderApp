@@ -14,3 +14,4 @@ DONE - 12) Make Cron work
 13) Prideti dar testu
 14) Patikrinti del logging
 15) Update data.csv before sending on Monday
+16) Sutvarkyti ko praso kad inputas butu int bet jei surinktu str kaip e mestu errora:
