@@ -10,4 +10,3 @@ mypy Tests/tests.py
 pyflakes Tests/tests.py   
 pyflakes main.py
 pyflakes . - checks all  in the repo
-
