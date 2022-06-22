@@ -6,4 +6,4 @@ crontab -e -> 46 12 * * * cd /Users/aurimasnausedas/Documents/Python/BirthdayRem
 
 Tests run as in terminal:
 python -m pytest Tests/tests.py
-
+ mypy and pyflakes

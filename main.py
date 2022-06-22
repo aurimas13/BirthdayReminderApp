@@ -46,6 +46,16 @@ def birthday_file(file_path):
         print('Wrong input data file')
 
 
+def birthdate_in_7_days() -> str:
+    '''
+    Find if there are any birthdays in a week
+    :return: str
+    '''
+    today = datetime.now().date()
+    return (today + timedelta(days=7)).strftime('%m-%d')
+
+
+
 def checkBirthdaysInAWeek(input_file, send_emails=False) -> None:
     '''
     Checking validity of an input_file and whether a birthday is in a week.
@@ -56,8 +66,7 @@ def checkBirthdaysInAWeek(input_file, send_emails=False) -> None:
     :return: None
     '''
     csv_file = birthday_file(input_file)
-    today = datetime.now().date()
-    birthday_in_a_week = (today + timedelta(days=7)).strftime('%m-%d')
+    birthday_in_a_week = birthdate_in_7_days()
     list_of_birthdays_in_a_week = []
     list_to_send = []
     for idx, item in enumerate(csv_file):
@@ -109,7 +118,8 @@ def is_valid_input(fmt, item, idx, to_print) -> bool:
     if fmt is None:
         error_message = f'ERROR: Invalid date for {item[0]} at row {idx}. Date given is {item[2]}'
     elif not is_date_in_past(item[2], fmt):
-        error_message = f'ERROR: Date is in the future for {item[0]} at row {idx}. Date given is {item[2]}'
+        if fmt == ('%Y-%m-%d'):
+            error_message = f'ERROR: Date is in the future for {item[0]} at row {idx}. Date given is {item[2]}'
     elif not is_not_empty_name(item[0]):
         error_message = f'ERROR: Empty name field is for email {item[1]} at row {idx}'
     elif not is_valid_email(item[1]):
@@ -157,12 +167,14 @@ def is_date_in_past(date, date_format) -> bool:
             is_past = True
         else:
             is_past = False
-    # elif date_format == '%m-%d':
-    #     if datetime.strptime(date, date_format).date().strftime('%m-%d') < now_md:
-    #         # print("Date is valid.")
-    #         is_past = True
-    #     else:
-    #         is_past = False
+    elif date_format == '%m-%d':
+    # else:
+        if datetime.strptime(date, date_format).date().strftime('%m-%d') < birthdate_in_7_days():
+            print(birthdate_in_7_days())
+            # print("Date is valid.")
+            is_past = True
+        else:
+            is_past = False
     return is_past
 
 

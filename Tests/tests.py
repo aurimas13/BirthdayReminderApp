@@ -1,8 +1,9 @@
 # test_with_unittest.py
 
 import pytest
+from datetime import datetime, timedelta
 from cryptography.exceptions import InvalidTag
-from main import try_parsing_date, is_date_in_past, is_not_empty_name, is_valid_email
+from main import try_parsing_date, is_date_in_past, is_not_empty_name, is_valid_email, birthdate_in_7_days
 
 
 def test_correct_parsing_date_ymd():
@@ -27,10 +28,10 @@ def test_is_date_in_past_future():
     assert is_date_in_past(date_future, date_format) is False, "Correct date is in the past"
 
 
-# def test_is_date_in_past_past_month_day():
-#     date_future = '05-09'
-#     date_format = '%%m-%d'
-#     assert is_date_in_past(date_future, date_format) is True, "Correct date is in the past"
+def test_is_date_in_past_past_month_day():
+    date_future = '05-09'
+    date_format = '%%m-%d'
+    assert is_date_in_past(date_future, date_format) is False, "Correct date is in the past"
 
 
 def test_is_not_empty_name_empty():
@@ -51,6 +52,11 @@ def test_is_valid_email_good():
 def test_is_valid_email_bad():
     bad_email = 'andy.whatever@gmail.one.yahoo.com'
     assert is_valid_email(bad_email) is False
+
+
+def test_birthdate_in_7_days():
+    now = datetime.now().date()
+    assert birthdate_in_7_days() == (now + timedelta(days=7)).strftime("%m-%d")
 
 
 def test_is_valid_email_invalid_string():
