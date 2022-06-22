@@ -15,4 +15,4 @@ DONE - 12) Make Cron work
 14) Patikrinti del logging
 15) Update data.csv before sending on Monday
 DONE - 16) Sutvarkyti ko praso kad inputas butu int bet jei surinktu str kaip e mestu errora
-17) Prideti doc stringus po funkcijomis
+DONE - 17) Prideti doc stringus po funkcijomis
