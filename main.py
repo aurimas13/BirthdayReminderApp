@@ -44,7 +44,7 @@ def birthday_file(file_path):
         next(csv_reader)
         return csv_reader
     except Exception:
-        sys.stdout.write(f'Wrong input data file')
+        sys.stdout.write('Wrong input data file')
 
 
 def checkBirthdaysInAWeek(input_file, send_emails=False) -> None:
@@ -242,7 +242,7 @@ def options(read_path, cron) -> None:
         elif i == 2:
             checkBirthdaysInAWeek(read_path, send_emails=True)
         else:
-            sys.stdout.write(f'Please choose either 1 or 2\n')
+            sys.stdout.write('Please choose either 1 or 2\n')
             options(read_path, cron)
 
 
