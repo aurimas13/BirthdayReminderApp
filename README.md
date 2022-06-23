@@ -101,7 +101,7 @@ Emails sent successfully.
 # Tests
 [(Back to top)](#table-of-contents)
 
-First navigate to where [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) is held or to the folder where the [program](https://github.com/aurimas13/BirthdayReminderApp#birthday-reminder-app) is extracted.
+First navigate to where [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) is held or to the folder where the [BirthdayReminderApp](https://github.com/aurimas13/BirthdayReminderApp#birthday-reminder-app) program is extracted.
 
 [comment]: <> (For DocTest run this command in terminal:)
 
