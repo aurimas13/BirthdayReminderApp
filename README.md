@@ -101,30 +101,21 @@ For typing of test file run:
 > python -m pytest tests.py
 ``` 
 
-# CRON JOB
+# Cron Job
 [(Back to top)](#table-of-contents)
-
-Setup up of [Cron Job](https://github.com/aurimas13/calculator/blob/main/Dockerfile).
-
-#CRON JOB
-cron job - 52 20 * * * cd /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/ && /Users/aurimasnausedas/opt/miniconda3/bin/python main.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/test_data.csv 1 >> Public/output.txt
-crontab -e - 10 12 * * * cd /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/ && /Users/aurimasnausedas/opt/miniconda3/bin/python  main.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/test_data.csv 2 >> Public/output.txt
-crontab -e -> 46 12 * * * cd /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/ && /Users/aurimasnausedas/opt/miniconda3/bin/python  main.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data.csv 2 >> Public/birthdays.txt
 
 To build cron job in mac terminal run:
 ``` python
 > crontab -e
 ```
-The syntax for cronjob when entering terminal could look like:
+
+The syntax for cronjob when entering terminal could look like this (cd to the categories on MAC where BirthdayReminderApp folder is & where Python is installed)
 ``` python
-> 0 6 * * * cd ~/BirthdayReminderApp/ && ~/python main.py ~/BirthdayReminderApp/Datasets/data.csv 2
-> 0 6 * * * cd ~/BirthdayReminderApp/ && ~/python main.py ~/BirthdayReminderApp/Datasets/data.csv 2 [Optional] >> Public/birthdays.txt
+> 0 6 * * * cd ~/BirthdayReminderApp/ && ~/python main.py ~/BirthdayReminderApp/Datasets/data_50.csv 2
+[Optional] > 0 6 * * * cd ~/BirthdayReminderApp/ && ~/python main.py ~/BirthdayReminderApp/Datasets/data_50.csv 2 >> Public/birthdays.txt
 ```
-To enter python prompt through docker:
-``` python
-> docker run -it calculatorapp python 
-```
-The commands to run in it are shown in [(Usage)](#usage)
+
+Syntax customization for Cron Job can be checked [here](https://crontab.guru/).
 
 # License
 [(Back to top)](#table-of-contents)
