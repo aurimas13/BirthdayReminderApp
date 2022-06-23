@@ -201,7 +201,7 @@ def send_email(name, bday_name, bday_date, days_left, to_email):
     Sending an email to one recipient from the csv file by defining an SMTP client session object.
 
     :param name: str
-    :param birthday_name: str
+    :param bday_name: str
     :param bday_date: str
     :param days_left: str
     :param to_email: str
