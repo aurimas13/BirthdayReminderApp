@@ -91,6 +91,13 @@ def birthday_file(file_path):
 def checkBirthdaysInAWeek(input_file, send_emails=False) -> None:
 
 def birthdate_in_7_days() -> str:
+
+def try_parsing_date(date) -> Union[Any, Any]:
+
+def is_valid_input(fmt, item, idx, to_print) -> bool:
+
+def multiple_email_sends(birthday_individuals, to_send) -> None:
+
 # Tests
 [(Back to top)](#table-of-contents)
 
