@@ -1,4 +1,4 @@
 python-dotenv == 0.9.1
 python == 3.9.12
-datetime == 3.9.12
 re == 2.2.1
+csv == 1.0
