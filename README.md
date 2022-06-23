@@ -8,6 +8,7 @@ This is a Birthday Reminder Application that contains **2** *visible* **modules*
 - [Table of contents](#table-of-contents)
 - [Requirements](#requirements)
 - [Usage](#usage)
+- [Functions](#functions)
 - [Tests](#tests)
 - [Cron Job](#cron-job)
 - [License](#license)
@@ -81,6 +82,10 @@ Kai Yuen Leung will have birthday in a week.
 Patrick Kienzle will have birthday in a week.
 Emails sent successfully.
 ```
+
+# Functions
+[(Back to top)](#table-of-contents)
+
 # Tests
 [(Back to top)](#table-of-contents)
 
