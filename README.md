@@ -98,6 +98,17 @@ def is_valid_input(fmt, item, idx, to_print) -> bool:
 
 def multiple_email_sends(birthday_individuals, to_send) -> None:
 
+def is_date_in_past(date, date_format) -> bool:
+
+def is_not_empty_name(name) -> bool:
+
+def is_valid_email(email) -> bool:
+
+def send_email(name, birthday_name, bday_date, days_left, to_email):
+
+
+
+
 # Tests
 [(Back to top)](#table-of-contents)
 
