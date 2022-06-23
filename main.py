@@ -201,9 +201,9 @@ def send_email(name, birthday_name, bday_date, days_left, to_email):
     :param to_email: str
     :return: bool
     """
-    message = f'Hi {name}, This is a reminder that {birthday_name}\'s will be celebrating their birthday on {bday_date}\'s. There are {days_left}s left to get a present!'
+    message = f'Hi {name},\n\nThis is a reminder that {birthday_name}\'s will be celebrating their birthday on {bday_date}s.\n\nThere are {days_left}s left to get a present!\n'
     msg = MIMEMultipart()
-    msg['Subject'] = f'Birthday Reminder: {birthday_name}\'s birthday on {bday_date}\'s'
+    msg['Subject'] = f'Birthday Reminder: {birthday_name}s\'s birthday on {bday_date}s'
     msg['From'] = USR
     msg['To'] = to_email
     msg.attach(MIMEText(message))
