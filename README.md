@@ -32,7 +32,7 @@ or
 # Requirements
 [(Back to top)](#table-of-contents)
 
-Python 3.9 is required to properly execute run package's modules. Imports of pytest, math and typing are also needed.
+Python 3.9.12 is required to properly execute package's modules and defined functions inside a module. Imports of several libraries like dotnet, csv, pytest and typing to name a few are also needed.
 
 # Usage
 [(Back to top)](#table-of-contents)
