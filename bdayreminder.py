@@ -235,9 +235,9 @@ def run(read_path, cron) -> None:
     :param cron: int or str
     :return: None
     """
-    if cron.isdigit() and int(cron) == 1:  # aprasyti README
+    if cron.isdigit() and int(cron) == 1:
         checkBirthdaysInAWeek(read_path, send_emails=False)
-    elif cron.isdigit() and int(cron) == 2:  # aprasyti README
+    elif cron.isdigit() and int(cron) == 2:
         checkBirthdaysInAWeek(read_path, send_emails=True)
     else:  # aprasyti README
         sys.stdout.write(
