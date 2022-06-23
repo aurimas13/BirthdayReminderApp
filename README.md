@@ -37,8 +37,8 @@ Python 3.9.12 is required to properly execute package's modules and defined func
 # Usage
 [(Back to top)](#table-of-contents)
 
-After requirements are met, the app package is set at your MAC or PC and terminal is run you have three options (FYI module takes two arguments):
-1) To allow yourself to run validation or check & send - the  second argument has to be **0** or a **string**:
+After requirements are met, the app package is set at your MAC or PC and terminal is run you have four options (FYI module takes two arguments):
+1) To allow yourself to run validation or check & send - the  second argument has to be **0**: 
 ```
 >>> bdayreminder.py ~/BirthdayReminderApp/Datasets/data_20.csv 0
 Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
@@ -56,18 +56,31 @@ Kai Yuen Leung will have birthday in a week.
 Patrick Kienzle will have birthday in a week.
 Emails sent successfully.
 ```
-
-OR
+2) To run validation or check & send another way - the second argument has to be any **other number** or a **string**:
 
 ```
->>> python bdayreminder.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv hello
+>>> python bdayreminder.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv 3
 Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
 >>> 3
 Please choose either 1 or 2
-Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
+>>> 1
+ERROR: Invalid email for Laura Dreyfuss at row 6 
+ERROR: Empty name field is for email TheoGermaine@goal.com at row 7 
+ERROR: Invalid date for Anna Higgins at row 11. Date given is 02-30 
+ERROR: Date is in the future for Tom Brady at row 12. Date given is 2075-10-22 
+ERROR: Invalid email for Ching Yeung Michael Tam at row 19 
 
+>>> python bdayreminder.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv versada
+Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
+>>> versada
+Please choose either 1 or 2
+>>> 2
+Kai Yuen Leung will have birthday in a week.
+Patrick Kienzle will have birthday in a week.
+Emails sent successfully.
 ```
-2) To validate birthday persons data file for errors set the second argument to be **1** like this:
+
+3) To validate birthday persons data file for errors set the second argument to be **1** like this:
 
 ```
 >>> python bdayreminder.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv 1
@@ -77,7 +90,7 @@ ERROR: Invalid date for Anna Higgins at row 11. Date given is 02-30
 ERROR: Date is in the future for Tom Brady at row 12. Date given is 2075-10-22 
 ERROR: Invalid email for Ching Yeung Michael Tam at row 19
 ``` 
-3) To check birtdhay persons data file and send emails set the second argument to be **1** like this:
+4) To check birtdhay persons data file and send emails set the second argument to be **1** like this:
 
 ```
 >>> python bdayreminder.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv 2
