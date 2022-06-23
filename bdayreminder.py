@@ -7,9 +7,10 @@
 
 # Importing Regex
 import re
-print(re.__version__)
+
 # Importing time modules
 from datetime import datetime, timedelta
+
 # Importing csv, os & sys
 import csv
 import os
