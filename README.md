@@ -137,8 +137,8 @@ An overview of functions found inside a module - [tests.py](https://github.com/a
 - *test_is_date_in_past_past_month_day()* tests if the old date is in the past.
 - *test_is_not_empty_name_empty()* tests if name provided is empty.
 - *test_is_not_empty_name_full()* tests if name provided is a string.
-- *test_is_valid_email_good()*
-- *test_is_valid_email_bad()*
+- *test_is_valid_email_good()* tests if the email address is valid.
+- *test_is_valid_email_bad()* tests if the email address is invalid.
 - *test_birthdate_in_7_days()*
 
 # Cron Job
