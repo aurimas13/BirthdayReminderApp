@@ -148,6 +148,8 @@ def multiple_email_sends(birthday_individuals, to_send) -> None:
         sys.stdout.write(f'{bday[0]} will have birthday in a week.\n')
         for item in to_send:
             send_email(item[0], bday[0], future_date, days_left, item[1])
+    sys.stdout.write(f'Emails sent successfully.\n')
+
 
 
 def is_date_in_past(date, date_format) -> bool:

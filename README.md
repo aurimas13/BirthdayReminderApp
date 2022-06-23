@@ -37,13 +37,21 @@ Python 3.9.12 is required to properly execute package's modules and defined func
 # Usage
 [(Back to top)](#table-of-contents)
 
-After installation is done the you'll have to instantiate a Calculator class and play with it by running methods:
-```python
->>> calc = Calculator()
->>> calc.add(10)
-10
->>> calc.subtract(5)
-5
+After requirements are met, the app package is set at your MAC or PC and terminal is run you have three options (FYI module takes two arguments):
+1) To allow yourselfto run validation or check & send - the  second argument has to be **0** or a **string**:
+```
+>>> bdayreminder.py ~/BirthdayReminderApp/Datasets/data_20.csv 0
+Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
+>>> 1
+ERROR: Invalid email for Laura Dreyfuss at row 6 
+ERROR: Empty name field is for email TheoGermaine@goal.com at row 7 
+ERROR: Invalid date for Anna Higgins at row 11. Date given is 02-30 
+ERROR: Date is in the future for Tom Brady at row 12. Date given is 2075-10-22 
+ERROR: Invalid email for Ching Yeung Michael Tam at row 19
+
+>>> bdayreminder.py ~/BirthdayReminderApp/Datasets/data_20.csv 0
+2
+
 >>> calc.multiply(50)
 250
 >>> calc.divide(2)
@@ -69,7 +77,7 @@ calc.divide(4.5)
 # Tests
 [(Back to top)](#table-of-contents)
 
-First navigate to where [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) is held or to the folder where the program is extracted.
+First navigate to where [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) is held or to the folder where the [program](https://github.com/aurimas13/BirthdayReminderApp#birthday-reminder-app) is extracted.
 
 [comment]: <> (For DocTest run this command in terminal:)
 
