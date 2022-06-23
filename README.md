@@ -1,38 +1,21 @@
 # Birthday Reminder App
 
-This is a Birthday Reminder App that contains **2** *visible* **modules** ([main.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/main.py) & [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py)) and *7 hidden modules* that were used for experimentation. The program validates the persons birthday data file (**validation**) and checks whether a single person has a birthday in a week by sending reminders to the rest of the group (**check & send**). The main Python file ([main.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/main.py)) involves the necessary functionalities while the package also includes tests ([tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py)). Please refer to [Installation](#installation) and [Requirements](#requirements) for some libraries and modules before looking into the [Usage](#usage).
+This is a Birthday Reminder Application that contains **2** *visible* **modules** ([bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py)) involves the necessary functionalities while the package also includes tests ([tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py)). Please refer to [Requirements](#requirements) for importing some libraries, packages and modules before looking at the [Usage](#usage) of the app.
 
 # Table of contents
 
 - [Birthday Reminder App](#birthday-reminder-app)
 - [Table of contents](#table-of-contents)
-- [Installation](#installation)
 - [Requirements](#requirements)
 - [Usage](#usage)
 - [Tests](#tests)
 - [Cron Job](#cron-job)
 - [License](#license)
- 
-# Installation
-[(Back to top)](#table-of-contents)
-
-To run the package you'll have to first download and install it by running this command on colab, jupyter notebook, terminal:
-``` python
-> pip install git+git://github.com/aurimas13/calculator
-```
-When it is downloaded navigate to python shell. When there import the module by:
-``` python
->>> from calculator.calculator import Calculator
-```
-or 
-``` python
->>> from calculator.calculator import *
-```
 
 # Requirements
 [(Back to top)](#table-of-contents)
 
-Python 3.9.12 is required to properly execute package's modules and defined functions inside a module. Imports of several libraries like dotnet, csv, pytest and typing to name a few are also needed.
+Python 3.9.12 is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, csv, pytest and typing to name a few are also needed.
 
 # Usage
 [(Back to top)](#table-of-contents)
