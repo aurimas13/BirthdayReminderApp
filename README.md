@@ -4,13 +4,7 @@
 The repository includes a developed \textbf{Python} program that checks whether a person has a birthday in a week and then sends reminders to the rest of the group. The program involves the necessary functionalities for sending emails, checking for errors and includes tests. \\
 
 
-#TESTS
-Tests run as in terminal:
-python -m pytest Tests/tests.py
-mypy Tests/tests.py     
-pyflakes Tests/tests.py   
-pyflakes main.py
-pyflakes . - checks all  in the repo
+
 
 #CRON JOB
 cron job - 52 20 * * * cd /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/ && /Users/aurimasnausedas/opt/miniconda3/bin/python main.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/test_data.csv 1 >> Public/output.txt
@@ -30,7 +24,7 @@ The written [calculator.py](https://github.com/aurimas13/calculator/blob/main/ca
 - [Requirements](#requirements)
 - [Usage](#usage)
 - [Tests](#tests)
-- [Docker](#docker)
+- [Cron Job](#cron-job)
 - [License](#license)
  
 # Installation
@@ -88,8 +82,14 @@ calc.divide(4.5)
 ```
 # Tests
 [(Back to top)](#table-of-contents)
-
-First navigate to where [calculator.py](https://github.com/aurimas13/calculator/blob/main/calculator/calculator.py) or [tests.py](https://github.com/aurimas13/Calculator-program/blob/main/tests/tests.py) is held.
+#TESTS
+Tests run as in terminal:
+python -m pytest Tests/tests.py
+mypy Tests/tests.py     
+pyflakes Tests/tests.py   
+pyflakes main.py
+pyflakes . - checks all  in the repo
+First navigate to where [main.py](https://github.com/aurimas13/calculator/blob/main/calculator/calculator.py) or [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) is held.
 
 For DocTest run this command in terminal:
 ``` python
@@ -106,7 +106,7 @@ For typing run:
 > mypy calculator.py
 > mypy tests.py
 ``` 
-# Docker
+# CRON JOB
 [(Back to top)](#table-of-contents)
 
 Setup up of [dockerfile](https://github.com/aurimas13/calculator/blob/main/Dockerfile).
@@ -125,6 +125,6 @@ The commands to run in it are shown in [(Usage)](#usage)
 [(Back to top)](#table-of-contents)
 
 
-[LICENSE](https://github.com/aurimas13/calculator/blob/main/LICENSE)
+[LICENSE](https://github.com/aurimas13/BirthdayReminderApp/blob/main/LICENSE)
 
 
