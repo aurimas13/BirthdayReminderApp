@@ -132,9 +132,9 @@ For typing of test file run:
 An overview of functions found inside a module - [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py):
 - *test_correct_parsing_date_ymd()* tests if the correct date is parsed.
 - *test_correct_parsing_date_md()* tests if the correct date is parsed.
-- *test_is_date_in_past_old()*
-- *test_is_date_in_past_future()*
-- *test_is_date_in_past_past_month_day()*
+- *test_is_date_in_past_old()* tests if the old date is in the past.
+- *test_is_date_in_past_future()* tests if the future date is in the past.
+- *test_is_date_in_past_past_month_day()* tests if the old date is in the past.
 - *test_is_not_empty_name_empty()*
 - *test_is_not_empty_name_full()*
 - *test_is_valid_email_good()*
