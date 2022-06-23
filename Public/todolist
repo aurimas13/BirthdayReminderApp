@@ -1,20 +1,21 @@
 TODO list:
 DONE - 1) Implement sys instead of print and std error instead of error
-DONE - 2) Check if input is correct (test_data (DONE), birtday_data, characters_tv, etc
-DONE - 3) Handleinti errora kai yra invalid date ir kad butu metai zemesni nei siandien ar ateity
-DONE - 4) Sukurti kaip siusti emaila
-DONE - 5) Invalid error kai nera vardo
-DONE - 6) Invalid kai netinkamas emailas (ar yra tik)
-DONE - 7) Parasyti testus
+DONE - 2) Check if the input data is correct (data_20 (DONE))
+DONE - 3) Handle errors when you have invalid date and that the date would be lower than today or in the future
+DONE - 4) Create how to send email
+DONE - 5) Invalid error when there is no valid name
+DONE - 6) Invalid  when email is wrong
+DONE - 7) Write tests
 DONE - 8) Update README.md
-DONE - 9) Suhandle'inti standard error, std output, kad terminal parasytu viska
+DONE - 9) Handle standard error, std output, so it is written in a terminal
 DONE - 10) How to load env variable from .env
 DONE - 11) Check that it tries sending three times - emails can always be sent successfully in 3 retries,
 DONE - 12) Make Cron work
-13) Prideti dar testu
-DONE - 14) Patikrinti del logging
+13) Add more tests
+DONE - 14) Check for logging
 DONE - 15) Update data.csv before sending
-DONE - 16) Sutvarkyti ko praso kad inputas butu int bet jei surinktu str kaip e mestu errora
-DONE - 17) Prideti doc stringus po funkcijomis
-18) Prideti doc stringus tes faile
-19) Update dar README.md
+DONE - 16) Fix what the input asks for if you input string
+DONE - 17) Add doc strings to bdayreminder.py
+DONE - 18) Add doc strings to tests.py
+DONE - 19) Update README.md more
+DONE - 20) Check if the input data is correct (data_50 (DONE), data_50 (DONE))
