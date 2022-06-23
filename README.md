@@ -56,6 +56,17 @@ Kai Yuen Leung will have birthday in a week.
 Patrick Kienzle will have birthday in a week.
 Emails sent successfully.
 ```
+
+OR
+
+```
+>>> python bdayreminder.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv hello
+Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
+>>> 3
+Please choose either 1 or 2
+Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
+
+```
 2) To validate birthday persons data file for errors set the second argument to be **1** like this:
 
 ```

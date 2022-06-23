@@ -227,9 +227,9 @@ def send_email(name, birthday_name, bday_date, days_left, to_email):
     mailserver.quit()
 
 
-def options(read_path, cron) -> None:
+def run(read_path, cron) -> None:
     """
-    Choosing how to use the Python script.
+    Running the Python script without having to input the choices as they are just passed.
 
     :param read_path: object
     :param cron: int or str
@@ -242,17 +242,27 @@ def options(read_path, cron) -> None:
     else:  # aprasyti README
         sys.stdout.write(
             'Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails\n')
-        i = input()
-        if i.isdigit() and int(i) == 1:
-            checkBirthdaysInAWeek(read_path, send_emails=False)
-        elif i.isdigit() and int(i) == 2:
-            checkBirthdaysInAWeek(read_path, send_emails=True)
-        else:
-            sys.stdout.write('Please choose either 1 or 2\n')
-            options(read_path, cron)
+        choose_options(read_path)
+
+
+def choose_options(read_path) -> None:
+    """
+    Asking for input and choosing what to run.
+
+    :param read_path: object
+    :return: None
+    """
+    i = input()
+    if i.isdigit() and int(i) == 1:
+        checkBirthdaysInAWeek(read_path, send_emails=False)
+    elif i.isdigit() and int(i) == 2:
+        checkBirthdaysInAWeek(read_path, send_emails=True)
+    else:
+        sys.stdout.write('Please choose either 1 or 2\n')
+        choose_options(read_path)
 
 
 if __name__ == '__main__':
     arg_path = sys.argv[1]
     cron = sys.argv[2]
-    options(arg_path, cron)
+    run(arg_path, cron)
