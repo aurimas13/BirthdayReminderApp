@@ -32,7 +32,7 @@ or
 # Requirements
 [(Back to top)](#table-of-contents)
 
-Python 3.8.5 is required to run package's modules. Imports of pytest, math and typing are also needed.
+Python 3.9 is required to properly execute run package's modules. Imports of pytest, math and typing are also needed.
 
 # Usage
 [(Back to top)](#table-of-contents)
