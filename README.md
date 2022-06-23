@@ -82,30 +82,31 @@ calc.divide(4.5)
 ```
 # Tests
 [(Back to top)](#table-of-contents)
-#TESTS
-Tests run as in terminal:
-python -m pytest Tests/tests.py
-mypy Tests/tests.py     
-pyflakes Tests/tests.py   
-pyflakes main.py
-pyflakes . - checks all  in the repo
-First navigate to where [main.py](https://github.com/aurimas13/calculator/blob/main/calculator/calculator.py) or [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) is held.
 
-For DocTest run this command in terminal:
+First navigate to where [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) is held or to the folder where the program is extracted.
+
+[comment]: <> (For DocTest run this command in terminal:)
+
+[comment]: <> (``` python)
+
+[comment]: <> (> python -m doctest -v calculator.py)
+
+[comment]: <> (```)
+To check source files for errors in the project folder run:
 ``` python
-> python -m doctest -v calculator.py
+> pyflakes .
 ```
-To check source files for error run:
+
+While to check source files for errors in test file run: 
 ``` python
-> pyflakes calculator.py
 > pyflakes tests.py
 ```
 
-For typing run:
+For typing of test file run:
 ``` python
-> mypy calculator.py
-> mypy tests.py
+> python -m pytest tests.py
 ``` 
+
 # CRON JOB
 [(Back to top)](#table-of-contents)
 
