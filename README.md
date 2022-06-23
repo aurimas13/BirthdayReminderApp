@@ -167,8 +167,8 @@ Syntax customization for Cron Job can be checked [here](https://crontab.guru/).
 
 Public folder contains three files: 
 - [birthdays.txt](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/birthdays.txt) - the output of a Cron Job after implementing the [Optional] command as given at [Cron Job](#cron-job) paragraph.
-- [task.pdf](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/task.pdf) - the exercise of the problem for which this program was implemented 
-- [todolist](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/todolist) - the TO DO List in lithuanian and some in english
+- [task.pdf](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/task.pdf) - the exercise of the problem for which this program was implemented.
+- [todolist](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/todolist) - the TO DO List.
 
 # License
 [(Back to top)](#table-of-contents)
