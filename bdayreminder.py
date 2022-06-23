@@ -242,10 +242,10 @@ def options(read_path, cron) -> None:
     else:  # aprasyti README
         sys.stdout.write(
             'Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails\n')
-        i = int(input())
-        if i == 1:
+        i = input()
+        if i.isdigit() and int(i) == 1:
             checkBirthdaysInAWeek(read_path, send_emails=False)
-        elif i == 2:
+        elif i.isdigit() and int(i) == 2:
             checkBirthdaysInAWeek(read_path, send_emails=True)
         else:
             sys.stdout.write('Please choose either 1 or 2\n')
