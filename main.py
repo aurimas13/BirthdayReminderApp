@@ -137,7 +137,7 @@ def multiple_email_sends(birthday_individuals, to_send) -> None:
     :param to_send: list
     :return:
     """
-    days_left = 7
+    days_left = '7 day'
     today = datetime.now().date()
     future_date = (today + timedelta(days=7)).strftime('%m-%d')
     for bday in birthday_individuals:
@@ -197,7 +197,7 @@ def send_email(name, birthday_name, bday_date, days_left, to_email):
     :param name: str
     :param birthday_name: str
     :param bday_date: str
-    :param days_left: int
+    :param days_left: str
     :param to_email: str
     :return: bool
     """

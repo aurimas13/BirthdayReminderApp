@@ -5,12 +5,6 @@ The repository includes a developed \textbf{Python} program that checks whether 
 
 
 
-
-#CRON JOB
-cron job - 52 20 * * * cd /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/ && /Users/aurimasnausedas/opt/miniconda3/bin/python main.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/test_data.csv 1 >> Public/output.txt
-crontab -e - 10 12 * * * cd /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/ && /Users/aurimasnausedas/opt/miniconda3/bin/python  main.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/test_data.csv 2 >> Public/output.txt
-crontab -e -> 46 12 * * * cd /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/ && /Users/aurimasnausedas/opt/miniconda3/bin/python  main.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data.csv 2 >> Public/birthdays.txt
-
 # Calculator-program
 
 This is a Calculator package that contains **5 modules** ([calculator.py](https://github.com/aurimas13/calculator/blob/main/calculator/calculator.py), [tests.py](https://github.com/aurimas13/calculator/blob/main/test/tests.py), [setup.py](https://github.com/aurimas13/calculator/blob/main/setup.py),[__init__.py](https://github.com/aurimas13/Calculator/blob/main/calculator/__init__.py) for *calulator.py* and [__init__.py](https://github.com/aurimas13/Calculator/blob/main/tests/__init__.py) for *tests.py*), [Dockerfile](https://github.com/aurimas13/calculator/blob/main/Dockerfile), [LICENSE](https://github.com/aurimas13/calculator/blob/main/LICENSE), [.gitignore](https://github.com/aurimas13/calculator/blob/main/.gitignore) and [.dockerignore](https://github.com/aurimas13/calculator/blob/main/.dockerignore). 
@@ -112,9 +106,19 @@ For typing of test file run:
 
 Setup up of [Cron Job](https://github.com/aurimas13/calculator/blob/main/Dockerfile).
 
-To build docker image on terminal run:
+#CRON JOB
+cron job - 52 20 * * * cd /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/ && /Users/aurimasnausedas/opt/miniconda3/bin/python main.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/test_data.csv 1 >> Public/output.txt
+crontab -e - 10 12 * * * cd /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/ && /Users/aurimasnausedas/opt/miniconda3/bin/python  main.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/test_data.csv 2 >> Public/output.txt
+crontab -e -> 46 12 * * * cd /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/ && /Users/aurimasnausedas/opt/miniconda3/bin/python  main.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data.csv 2 >> Public/birthdays.txt
+
+To build cron job in mac terminal run:
 ``` python
-> docker build -t calculatorapp .
+> crontab -e
+```
+The syntax for cronjob when entering terminal could look like:
+``` python
+> 0 6 * * * cd ~/BirthdayReminderApp/ && ~/python main.py ~/BirthdayReminderApp/Datasets/data.csv 2
+> 0 6 * * * cd ~/BirthdayReminderApp/ && ~/python main.py ~/BirthdayReminderApp/Datasets/data.csv 2 [Optional] >> Public/birthdays.txt
 ```
 To enter python prompt through docker:
 ``` python
