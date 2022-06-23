@@ -11,7 +11,7 @@
 
 # Birthday Reminder App
 
-This is a Birthday Reminder Application that contains **2** *visible* **modules** where [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py) involves the necessary functionalities while [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) tests the package and **7** *hidden modules*. Please refer to [Requirements](#requirements) for importing libraries, packages and addtional modules before looking at the [Usage](#usage) of the app or [Functions](#functions), [Tests](#tests).
+This is a Birthday Reminder App that contains **2** *visible* **modules** where [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py) involves the necessary functionalities while [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) tests the package and **7** *hidden modules*. Please refer to [Requirements](#requirements) for importing libraries, packages and addtional modules before looking at the [Usage](#usage) of the app or [Functions](#functions), [Tests](#tests).
 
 # Table of contents
 
@@ -178,7 +178,7 @@ Syntax customization for Cron Job can be checked [here](https://crontab.guru/).
 
 Public folder contains three files: 
 - [birthdays.txt](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/birthdays.txt) - the output of a Cron Job after implementing the [Optional] command as given at [Cron Job](#cron-job) paragraph.
-- [task.pdf](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/task.pdf) - the exercise of the problem for which this program was implemented.
+- [task.pdf](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/task.pdf) - the problem for which this program was implemented.
 - [todolist](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/todolist) - the TO DO List.
 
 # License
