@@ -9,8 +9,6 @@
   <a href="https://twitter.com/aurimasnausedas"><img alt="twitter" src="https://img.shields.io/twitter/follow/aurimasnausedas?style=social"/></a>
 </p>
 
-# Birthday Reminder App
-
 This is a Birthday Reminder App that contains **2** *visible* **modules** where [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py) involves the necessary functionalities while [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) tests the package and **7** *hidden modules*. Please refer to [Requirements](#requirements) for importing libraries, packages and addtional modules before looking at the [Usage](#usage) of the app or [Functions](#functions), [Tests](#tests).
 
 # Table of contents
@@ -24,15 +22,14 @@ This is a Birthday Reminder App that contains **2** *visible* **modules** where 
 - [Tests](#tests)
 - [Cron Job](#cron-job)
 - [Public](#public)
+- [Photo](#photo)
 - [License](#license)
 
 # Requirements
-[(Back to top)](#table-of-contents)
 
 **Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, csv, pytest and typing to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while thos that are not mentioned come with the required Python version.
 
 # Usage
-[(Back to top)](#table-of-contents)
 
 After requirements are met, the app package is set at your MAC or PC and terminal is run you have four options (FYI module takes two arguments):
 1) To allow yourself to run validation or check & send - the  second argument has to be **0**: 
@@ -97,7 +94,7 @@ Emails sent successfully.
 ```
 
 # Functions
-[(Back to top)](#table-of-contents)
+
 
 An overview of functions found inside a module - ***bdayreminder.py***:
 - **birthday_file(file_path)** converts a data file (*file_path*) to the csv format that can be read.
@@ -116,11 +113,10 @@ An overview of functions found inside a module - ***bdayreminder.py***:
 In depth explanations of the functions can be found inside a module - [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py).
 
 # Datasets
-[(Back to top)](#table-of-contents)
+
 There are three possible datasets to use. These are [data_20](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Datasets/data_20.csv) of 20 recipients, [data_50](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Datasets/data_50.csv) of 50 recipients and [data_80](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Datasets/data_80.csv) of 80 recipients.
 
 # Tests
-[(Back to top)](#table-of-contents)
 
 An overview of functions found inside a module - [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py):
 - *test_correct_parsing_date_ymd()* tests if the correct date is parsed.
@@ -159,7 +155,6 @@ By navigating to where [tests.py](https://github.com/aurimas13/BirthdayReminderA
 ```
 
 # Cron Job
-[(Back to top)](#table-of-contents)
 
 To build cron job in mac terminal run:
 ``` python
@@ -174,14 +169,15 @@ The syntax for cronjob when entering terminal could look like this (cd to the ca
 
 Syntax customization for Cron Job can be checked [here](https://crontab.guru/).
 # Public
-[(Back to top)](#table-of-contents)
 
 Public folder contains three files: 
 - [birthdays.txt](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/birthdays.txt) - the output of a Cron Job after implementing the [Optional] command as given at [Cron Job](#cron-job) paragraph.
 - [task.pdf](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/task.pdf) - the problem for which this program was implemented.
 - [todolist](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/todolist) - the TO DO List.
 
-# License
-[(Back to top)](#table-of-contents)
+# Photo
 
-[LICENSE](https://github.com/aurimas13/BirthdayReminderApp/blob/main/LICENSE)
+The logo of the Birthday Reminder Application is found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/Photo/birthdaylogo.png).
+# License
+
+The MIT [LICENSE](https://github.com/aurimas13/BirthdayReminderApp/blob/main/LICENSE)
