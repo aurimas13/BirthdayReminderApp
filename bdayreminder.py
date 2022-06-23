@@ -196,7 +196,7 @@ def is_valid_email(email) -> bool:
         return False
 
 
-def send_email(name, birthday_name, bday_date, days_left, to_email):
+def send_email(name, bday_name, bday_date, days_left, to_email):
     """
     Sending an email to one recipient from the csv file by defining an SMTP client session object.
 
@@ -207,9 +207,9 @@ def send_email(name, birthday_name, bday_date, days_left, to_email):
     :param to_email: str
     :return: bool
     """
-    message = f'Hi {name},\n\nThis is a reminder that {birthday_name}\'s will be celebrating their birthday on {bday_date}s.\n\nThere are {days_left}s left to get a present!\n'
+    message = f'Hi {name},\n\nThis is a reminder that {bday_name}\'s will be celebrating their birthday on {bday_date}s.\n\nThere are {days_left}s left to get a present!\n'
     msg = MIMEMultipart()
-    msg['Subject'] = f'Birthday Reminder: {birthday_name}s\'s birthday on {bday_date}s'
+    msg['Subject'] = f'Birthday Reminder: {bday_name}s\'s birthday on {bday_date}s'
     msg['From'] = USR
     msg['To'] = to_email
     msg.attach(MIMEText(message))

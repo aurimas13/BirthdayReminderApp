@@ -86,26 +86,29 @@ Emails sent successfully.
 # Functions
 [(Back to top)](#table-of-contents)
 
-def birthday_file(file_path):
+birthday_file(file_path):
 
-def checkBirthdaysInAWeek(input_file, send_emails=False) -> None:
+checkBirthdaysInAWeek(input_file, send_emails=False) -> None:
 
-def birthdate_in_7_days() -> str:
+birthdate_in_7_days() -> str:
 
-def try_parsing_date(date) -> Union[Any, Any]:
+try_parsing_date(date) -> Union[Any, Any]:
 
-def is_valid_input(fmt, item, idx, to_print) -> bool:
+is_valid_input(fmt, item, idx, to_print) -> bool:
 
-def multiple_email_sends(birthday_individuals, to_send) -> None:
+multiple_email_sends(birthday_individuals, to_send) -> None:
 
-def is_date_in_past(date, date_format) -> bool:
+is_date_in_past(date, date_format) -> bool:
 
-def is_not_empty_name(name) -> bool:
+is_not_empty_name(name) -> bool:
 
-def is_valid_email(email) -> bool:
+is_valid_email(email) -> bool:
 
-def send_email(name, birthday_name, bday_date, days_left, to_email):
+send_email(name, birthday_name, bday_date, days_left, to_email):
 
+run(read_path, cron) -> None:
+
+choose_options(read_path) -> None:
 
 
 
