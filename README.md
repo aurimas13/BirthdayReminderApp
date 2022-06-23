@@ -97,11 +97,8 @@ An overview of functions found inside a module - [bdayreminder.py](https://githu
 - **is_not_empty_name(name)** checks *name* is not empty.
 - **is_valid_email(email)** checks if an email is valid.
 - **send_email(name, bday_name, bday_date, days_left, to_email)** sends an email to a recipient (*name*,*to_email*) as a reminder of a birthday (*bday_name*,*bday_date*) in advance (*days_left*).
-
-
-run(read_path, cron) -> None:
-
-choose_options(read_path) -> None:
+- **run(read_path, cron)** runs the script without having to input the choices as they are passed as arguments (*cron*).
+- **choose_options(read_path)** 
 In depth function explanations can be found inside a module - [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py). Function:
 
 An overview of functions found inside a module - [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py):
