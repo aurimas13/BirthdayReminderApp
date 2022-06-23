@@ -11,7 +11,7 @@ DONE - 9) Handle standard error, std output, so it is written in a terminal
 DONE - 10) How to load env variable from .env
 DONE - 11) Check that it tries sending three times - emails can always be sent successfully in 3 retries,
 DONE - 12) Make Cron work
-13) Add more tests
+13) Add additonal tests
 DONE - 14) Check for logging
 DONE - 15) Update data.csv before sending
 DONE - 16) Fix what the input asks for if you input string
