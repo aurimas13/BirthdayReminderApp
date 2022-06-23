@@ -39,7 +39,7 @@ def birthday_file(file_path):
     """
     Converting a path of data file to the csv format that can be read.
 
-    :param file_path:
+    :param file_path: csv data file
     :return: object
     """
     try:

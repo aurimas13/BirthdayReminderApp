@@ -86,6 +86,8 @@ Emails sent successfully.
 # Functions
 [(Back to top)](#table-of-contents)
 
+In depth function explanations can be found inside a module - [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py).
+
 birthday_file(file_path):
 
 checkBirthdaysInAWeek(input_file, send_emails=False) -> None:
@@ -104,7 +106,7 @@ is_not_empty_name(name) -> bool:
 
 is_valid_email(email) -> bool:
 
-send_email(name, birthday_name, bday_date, days_left, to_email):
+send_email(name, bday_name, bday_date, days_left, to_email):
 
 run(read_path, cron) -> None:
 
