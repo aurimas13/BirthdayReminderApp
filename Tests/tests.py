@@ -12,6 +12,11 @@ from bdayreminder import try_parsing_date, is_date_in_past, is_not_empty_name, i
 
 
 def test_correct_parsing_date_ymd():
+    """
+    Testing if the correct date is parsed
+
+    :return: bool
+    """
     date = '1993-05-09'
     assert try_parsing_date(date) == try_parsing_date('1993-05-09')
 
