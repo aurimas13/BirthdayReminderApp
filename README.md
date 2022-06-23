@@ -56,6 +56,19 @@ Kai Yuen Leung will have birthday in a week.
 Patrick Kienzle will have birthday in a week.
 Emails sent successfully.
 ```
+2) To validate birthday persons data file for errors set the second argument to be **1** like this:
+
+```
+>>> python bdayreminder.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv 1
+ERROR: Invalid email for Laura Dreyfuss at row 6 
+ERROR: Empty name field is for email TheoGermaine@goal.com at row 7 
+ERROR: Invalid date for Anna Higgins at row 11. Date given is 02-30 
+ERROR: Date is in the future for Tom Brady at row 12. Date given is 2075-10-22 
+ERROR: Invalid email for Ching Yeung Michael Tam at row 19
+``` 
+3) To check birtdhay persons data file and send emails set the second argument to be **1** like this:
+
+
 # Tests
 [(Back to top)](#table-of-contents)
 
