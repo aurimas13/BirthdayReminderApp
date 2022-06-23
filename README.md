@@ -110,7 +110,7 @@ For typing of test file run:
 # CRON JOB
 [(Back to top)](#table-of-contents)
 
-Setup up of [dockerfile](https://github.com/aurimas13/calculator/blob/main/Dockerfile).
+Setup up of [Cron Job](https://github.com/aurimas13/calculator/blob/main/Dockerfile).
 
 To build docker image on terminal run:
 ``` python
