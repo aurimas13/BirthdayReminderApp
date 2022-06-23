@@ -86,6 +86,11 @@ Emails sent successfully.
 # Functions
 [(Back to top)](#table-of-contents)
 
+def birthday_file(file_path):
+
+def checkBirthdaysInAWeek(input_file, send_emails=False) -> None:
+
+def birthdate_in_7_days() -> str:
 # Tests
 [(Back to top)](#table-of-contents)
 
