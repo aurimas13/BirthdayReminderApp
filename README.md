@@ -86,11 +86,9 @@ Emails sent successfully.
 # Functions
 [(Back to top)](#table-of-contents)
 
-In depth function explanations can be found inside a module - [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py).
-
-birthday_file(file_path):
-
-checkBirthdaysInAWeek(input_file, send_emails=False) -> None:
+In depth function explanations can be found inside a module - [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py). Function:
+- **birthday_file(file_path)** converts a data file (*file_path*) to the csv format that can be read.
+- **checkBirthdaysInAWeek(input_file, send_emails=False)** check validity of an *input_file*, whether a birthday is in a week and optionally sends the respective emails.
 
 birthdate_in_7_days() -> str:
 
