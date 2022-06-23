@@ -13,6 +13,6 @@ DONE - 11) Check that it tries sending three times - emails can always be sent s
 DONE - 12) Make Cron work
 13) Prideti dar testu
 DONE - 14) Patikrinti del logging
-15) Update data.csv before sending on Monday
+DONE - 15) Update data.csv before sending
 DONE - 16) Sutvarkyti ko praso kad inputas butu int bet jei surinktu str kaip e mestu errora
 DONE - 17) Prideti doc stringus po funkcijomis
