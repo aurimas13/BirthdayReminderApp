@@ -7,7 +7,7 @@
 
 # Importing Regex
 import re
-
+print(re.__version__)
 # Importing time modules
 from datetime import datetime, timedelta
 # Importing csv, os & sys
@@ -27,7 +27,8 @@ from typing import Union, Any
 from dotenv import load_dotenv  # type:ignore
 
 load_dotenv()
-yPSW = os.getenv('PSW')
+USR = os.getenv('USR')
+PSW = os.getenv('PSW')
 USR_ALT = os.getenv('USR_ALT')
 PSW_ALT = os.getenv('PSW_ALT')
 
