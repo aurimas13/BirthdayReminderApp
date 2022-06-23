@@ -12,6 +12,7 @@ This is a Birthday Reminder Application that contains **2** *visible* **modules*
 - [Datasets](#datasets)
 - [Tests](#tests)
 - [Cron Job](#cron-job)
+- [Public](#public)
 - [License](#license)
 
 # Requirements
@@ -105,8 +106,8 @@ In depth explanations of the functions can be found inside a module - [bdayremin
 
 # Datasets
 [(Back to top)](#table-of-contents)
+There are three possible datasets to use. These are [data_20](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Datasets/data_20.csv) of 20 recipients, [data_50](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Datasets/data_50.csv) of 50 recipients and [data_80](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Datasets/data_80.csv) of 80 recipients.
 
-There are three possible datasets to use with data_20, data_50 and data_80. The former might not luckily be run 
 # Tests
 [(Back to top)](#table-of-contents)
 
@@ -144,7 +145,7 @@ By navigating to where [tests.py](https://github.com/aurimas13/BirthdayReminderA
 3) To check typing for test file:
 ``` python
 > python -m pytest tests.py
-``` 
+```
 
 # Cron Job
 [(Back to top)](#table-of-contents)
@@ -161,9 +162,15 @@ The syntax for cronjob when entering terminal could look like this (cd to the ca
 ```
 
 Syntax customization for Cron Job can be checked [here](https://crontab.guru/).
-# License
+# Public
 [(Back to top)](#table-of-contents)
 
+Public folder contains three files: 
+- [birthdays.txt](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/birthdays.txt) - the output of a Cron Job after implementing the [Optional] command as given at [Cron Job](#cron-job) paragraph.
+- [task.pdf](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/task.pdf) - the exercise of the problem for which this program was implemented 
+- [todolist](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/todolist) - the TO DO List in lithuanian and some in english
+# License
+[(Back to top)](#table-of-contents)
 
 [LICENSE](https://github.com/aurimas13/BirthdayReminderApp/blob/main/LICENSE)
 
