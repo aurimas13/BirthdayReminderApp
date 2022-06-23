@@ -1,14 +1,12 @@
 # BirthdayReminderApp
-# TO UPDATE by 2022/06/24
 
-The repository includes a developed \textbf{Python} program that checks whether a person has a birthday in a week and then sends reminders to the rest of the group. The program involves the necessary functionalities for sending emails, checking for errors and includes tests. \\
+This is a Birthday Remidner App that contains **2** *visible* **modules** ([main.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/main.py) & [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py)) and *7 hidden modules* that were used for experimentation.
 
+The program validates the persons birthday data file (**validation**) and checks whether a single person has a birthday in a week by sending reminders to the rest of the group (**check & send**). 
 
+It involves the necessary functionalities for sending emails, checking for errors and includes tests. \\
 
-# Calculator-program
-
-This is a Calculator package that contains **5 modules** ([calculator.py](https://github.com/aurimas13/calculator/blob/main/calculator/calculator.py), [tests.py](https://github.com/aurimas13/calculator/blob/main/test/tests.py), [setup.py](https://github.com/aurimas13/calculator/blob/main/setup.py),[__init__.py](https://github.com/aurimas13/Calculator/blob/main/calculator/__init__.py) for *calulator.py* and [__init__.py](https://github.com/aurimas13/Calculator/blob/main/tests/__init__.py) for *tests.py*), [Dockerfile](https://github.com/aurimas13/calculator/blob/main/Dockerfile), [LICENSE](https://github.com/aurimas13/calculator/blob/main/LICENSE), [.gitignore](https://github.com/aurimas13/calculator/blob/main/.gitignore) and [.dockerignore](https://github.com/aurimas13/calculator/blob/main/.dockerignore). 
-The written [calculator.py](https://github.com/aurimas13/calculator/blob/main/calculator/calculator.py) module acts as a normal calculator by adding, subtracting, multiplying, dividing and taking the nth root of a number. This module also contains methods of reseting memory, allocating memory from what you want to start, setting and getting a memory value (not to be confused with *memory allocation* to *stack* and *heap*). Please refer to [(Installation)](#installation) and [(Requirements)](#requirements) before looking into the [(examples)](#usage).
+Please refer to [(Installation)](#installation) and [(Requirements)](#requirements) before looking into the [(examples)](#usage).
 
 # Table of contents
 
@@ -116,7 +114,6 @@ The syntax for cronjob when entering terminal could look like this (cd to the ca
 ```
 
 Syntax customization for Cron Job can be checked [here](https://crontab.guru/).
-
 # License
 [(Back to top)](#table-of-contents)
 
