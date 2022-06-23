@@ -105,30 +105,6 @@ In depth function explanations can be found inside a module - [bdayreminder.py](
 # Tests
 [(Back to top)](#table-of-contents)
 
-First navigate to where [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) is held or to the folder where the [BirthdayReminderApp](https://github.com/aurimas13/BirthdayReminderApp#birthday-reminder-app) program is extracted.
-
-[comment]: <> (For DocTest run this command in terminal:)
-
-[comment]: <> (``` python)
-
-[comment]: <> (> python -m doctest -v calculator.py)
-
-[comment]: <> (```)
-To check source files for errors in the project folder run:
-``` python
-> pyflakes .
-```
-
-While to check source files for errors in test file run: 
-``` python
-> pyflakes tests.py
-```
-
-For typing of test file run:
-``` python
-> python -m pytest tests.py
-``` 
-
 An overview of functions found inside a module - [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py):
 - *test_correct_parsing_date_ymd()* tests if the correct date is parsed.
 - *test_correct_parsing_date_md()* tests if the correct date is parsed.
@@ -139,7 +115,31 @@ An overview of functions found inside a module - [tests.py](https://github.com/a
 - *test_is_not_empty_name_full()* tests if name provided is a string.
 - *test_is_valid_email_good()* tests if the email address is valid.
 - *test_is_valid_email_bad()* tests if the email address is invalid.
-- *test_birthdate_in_7_days()*
+- *test_birthdate_in_7_days()* test if the function is indeed after 7 days.
+
+By navigating to where [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) is held or to the folder where the [BirthdayReminderApp](https://github.com/aurimas13/BirthdayReminderApp#birthday-reminder-app) program is extracted one can run these commands:
+
+[comment]: <> (For DocTest run this command in terminal:)
+
+[comment]: <> (``` python)
+
+[comment]: <> (> python -m doctest -v calculator.py)
+
+[comment]: <> (```)
+1) To check source files for errors in the project folder:
+``` python
+> pyflakes .
+```
+
+2) To check source files for errors in test file: 
+``` python
+> pyflakes tests.py
+```
+
+3) To check typing for test file:
+``` python
+> python -m pytest tests.py
+``` 
 
 # Cron Job
 [(Back to top)](#table-of-contents)
