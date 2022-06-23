@@ -3,7 +3,7 @@
 # import pytest
 # from cryptography.exceptions import InvalidTag
 from datetime import datetime, timedelta
-from main import try_parsing_date, is_date_in_past, is_not_empty_name, is_valid_email, birthdate_in_7_days
+from bdayreminder import try_parsing_date, is_date_in_past, is_not_empty_name, is_valid_email, birthdate_in_7_days
 
 
 def test_correct_parsing_date_ymd():

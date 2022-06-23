@@ -1,6 +1,9 @@
 #!/usr/bin/python3
 
-# Python program For Birthday Reminder Application
+# Main Python file for Birthday Reminder Application
+# Created by Aurimas A. Nausedas on 06/18/22.
+# Uploaded by Aurimas A. Nausedas on 06/20/22.
+# Updated by Aurimas A. Nausedas on 06/23/22.
 
 # Importing Regex
 import re
