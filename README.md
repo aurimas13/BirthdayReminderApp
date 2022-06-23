@@ -1,5 +1,5 @@
 <p align=center>
-  <img height="222px" src="https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/Photos/birthdaylogo.png"/>
+  <img height="222px" src="https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/Photo/birthdaylogo.png"/>
 </p>
 
 <p align="center" > <b> Birthday Reminder Application </b> </p>
