@@ -203,9 +203,9 @@ def send_email(name, birthday_name, bday_date, days_left, to_email):
     """
     message = f'Hi {name}, This is a reminder that {birthday_name}\'s will be celebrating their birthday on {bday_date}\'s. There are {days_left}s left to get a present!'
     msg = MIMEMultipart()
-    msg['From'] = USR_ALT
-    msg['To'] = to_email
     msg['Subject'] = f'Birthday Reminder: {birthday_name}\'s birthday on {bday_date}\'s'
+    msg['From'] = USR
+    msg['To'] = to_email
     msg.attach(MIMEText(message))
     mailserver = smtplib.SMTP('smtp.gmail.com', 587)
     for i in range(2):
@@ -213,8 +213,8 @@ def send_email(name, birthday_name, bday_date, days_left, to_email):
             mailserver.ehlo()
             mailserver.starttls()
             mailserver.ehlo()
-            mailserver.login(USR_ALT, PSW_ALT)
-            mailserver.sendmail(USR_ALT, to_email, msg.as_string())
+            mailserver.login(USR, PSW)
+            mailserver.sendmail(USR, to_email, msg.as_string())
             break
         except Exception:
             continue
