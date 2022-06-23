@@ -9,7 +9,7 @@
   <a href="https://twitter.com/aurimasnausedas"><img alt="twitter" src="https://img.shields.io/twitter/follow/aurimasnausedas?style=social"/></a>
 </p>
 
-This is a Birthday Reminder App that contains **2** *visible* **modules** where [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py) involves the necessary functionalities while [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) tests the package and **7** *hidden modules*. Please refer to [Requirements](#requirements) for importing libraries, packages and addtional modules before looking at the [Usage](#usage) of the app or [Functions](#functions), [Tests](#tests).
+This repo of birthday reminder app contains **2** *visible* **modules** where [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py) involves the necessary functionalities while [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) tests the package and it also has **7** *hidden modules*. Please refer to [Requirements](#requirements) for importing libraries, packages and addtional modules before looking at the [Usage](#usage) of the app or [Functions](#functions), [Tests](#tests), [Cron Job](#cron-job) or other fields.
 
 # Table of contents
 
