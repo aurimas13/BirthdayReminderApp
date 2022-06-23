@@ -86,7 +86,7 @@ Emails sent successfully.
 # Functions
 [(Back to top)](#table-of-contents)
 
-An overview of functions found inside a module of [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py):
+An overview of functions found inside a module - ***bdayreminder.py***:
 - **birthday_file(file_path)** converts a data file (*file_path*) to the csv format that can be read.
 - **checkBirthdaysInAWeek(input_file, send_emails=False)** checks the validity of an *input_file* and whether a birthday is in a week as well as optionally sends the respective emails.
 - **birthdate_in_7_days()** finds the date for the upcoming birthdays in a week.
@@ -99,8 +99,8 @@ An overview of functions found inside a module of [bdayreminder.py](https://gith
 - **send_email(name, bday_name, bday_date, days_left, to_email)** sends an email to a recipient (*name*,*to_email*) as a reminder of a birthday (*bday_name*,*bday_date*) in advance (*days_left*).
 - **run(read_path, cron)** takes the csv data file and runs the script without as choices are passed as arguments (*read_path*,*cron*).
 - **choose_options(read_path)** asks for input (*read_path*) and chooses option to run.
-- 
-In depth function explanations can be found inside a module - [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py).
+
+In depth explanations of the functions can be found inside a module - [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py).
 
 # Tests
 [(Back to top)](#table-of-contents)
