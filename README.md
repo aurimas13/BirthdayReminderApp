@@ -68,7 +68,12 @@ ERROR: Invalid email for Ching Yeung Michael Tam at row 19
 ``` 
 3) To check birtdhay persons data file and send emails set the second argument to be **1** like this:
 
-
+```
+>>> python bdayreminder.py /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv 2
+Kai Yuen Leung will have birthday in a week.
+Patrick Kienzle will have birthday in a week.
+Emails sent successfully.
+```
 # Tests
 [(Back to top)](#table-of-contents)
 
