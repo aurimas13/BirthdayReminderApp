@@ -2,7 +2,7 @@
   <img height="222px" src="https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/Photos/birthdaylogo.png"/>
 </p>
 
-<p align="center" > <b> Solutions </b> to HackerRank & <b> LeetCode </b> problems. </p>
+<p align="center" > <b> Birthday Reminder Application </b> </p>
 <br>
 <p align=center>
   <a href="https://github.com/aurimas13/HackerRank-LeetCode/blob/main/LICENSE"><img alt="license" src="https://img.shields.io/npm/l/express"></a>
