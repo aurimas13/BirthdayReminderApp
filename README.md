@@ -18,7 +18,7 @@ This is a Birthday Reminder Application that contains **2** *visible* **modules*
 # Requirements
 [(Back to top)](#table-of-contents)
 
-**Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, csv, pytest and typing to name a few are also needed.
+**Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, csv, pytest and typing to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while thos that are not mentioned come with the required Python version.
 
 # Usage
 [(Back to top)](#table-of-contents)
