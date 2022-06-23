@@ -112,13 +112,13 @@ def is_valid_input(fmt, item, idx, to_print) -> bool:
     res = False
     error_message = None
     if fmt is None:
-        error_message = f'ERROR: Invalid date for {item[0]} at row {idx}. Date given is {item[2]} '
+        error_message = f'ERROR: Invalid date for {item[0]} at row {idx+2}. Date given is {item[2]} '
     elif not is_date_in_past(item[2], fmt):
-        error_message = f'ERROR: Date is in the future for {item[0]} at row {idx}. Date given is {item[2]} '
+        error_message = f'ERROR: Date is in the future for {item[0]} at row {idx+2}. Date given is {item[2]} '
     elif not is_not_empty_name(item[0]):
-        error_message = f'ERROR: Empty name field is for email {item[1]} at row {idx} '
+        error_message = f'ERROR: Empty name field is for email {item[1]} at row {idx+2} '
     elif not is_valid_email(item[1]):
-        error_message = f'ERROR: Invalid email for {item[0]} at row {idx} '
+        error_message = f'ERROR: Invalid email for {item[0]} at row {idx+2} '
     else:
         res = True
 
