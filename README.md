@@ -102,20 +102,6 @@ An overview of functions found inside a module of [bdayreminder.py](https://gith
 - 
 In depth function explanations can be found inside a module - [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py).
 
-An overview of functions found inside a module - [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py):
-- *test_correct_parsing_date_ymd()*
-- *test_correct_parsing_date_md()*
-- *test_is_date_in_past_old()*
-- *test_is_date_in_past_future()*
-- *test_is_date_in_past_past_month_day()*
-- *test_is_not_empty_name_empty()*
-- *test_is_not_empty_name_full()*
-- *test_is_valid_email_good()*
-- *test_is_valid_email_bad()*
-- *test_birthdate_in_7_days()*
-
-
-
 # Tests
 [(Back to top)](#table-of-contents)
 
@@ -142,6 +128,18 @@ For typing of test file run:
 ``` python
 > python -m pytest tests.py
 ``` 
+
+An overview of functions found inside a module - [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py):
+- *test_correct_parsing_date_ymd()* tests if the correct date is parsed.
+- *test_correct_parsing_date_md()* tests if the correct date is parsed.
+- *test_is_date_in_past_old()*
+- *test_is_date_in_past_future()*
+- *test_is_date_in_past_past_month_day()*
+- *test_is_not_empty_name_empty()*
+- *test_is_not_empty_name_full()*
+- *test_is_valid_email_good()*
+- *test_is_valid_email_bad()*
+- *test_birthdate_in_7_days()*
 
 # Cron Job
 [(Back to top)](#table-of-contents)
