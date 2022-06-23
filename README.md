@@ -38,7 +38,7 @@ Python 3.9.12 is required to properly execute package's modules and defined func
 [(Back to top)](#table-of-contents)
 
 After requirements are met, the app package is set at your MAC or PC and terminal is run you have three options (FYI module takes two arguments):
-1) To allow yourselfto run validation or check & send - the  second argument has to be **0** or a **string**:
+1) To allow yourself to run validation or check & send - the  second argument has to be **0** or a **string**:
 ```
 >>> bdayreminder.py ~/BirthdayReminderApp/Datasets/data_20.csv 0
 Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
@@ -50,29 +50,11 @@ ERROR: Date is in the future for Tom Brady at row 12. Date given is 2075-10-22
 ERROR: Invalid email for Ching Yeung Michael Tam at row 19
 
 >>> bdayreminder.py ~/BirthdayReminderApp/Datasets/data_20.csv 0
-2
-
->>> calc.multiply(50)
-250
->>> calc.divide(2)
-125.0
-calc.divide(4.5)
-27.7778
->>> calc.multiply(4.5)
-125.0001
->>> calc.subtract(25)
-100.0001
->>> calc.subtract(2)
-98.0001
->>> calc.add(2)
-100.0001
->>> calc.root(2)
-10.000004999998751
->>> calc.reset()
-0
->>> calc.set_memory(6)
->>> calc.get_memory()
-6
+Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
+>>> 2
+Kai Yuen Leung will have birthday in a week.
+Patrick Kienzle will have birthday in a week.
+Emails sent successfully.
 ```
 # Tests
 [(Back to top)](#table-of-contents)
