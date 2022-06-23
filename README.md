@@ -13,7 +13,8 @@ This repo of birthday reminder app contains **2** *visible* **modules** where [b
 
 # Table of contents
 
-- [Birthday Reminder App](#birthday-reminder-app)
+[//]: # (- [Birthday Reminder App]&#40;#birthday-reminder-app&#41;)
+
 - [Table of contents](#table-of-contents)
 - [Requirements](#requirements)
 - [Usage](#usage)
