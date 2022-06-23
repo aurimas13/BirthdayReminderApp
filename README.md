@@ -88,10 +88,9 @@ Emails sent successfully.
 
 An overview of functions found inside a module - [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py):
 - **birthday_file(file_path)** converts a data file (*file_path*) to the csv format that can be read.
-- **checkBirthdaysInAWeek(input_file, send_emails=False)** check validity of an *input_file*, whether a birthday is in a week and optionally sends the respective emails.
-- *birthdate_in_7_days()**:
-
-try_parsing_date(date) -> Union[Any, Any]:
+- **checkBirthdaysInAWeek(input_file, send_emails=False)** checks the validity of an *input_file* and whether a birthday is in a week as well as optionally sends the respective emails.
+- **birthdate_in_7_days()** finds the date for the upcoming birthdays in a week.
+- **try_parsing_date(date)** parses the *date*.
 
 is_valid_input(fmt, item, idx, to_print) -> bool:
 
@@ -109,7 +108,18 @@ run(read_path, cron) -> None:
 
 choose_options(read_path) -> None:
 In depth function explanations can be found inside a module - [bdayreminder.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/bdayreminder.py). Function:
+
 An overview of functions found inside a module - [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py):
+test_correct_parsing_date_ymd():
+test_correct_parsing_date_md():
+test_is_date_in_past_old():
+test_is_date_in_past_future():
+test_is_date_in_past_past_month_day():
+test_is_not_empty_name_empty():
+test_is_not_empty_name_full():
+test_is_valid_email_good():
+test_is_valid_email_bad():
+test_birthdate_in_7_days():
 
 
 

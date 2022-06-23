@@ -81,7 +81,7 @@ def checkBirthdaysInAWeek(input_file, send_emails=False) -> None:
 
 def birthdate_in_7_days() -> str:
     """
-    Find if there are any birthdays in a week
+    Finding the date for the upcoming birthdays in a week
     :return: str
     """
     today = datetime.now().date()
