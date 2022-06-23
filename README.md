@@ -1,16 +1,16 @@
-# BirthdayReminderApp
+# Birthday Reminder App
 
 This is a Birthday Remidner App that contains **2** *visible* **modules** ([main.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/main.py) & [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py)) and *7 hidden modules* that were used for experimentation.
 
 The program validates the persons birthday data file (**validation**) and checks whether a single person has a birthday in a week by sending reminders to the rest of the group (**check & send**). 
 
-It involves the necessary functionalities for sending emails, checking for errors and includes tests. \\
+The main Python file ([main.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/main.py)) involves the necessary functionalities while the package also includes tests ([tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py)). \\
 
 Please refer to [(Installation)](#installation) and [(Requirements)](#requirements) before looking into the [(examples)](#usage).
 
 # Table of contents
 
-- [Calculator](#Calculator)
+- [Birthday Reminder App](#birthday-reminder-app)
 - [Table of contents](#table-of-contents)
 - [Installation](#installation)
 - [Requirements](#requirements)
@@ -116,6 +116,7 @@ The syntax for cronjob when entering terminal could look like this (cd to the ca
 Syntax customization for Cron Job can be checked [here](https://crontab.guru/).
 # License
 [(Back to top)](#table-of-contents)
+[Birthday Reminder App](#birthday-reminder-app)
 
 
 [LICENSE](https://github.com/aurimas13/BirthdayReminderApp/blob/main/LICENSE)
