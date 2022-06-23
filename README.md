@@ -91,18 +91,13 @@ An overview of functions found inside a module - [bdayreminder.py](https://githu
 - **checkBirthdaysInAWeek(input_file, send_emails=False)** checks the validity of an *input_file* and whether a birthday is in a week as well as optionally sends the respective emails.
 - **birthdate_in_7_days()** finds the date for the upcoming birthdays in a week.
 - **try_parsing_date(date)** parses the *date*.
+- **is_valid_input(fmt, item, idx, to_print)** validates inputs (*fmt*,*item*,*idx*,*to_print*).
+- **multiple_email_sends(birthday_individuals, to_send)** sends emails to recipients of *to_send* list.
+- **is_date_in_past(date, date_format)** looks if *date* is in the past.
+- **is_not_empty_name(name)** checks *name* is not empty.
+- **is_valid_email(email)** checks if an email is valid.
+- **send_email(name, bday_name, bday_date, days_left, to_email)** sends an email to a recipient (*name*,*to_email*) as a reminder of a birthday (*bday_name*,*bday_date*) in advance (*days_left*).
 
-is_valid_input(fmt, item, idx, to_print) -> bool:
-
-multiple_email_sends(birthday_individuals, to_send) -> None:
-
-is_date_in_past(date, date_format) -> bool:
-
-is_not_empty_name(name) -> bool:
-
-is_valid_email(email) -> bool:
-
-send_email(name, bday_name, bday_date, days_left, to_email):
 
 run(read_path, cron) -> None:
 
