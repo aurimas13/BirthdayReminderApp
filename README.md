@@ -174,5 +174,3 @@ Public folder contains three files:
 [(Back to top)](#table-of-contents)
 
 [LICENSE](https://github.com/aurimas13/BirthdayReminderApp/blob/main/LICENSE)
-
-
