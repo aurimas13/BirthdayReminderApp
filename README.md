@@ -165,7 +165,7 @@ To build cron job in mac terminal run:
 
 The syntax for cronjob when entering terminal could look like this (cd to the directory where BirthdayReminderApp folder is & where Python is installed)
 ``` 
->>> 0 6 * * * cd <directory_app_path> && <python_source_code> main.py <data_file_path> 2
+           >>> 0 6 * * * cd <directory_app_path> && <python_source_code> main.py <data_file_path> 2
 [Optional] >>> 0 6 * * * cd <directory_app_path> && <python_source_code> main.py <data_file_path> 2 >> Public/birthdays.txt
 ```
 
