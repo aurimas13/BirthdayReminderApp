@@ -104,7 +104,7 @@ An overview of functions found inside a module - ***bdayreminder.py***:
 - **birthdate_in_7_days()** finds the date for the upcoming birthdays in a week.
 - **try_parsing_date(date)** parses the *date*.
 - **is_valid_input(fmt, item, idx, to_print)** validates inputs (*fmt*,*item*,*idx*,*to_print*).
-- **multiple_email_sends(birthday_individuals, to_send)** sends emails to recipients of *to_send* list.
+- **send_multiple_emails(birthday_individuals, to_send)** sends emails to recipients of *to_send* list.
 - **is_date_in_past(date, date_format)** looks if *date* is in the past.
 - **is_not_empty_name(name)** checks *name* is not empty.
 - **is_valid_email(email)** checks if an email is valid.
