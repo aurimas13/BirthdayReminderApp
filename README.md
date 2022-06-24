@@ -36,7 +36,7 @@ This repo of birthday reminder app contains **2** *visible* **modules** where [b
 After requirements are met, the app package is set at your MAC or PC and terminal is run you have four options (FYI module takes two arguments):
 1) To allow yourself to run validation or check & send - the  second argument has to be **0**: 
 ```
->>> bdayreminder.py ~/BirthdayReminderApp/Datasets/data_20.csv 0
+>>> python bdayreminder.py ~/BirthdayReminderApp/Datasets/data_20.csv 0
 Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
 >>> 1
 ERROR: Invalid email for Laura Dreyfuss at row 6 
@@ -45,7 +45,7 @@ ERROR: Invalid date for Anna Higgins at row 11. Date given is 02-30
 ERROR: Date is in the future for Tom Brady at row 12. Date given is 2075-10-22 
 ERROR: Invalid email for Ching Yeung Michael Tam at row 19
 
->>> bdayreminder.py ~/BirthdayReminderApp/Datasets/data_20.csv 0
+>>> python bdayreminder.py ~/BirthdayReminderApp/Datasets/data_20.csv 0
 Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
 >>> 2
 Kai Yuen Leung will have birthday in a week.
