@@ -37,7 +37,7 @@ def birthday_file(file_path):
     """
     Converting a path of data file to the csv format that can be read.
 
-    :param file_path: csv data file
+    :param file_path: data file
     :return: object
     """
     try:
@@ -51,7 +51,7 @@ def birthday_file(file_path):
 
 def check_birthdays_in_s_week(input_file, send_emails=False) -> None:
     """
-    Checking validity of an input_file and whether a birthday is in a week.
+    Checking validity of an input_file and whether birthday or birthdays are in a week.
     Then appending lists and sending the respective emails if there is at least one birthday in a week.
 
     :param input_file: object
@@ -204,7 +204,8 @@ def send_email(name, bday_name, bday_date, days_left, to_email):
     :param to_email: str
     :return: bool
     """
-    message = f'Hi {name},\n\nThis is a reminder that {bday_name}\'s will be celebrating their birthday on {bday_date}s.\n\nThere are {days_left}s left to get a present!\n'
+    message = f'Hi {name},\n\nThis is a reminder that {bday_name}\'s will be celebrating their birthday on ' \
+              f'{bday_date}s.\n\nThere are {days_left}s left to get a present!\n'
     msg = MIMEMultipart()
     msg['Subject'] = f'Birthday Reminder: {bday_name}s\'s birthday on {bday_date}s'
     msg['From'] = USR
@@ -238,7 +239,8 @@ def run(read_path, cron_value) -> None:
         check_birthdays_in_s_week(read_path, send_emails=True)
     else:
         sys.stdout.write(
-            'Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails\n')
+            'Choose 1 to validate if input data file is correct or 2 to check for '
+            'upcoming birthdays and send respective emails\n')
         choose_options(read_path)
 
 
