@@ -142,30 +142,30 @@ By navigating to where [tests.py](https://github.com/aurimas13/BirthdayReminderA
 [comment]: <> (```)
 1) To check source files for errors in the project folder:
 ``` python
-> pyflakes .
+>>> pyflakes .
 ```
 
 2) To check source files for errors in test file: 
 ``` python
-> pyflakes tests.py
+>>> pyflakes tests.py
 ```
 
 3) To check typing for test file:
 ``` python
-> python -m pytest tests.py
+>>> python -m pytest tests.py
 ```
 
 # Cron Job
 
 To build cron job in mac terminal run:
 ``` python
-> crontab -e
+>>> crontab -e
 ```
 
-The syntax for cronjob when entering terminal could look like this (cd to the categories on MAC where BirthdayReminderApp folder is & where Python is installed)
-``` python
-> 0 6 * * * cd ~/BirthdayReminderApp/ && ~/python main.py ~/BirthdayReminderApp/Datasets/data_50.csv 2
-[Optional] > 0 6 * * * cd ~/BirthdayReminderApp/ && ~/python main.py ~/BirthdayReminderApp/Datasets/data_50.csv 2 >> Public/birthdays.txt
+The syntax for cronjob when entering terminal could look like this (cd to the directory where BirthdayReminderApp folder is & where Python is installed)
+``` 
+>>> 0 6 * * * cd <directory_app_path> && <python_source_code> main.py <data_file_path> 2
+[Optional] >>> 0 6 * * * cd <directory_app_path> && <python_source_code> main.py <data_file_path> 2 >> Public/birthdays.txt
 ```
 
 Syntax customization for Cron Job can be checked [here](https://crontab.guru/).
