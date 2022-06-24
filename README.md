@@ -32,9 +32,7 @@ This repository contains **2** **modules** where [bdayreminder.py](https://githu
 **Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, csv, pytest and typing to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while those that are not mentioned come with the required Python version.
 
 # Usage
-<br> The data used for examples shown below was data_20.csv. </br>
-
-After the requirements are met, the app package is set at your directory and terminal is run you have four options (FYI module takes two arguments):
+After the requirements are met, the app package is set at your directory and terminal is run you have four options (FYI module takes two arguments)<sup>*</sup>:
 1) To allow yourself to run **validation** or **check & send** - the  second argument has to be **0**: 
 ```
 >>> python bdayreminder.py <data_file_path> 0
@@ -96,6 +94,8 @@ Kai Yuen Leung will have birthday in a week.
 Patrick Kienzle will have birthday in a week.
 Emails sent successfully.
 ```
+
+* The data used for examples shown below was data_20.csv.
 
 # Functions
 
