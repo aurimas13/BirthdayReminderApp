@@ -178,10 +178,9 @@ Public folder contains three files:
 
 [//]: # (- [task.pdf]&#40;https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/task.pdf&#41; - the problem for which this program was implemented.)
 
-[//]: # (# Photo)
+# Photo
 
-[//]: # ()
-[//]: # (The logo of the Birthday Reminder Application is found [here]&#40;https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/Photo/birthdaylogo.png&#41;.)
+The logo of the Birthday Reminder Application can be found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/Photo/birthdaylogo.png).
 
 # License
 
