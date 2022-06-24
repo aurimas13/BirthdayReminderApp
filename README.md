@@ -94,7 +94,7 @@ Kai Yuen Leung will have birthday in a week.
 Patrick Kienzle will have birthday in a week.
 Emails sent successfully.
 ```
-<br><sup>1</sup> Main module takes two arguments when run from console.
+<br><sup>1</sup> Main module takes two arguments when run from terminal.
 <br><sup>2</sup> The data used for examples was data_20.csv on 23<sup>th</sup> of June 2022.</br>
 # Functions
 
