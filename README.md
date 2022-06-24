@@ -54,7 +54,7 @@ Emails sent successfully.
 ```
 2) To run **validation** or **check & send** another way - the second argument has to be any **other number** or a **string** while the data used for <data_file_path> and example shown below was data_20.csv:
 
-```
+``` python
 >>> python bdayreminder.py <data_file_path> 3
 Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
 >>> 3
@@ -78,7 +78,7 @@ Emails sent successfully.
 
 3) To **validate** birthday persons **data file** for errors set the second argument to be **1** while the data used for <data_file_path> and example shown below was data_20.csv:
 
-```
+``` python
 >>> python bdayreminder.py <data_file_path> 1
 ERROR: Invalid email for Laura Dreyfuss at row 6 
 ERROR: Empty name field is for email TheoGermaine@goal.com at row 7 
