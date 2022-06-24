@@ -33,7 +33,7 @@ USR_ALT = os.getenv('USR_ALT')
 PSW_ALT = os.getenv('PSW_ALT')
 
 
-def check_birthday_file(file_path):
+def convert_birthday_file(file_path):
     """
     Converting a path of data file to the csv format that can be read.
 
@@ -60,7 +60,7 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
     """
     list_of_birthdays_in_a_week = []
     list_to_send = []
-    csv_file = check_birthday_file(input_file)
+    csv_file = convert_birthday_file(input_file)
     birthday_in_a_week = is_birthdate_in_7_days()
 
     for idx, item in enumerate(csv_file):
