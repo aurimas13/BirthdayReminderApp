@@ -189,7 +189,7 @@ def is_valid_email(email) -> bool:
     :param email: str
     :return: bool
     """
-    regex = '^[a-zA-Z0-9]+[\._]?[ a-zA-Z0-9]+[@]\w+[. ]\w{2,3}$'
+    regex = r'^[a-zA-Z0-9]+[\._]?[ a-zA-Z0-9]+[@]\w+[. ]\w{2,3}$'
     if re.search(regex, email):
         return True
     else:
