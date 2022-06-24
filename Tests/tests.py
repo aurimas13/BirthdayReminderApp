@@ -2,6 +2,8 @@
 # Created by Aurimas A. Nausedas on 06/21/22.
 # Updated by Aurimas A. Nausedas on 06/23/22.
 
+
+import pytest
 from datetime import datetime, timedelta
 from bdayreminder import try_parsing_date, is_date_in_past, is_not_empty_name, is_valid_email, is_birthdate_in_7_days
 
@@ -71,7 +73,7 @@ def test_is_not_empty_name_empty():
 
 def test_is_not_empty_name_full():
     """
-    Testing if name provided is a string.
+    Testing if email provided is a valid or invalid string.
 
     :asssert: bool
     """
@@ -79,14 +81,22 @@ def test_is_not_empty_name_full():
     assert is_not_empty_name(name) is True, 'The name should contain at least one character'
 
 
-def test_is_valid_email_good():
+@pytest.mark.parametrize("email, expected_result", [
+    ("tom@goal.com", True),
+    ("Ball@hoops.com", True),
+    ("123hello@hi.net", True),
+    ("i-i@gmail.com", False),
+    ("whatsyourname@one.lt", True),
+    ("!goal@is.com", False),
+    ("doesntneedtowork@okor!.com", False),
+])
+def test_is_valid_email_good(email, expected_result):
     """
-    Testing if the email address is valid.
+    Testing the email address's variants.
 
     :assert: bool
     """
-    good_email = 'andrius.kaniava@gmail.com'
-    assert is_valid_email(good_email) is True, 'The provided email is invalid'
+    assert is_valid_email(email) == expected_result
 
 
 def test_is_valid_email_bad():
