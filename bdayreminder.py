@@ -74,7 +74,7 @@ def check_birthdays_in_s_week(input_file, send_emails=False) -> None:
         except Exception as error:
             sys.stderr.write(f'ERROR for {item} : {error}\n')
     if send_emails:
-        multiple_email_sends(list_of_birthdays_in_a_week, list_to_send)
+        send_multiple_emails(list_of_birthdays_in_a_week, list_to_send)
 
 
 def birthdate_in_7_days() -> str:
@@ -130,7 +130,7 @@ def is_valid_input(fmt, item, idx, to_print) -> bool:
     return res
 
 
-def multiple_email_sends(birthday_individuals, to_send) -> None:
+def send_multiple_emails(birthday_individuals, to_send) -> None:
     """
     Sending emails to every recipient of the to_send list and not to the list of birthday_individual persons.
     Defining variables and passing the items of a list to send_email function.
