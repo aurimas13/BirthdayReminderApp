@@ -1,5 +1,5 @@
 <p align=center>
-  <img height="222px" src="https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/Photo/birthdaylogo.png"/>
+  <img height="222px" src="https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/Logo/birthdaylogo.png"/>
 </p>
 
 <p align="center" > <b> Birthday Reminder Application </b> </p>
@@ -24,7 +24,7 @@ This repo of birthday reminder app contains **2** *visible* **modules** where [b
 - [Tests](#tests)
 - [Cron Job](#cron-job)
 - [Public](#public)
-- [Photo](#photo)
+- [Logo](#photo)
 - [License](#license)
 
 # Requirements
@@ -177,7 +177,7 @@ Public folder contains three files:
 
 [//]: # (- [task.pdf]&#40;https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/task.pdf&#41; - the problem for which this program was implemented.)
 
-# Photo
+# Logo
 
 The logo of the Birthday Reminder Application can be found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/Photo/birthdaylogo.png).
 
