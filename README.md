@@ -95,7 +95,7 @@ Patrick Kienzle will have birthday in a week.
 Emails sent successfully.
 ```
 
-* The data used for examples shown below was data_20.csv.
+<sup>*</sup> The data used for examples shown below was data_20.csv.
 
 # Functions
 
