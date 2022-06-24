@@ -49,7 +49,7 @@ def birthday_file(file_path):
         sys.stdout.write('Wrong input data file')
 
 
-def checkBirthdaysInAWeek(input_file, send_emails=False) -> None:
+def check_birthdays_in_s_week(input_file, send_emails=False) -> None:
     """
     Checking validity of an input_file and whether a birthday is in a week.
     Then appending lists and sending the respective emails if there is at least one birthday in a week.
@@ -149,7 +149,6 @@ def multiple_email_sends(birthday_individuals, to_send) -> None:
     sys.stdout.write(f'Emails sent successfully.\n')
 
 
-
 def is_date_in_past(date, date_format) -> bool:
     """
     Looking if date is in the past.
@@ -225,19 +224,19 @@ def send_email(name, bday_name, bday_date, days_left, to_email):
     mailserver.quit()
 
 
-def run(read_path, cron) -> None:
+def run(read_path, cron_value) -> None:
     """
     Inputting the path of a csv data file and running the script without having to input the choices as they are passed.
 
     :param read_path: object
-    :param cron: int or str
+    :param cron_value: int or str
     :return: None
     """
-    if cron.isdigit() and int(cron) == 1:
-        checkBirthdaysInAWeek(read_path, send_emails=False)
-    elif cron.isdigit() and int(cron) == 2:
-        checkBirthdaysInAWeek(read_path, send_emails=True)
-    else:  # aprasyti README
+    if cron_value.isdigit() and int(cron_value) == 1:
+        check_birthdays_in_s_week(read_path, send_emails=False)
+    elif cron_value.isdigit() and int(cron_value) == 2:
+        check_birthdays_in_s_week(read_path, send_emails=True)
+    else:
         sys.stdout.write(
             'Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails\n')
         choose_options(read_path)
@@ -252,9 +251,9 @@ def choose_options(read_path) -> None:
     """
     i = input()
     if i.isdigit() and int(i) == 1:
-        checkBirthdaysInAWeek(read_path, send_emails=False)
+        check_birthdays_in_s_week(read_path, send_emails=False)
     elif i.isdigit() and int(i) == 2:
-        checkBirthdaysInAWeek(read_path, send_emails=True)
+        check_birthdays_in_s_week(read_path, send_emails=True)
     else:
         sys.stdout.write('Please choose either 1 or 2\n')
         choose_options(read_path)
@@ -262,5 +261,5 @@ def choose_options(read_path) -> None:
 
 if __name__ == '__main__':
     arg_path = sys.argv[1]
-    cron = sys.argv[2]
-    run(arg_path, cron)
+    cron_input = sys.argv[2]
+    run(arg_path, cron_input)
