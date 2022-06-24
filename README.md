@@ -35,7 +35,7 @@ This repo of birthday reminder app contains **2** *visible* **modules** where [b
 
 After the requirements are met, the app package is set at your directory and terminal is run you have four options (FYI module takes two arguments):
 1) To allow yourself to run **validation** or **check & send** - the  second argument has to be **0** while the data used for <data_file_path> and example shown below was data_20.csv: 
-```
+``` python
 >>> python bdayreminder.py <data_file_path> 0
 Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
 >>> 1
