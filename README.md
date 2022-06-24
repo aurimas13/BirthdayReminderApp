@@ -130,7 +130,7 @@ An overview of functions found inside a module - [tests.py](https://github.com/a
 - *test_is_not_empty_name_full()* tests if name provided is a string.
 - *test_is_valid_email_good()* tests if the email address is valid.
 - *test_is_valid_email_bad()* tests if the email address is invalid.
-- *test_is_birthdate_in_7_days()* tests if the function is indeed after 7 days.
+- *test_is_birthdate_in_7_days()* tests if the birthday is indeed after 7 days.
 
 By navigating to where [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) is held or to the folder where the [BirthdayReminderApp](https://github.com/aurimas13/BirthdayReminderApp#birthday-reminder-app) program is extracted one can run these commands:
 
@@ -165,7 +165,7 @@ To build cron job in mac terminal run:
 
 The syntax for cronjob when entering terminal could look like this (cd to the directory where BirthdayReminderApp folder is & where Python is installed)
 ``` 
->>> 0 6 * * * cd <directory_app_path> && <python_source_code> main.py <data_file_path> 2
+           >>> 0 6 * * * cd <directory_app_path> && <python_source_code> main.py <data_file_path> 2
 [Optional] >>> 0 6 * * * cd <directory_app_path> && <python_source_code> main.py <data_file_path> 2 >> Public/birthdays.txt
 ```
 
