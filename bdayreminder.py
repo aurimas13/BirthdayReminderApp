@@ -155,7 +155,7 @@ def is_date_in_past(date, date_format) -> bool:
 
     :param date: str
     :param date_format: str
-    :return:
+    :return: bool
     """
     now = datetime.now().date()
     is_past = True
