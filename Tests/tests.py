@@ -1,11 +1,7 @@
-
 # Test file for Birthday Reminder Application
 # Created by Aurimas A. Nausedas on 06/21/22.
 # Updated by Aurimas A. Nausedas on 06/23/22.
 
-# test_with_unittest.py
-# import pytest
-# from cryptography.exceptions import InvalidTag
 from datetime import datetime, timedelta
 from bdayreminder import try_parsing_date, is_date_in_past, is_not_empty_name, is_valid_email, is_birthdate_in_7_days
 
@@ -111,8 +107,3 @@ def test_is_birthdate_in_7_days():
     """
     now = datetime.now().date()
     assert is_birthdate_in_7_days() == (now + timedelta(days=7)).strftime("%m-%d")
-
-
-# def test_is_valid_email_invalid_string():
-#     with pytest.raises(InvalidTag):
-#         is_valid_email(InvalidTag)
