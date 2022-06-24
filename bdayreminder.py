@@ -49,7 +49,7 @@ def check_birthday_file(file_path):
         sys.stdout.write('Wrong input data file')
 
 
-def check_birthdays_in_s_week(input_file, send_emails=False) -> None:
+def validate_data_and_send_emails(input_file, send_emails=False) -> None:
     """
     Checking validity of an input_file and whether birthday or birthdays are in a week.
     Then appending lists and sending the respective emails if there is at least one birthday in a week.
@@ -234,9 +234,9 @@ def run(read_path, cron_value) -> None:
     :return: None
     """
     if cron_value.isdigit() and int(cron_value) == 1:
-        check_birthdays_in_s_week(read_path, send_emails=False)
+        validate_data_and_send_emails(read_path, send_emails=False)
     elif cron_value.isdigit() and int(cron_value) == 2:
-        check_birthdays_in_s_week(read_path, send_emails=True)
+        validate_data_and_send_emails(read_path, send_emails=True)
     else:
         sys.stdout.write(
             'Choose 1 to validate if input data file is correct or 2 to check for '
@@ -253,9 +253,9 @@ def choose_options(read_path) -> None:
     """
     i = input()
     if i.isdigit() and int(i) == 1:
-        check_birthdays_in_s_week(read_path, send_emails=False)
+        validate_data_and_send_emails(read_path, send_emails=False)
     elif i.isdigit() and int(i) == 2:
-        check_birthdays_in_s_week(read_path, send_emails=True)
+        validate_data_and_send_emails(read_path, send_emails=True)
     else:
         sys.stdout.write('Please choose either 1 or 2\n')
         choose_options(read_path)

@@ -99,8 +99,8 @@ Emails sent successfully.
 # Functions
 
 An overview of functions found inside a module - ***bdayreminder.py***:
-- **birthday_file(file_path)** converts a data file (*file_path*) to the csv format that can be read.
-- **check_birthdays_in_s_week(input_file, send_emails)** checks the validity of an *input_file* and whether a birthday is in a week as well as optionally sends the respective emails (*send_emails*).
+- **check_birthday_file(file_path)** converts a data file (*file_path*) to the csv format that can be read.
+- **validate_data_and(input_file, send_emails)** checks the validity of an *input_file* and whether a birthday is in a week as well as optionally sends the respective emails (*send_emails*).
 - **is_birthdate_in_7_days()** finds the date for the upcoming birthdays in a week.
 - **try_parsing_date(date)** parses the *date*.
 - **is_valid_input(fmt, item, idx, to_print)** validates inputs (*fmt*,*item*,*idx*,*to_print*).
