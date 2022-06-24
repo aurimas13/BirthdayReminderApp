@@ -172,7 +172,7 @@ Syntax customization for Cron Job can be checked [here](https://crontab.guru/).
 # Public
 
 Public folder contains three files: 
-- [birthdays.txt](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/birthdays.txt) - the output of a Cron Job after implementing the [Optional] command as given at [Cron Job](#cron-job) paragraph.
+- [birthdays.txt](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/birthdays.txt) - the output of a Cron Job after implementing the [Optional] command as given at [Cron Job](#cron-job).
 - [todolist](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/todolist) - the TO DO List.
 
 [//]: # (- [task.pdf]&#40;https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/task.pdf&#41; - the problem for which this program was implemented.)
