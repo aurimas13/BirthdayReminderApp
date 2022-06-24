@@ -185,3 +185,4 @@ The logo of the Birthday Reminder Application can be found [here](https://github
 # License
 
 The MIT [LICENSE](https://github.com/aurimas13/BirthdayReminderApp/blob/main/LICENSE)
+
