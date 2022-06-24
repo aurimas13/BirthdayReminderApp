@@ -18,16 +18,14 @@ import sys
 
 # Setting email proxies
 import smtplib
-
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 
-# Importing Union type
+# Importing Union & Any types
 from typing import Union, Any
 
 # Setting environment variables:
 from dotenv import load_dotenv  # type:ignore
-
 load_dotenv()
 USR = os.getenv('USR')
 PSW = os.getenv('PSW')
