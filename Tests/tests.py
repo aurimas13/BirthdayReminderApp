@@ -7,10 +7,10 @@
 # import pytest
 # from cryptography.exceptions import InvalidTag
 from datetime import datetime, timedelta
-from bdayreminder import try_parsing_date, is_date_in_past, is_not_empty_name, is_valid_email, birthdate_in_7_days
+from bdayreminder import try_parsing_date, is_date_in_past, is_not_empty_name, is_valid_email, is_birthdate_in_7_days
 
 
-def test_correct_parsing_date_ymd():
+def test_correct_try_parsing_date_ymd():
     """
     Testing if the correct date of Y-m-d is parsed.
 
@@ -20,7 +20,7 @@ def test_correct_parsing_date_ymd():
     assert try_parsing_date(date) == try_parsing_date('1993-05-09')
 
 
-def test_correct_parsing_date_md():
+def test_correct_try_parsing_date_md():
     """
     Testing if the correct date of m-d is parsed.
 
@@ -103,14 +103,14 @@ def test_is_valid_email_bad():
     assert is_valid_email(bad_email) is False
 
 
-def test_birthdate_in_7_days():
+def test_is_birthdate_in_7_days():
     """
     Testing if birthdate_in_7_days() is indeed after 7 days.
 
     :return: bool
     """
     now = datetime.now().date()
-    assert birthdate_in_7_days() == (now + timedelta(days=7)).strftime("%m-%d")
+    assert is_birthdate_in_7_days() == (now + timedelta(days=7)).strftime("%m-%d")
 
 
 # def test_is_valid_email_invalid_string():
