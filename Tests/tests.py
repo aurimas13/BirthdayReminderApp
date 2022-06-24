@@ -1,7 +1,6 @@
 
 # Test file for Birthday Reminder Application
 # Created by Aurimas A. Nausedas on 06/21/22.
-# Uploaded by Aurimas A. Nausedas on 06/21/22.
 # Updated by Aurimas A. Nausedas on 06/23/22.
 
 # test_with_unittest.py
