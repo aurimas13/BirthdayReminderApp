@@ -56,7 +56,7 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
 
     :param input_file: object
     :param send_emails: bool
-    :return: None
+    :return:
     """
     list_of_birthdays_in_a_week = []
     list_to_send = []
@@ -193,7 +193,7 @@ def is_valid_email(email) -> bool:
         return False
 
 
-def send_email(name, bday_name, bday_date, days_left, to_email):
+def send_email(name, bday_name, bday_date, days_left, to_email) -> None:
     """
     Sending an email to one recipient from the csv file by defining an SMTP client session object.
 
@@ -202,7 +202,7 @@ def send_email(name, bday_name, bday_date, days_left, to_email):
     :param bday_date: str
     :param days_left: str
     :param to_email: str
-    :return: bool
+    :return:
     """
     message = f'Hi {name},\n\nThis is a reminder that {bday_name}\'s will be celebrating their birthday on ' \
               f'{bday_date}s.\n\nThere are {days_left}s left to get a present!\n'
@@ -231,7 +231,7 @@ def run(read_path, cron_value) -> None:
 
     :param read_path: object
     :param cron_value: int or str
-    :return: None
+    :return:
     """
     if cron_value.isdigit() and int(cron_value) == 1:
         validate_data_and_send_emails(read_path, send_emails=False)
@@ -249,7 +249,7 @@ def choose_options(read_path) -> None:
     Asking for input and choosing what to run.
 
     :param read_path: object
-    :return: None
+    :return:
     """
     i = input()
     if i.isdigit() and int(i) == 1:
