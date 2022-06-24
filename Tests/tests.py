@@ -1,16 +1,12 @@
-
 # Test file for Birthday Reminder Application
 # Created by Aurimas A. Nausedas on 06/21/22.
 # Updated by Aurimas A. Nausedas on 06/23/22.
 
-# test_with_unittest.py
-# import pytest
-# from cryptography.exceptions import InvalidTag
 from datetime import datetime, timedelta
-from bdayreminder import try_parsing_date, is_date_in_past, is_not_empty_name, is_valid_email, birthdate_in_7_days
+from bdayreminder import try_parsing_date, is_date_in_past, is_not_empty_name, is_valid_email, is_birthdate_in_7_days
 
 
-def test_correct_parsing_date_ymd():
+def test_correct_try_parsing_date_ymd():
     """
     Testing if the correct date of Y-m-d is parsed.
 
@@ -20,7 +16,7 @@ def test_correct_parsing_date_ymd():
     assert try_parsing_date(date) == try_parsing_date('1993-05-09')
 
 
-def test_correct_parsing_date_md():
+def test_correct_try_parsing_date_md():
     """
     Testing if the correct date of m-d is parsed.
 
@@ -110,9 +106,4 @@ def test_birthdate_in_7_days():
     :return: bool
     """
     now = datetime.now().date()
-    assert birthdate_in_7_days() == (now + timedelta(days=7)).strftime("%m-%d")
-
-
-# def test_is_valid_email_invalid_string():
-#     with pytest.raises(InvalidTag):
-#         is_valid_email(InvalidTag)
+    assert is_birthdate_in_7_days() == (now + timedelta(days=7)).strftime("%m-%d")
