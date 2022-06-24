@@ -99,7 +99,7 @@ def test_is_valid_email_bad():
     assert is_valid_email(bad_email) is False
 
 
-def test_birthdate_in_7_days():
+def test_is_birthdate_in_7_days():
     """
     Testing if birthdate_in_7_days() is indeed after 7 days.
 
