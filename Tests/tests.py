@@ -107,4 +107,3 @@ def test_is_birthdate_in_7_days():
     """
     now = datetime.now().date()
     assert is_birthdate_in_7_days() == (now + timedelta(days=7)).strftime("%m-%d")
-
