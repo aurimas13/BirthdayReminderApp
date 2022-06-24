@@ -24,12 +24,12 @@ This repo of birthday reminder app contains **2** *visible* **modules** where [b
 - [Tests](#tests)
 - [Cron Job](#cron-job)
 - [Public](#public)
-- [Photo](#photo)
 - [License](#license)
 
+[//]: # (- [Photo]&#40;#photo&#41;)
 # Requirements
 
-**Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, csv, pytest and typing to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while thos that are not mentioned come with the required Python version.
+**Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, csv, pytest and typing to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while those that are not mentioned come with the required Python version.
 
 # Usage
 
@@ -178,9 +178,11 @@ Public folder contains three files:
 
 [//]: # (- [task.pdf]&#40;https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/task.pdf&#41; - the problem for which this program was implemented.)
 
-# Photo
+[//]: # (# Photo)
 
-The logo of the Birthday Reminder Application is found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/Photo/birthdaylogo.png).
+[//]: # ()
+[//]: # (The logo of the Birthday Reminder Application is found [here]&#40;https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/Photo/birthdaylogo.png&#41;.)
+
 # License
 
 The MIT [LICENSE](https://github.com/aurimas13/BirthdayReminderApp/blob/main/LICENSE)
