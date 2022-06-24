@@ -141,17 +141,17 @@ By navigating to where [tests.py](https://github.com/aurimas13/BirthdayReminderA
 
 [comment]: <> (```)
 1) To check source files for errors in the project folder:
-``` python
+```
 >>> pyflakes .
 ```
 
 2) To check source files for errors in test file: 
-``` python
+```
 >>> pyflakes tests.py
 ```
 
 3) To check typing for test file:
-``` python
+``` 
 >>> python -m pytest tests.py
 ```
 
