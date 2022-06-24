@@ -61,7 +61,7 @@ def check_birthdays_in_s_week(input_file, send_emails=False) -> None:
     list_of_birthdays_in_a_week = []
     list_to_send = []
     csv_file = birthday_file(input_file)
-    birthday_in_a_week = birthdate_in_7_days()
+    birthday_in_a_week = is_birthdate_in_7_days()
 
     for idx, item in enumerate(csv_file):
         try:
@@ -77,7 +77,7 @@ def check_birthdays_in_s_week(input_file, send_emails=False) -> None:
         send_multiple_emails(list_of_birthdays_in_a_week, list_to_send)
 
 
-def birthdate_in_7_days() -> str:
+def is_birthdate_in_7_days() -> str:
     """
     Finding the date for the upcoming birthdays in a week
     :return: str
