@@ -158,7 +158,7 @@ By navigating to where [tests.py](https://github.com/aurimas13/BirthdayReminderA
 # Cron Job
 
 To build cron job in mac terminal run:
-``` python
+``` 
 >>> crontab -e
 ```
 
