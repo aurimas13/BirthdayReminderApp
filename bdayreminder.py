@@ -30,8 +30,6 @@ from dotenv import load_dotenv  # type:ignore
 load_dotenv()
 USR = os.getenv('USR')
 PSW = os.getenv('PSW')
-USR_ALT = os.getenv('USR_ALT')
-PSW_ALT = os.getenv('PSW_ALT')
 
 
 def convert_birthday_file(file_path):
