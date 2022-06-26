@@ -30,7 +30,7 @@ This repository contains **2** **modules** where [bdayreminder.py](https://githu
 
 # Requirements
 
-**Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, csv and typing to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while those that are not mentioned come with the used Python version. Setting [environment variables](#environment-variables) is recommended for proper run of the app.
+**Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, csv and typing to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while those that are not mentioned come with the used Python version. Setting [environment variables](#environment-variables) is recommended if you wish to use your email for proper run of the app.
 
 # Usage
 After the requirements are met, the app package is set at your directory are set and terminal is run you have four options<sup>1,2</sup>:
