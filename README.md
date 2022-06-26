@@ -157,6 +157,10 @@ By navigating to where [tests.py](https://github.com/aurimas13/BirthdayReminderA
 >>> python -m pytest tests.py
 ```
 
+# Environment variables
+
+To change the primary email from where the emails would be sent - change the environment variables (USR for username & PSW for password) in .env file.
+
 # Cron Job
 
 To build cron job in mac terminal run:
@@ -178,10 +182,6 @@ Public folder contains three files:
 - [todolist](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/todolist) - the TO DO List.
 
 [//]: # (- [task.pdf]&#40;https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/task.pdf&#41; - the problem for which this program was implemented.)
-
-# Environment variables
-
-To change the primary email from where the emails would be sent - change the environment variables (USR for username & PSW for password) in .env file.
 
 # Logo
 
