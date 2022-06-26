@@ -133,6 +133,7 @@ An overview of functions found inside a module - [tests.py](https://github.com/a
 - *test_is_valid_email_bad()* tests if the email address is invalid.
 - *test_is_birthdate_in_7_days()* tests if the birthday is indeed after 7 days.
 
+
 By navigating to where [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) is held or to the folder where the [BirthdayReminderApp](https://github.com/aurimas13/BirthdayReminderApp#birthday-reminder-app) program is extracted one can run these commands:
 
 [comment]: <> (For DocTest run this command in terminal:)
