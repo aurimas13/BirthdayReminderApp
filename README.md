@@ -23,16 +23,17 @@ This repository contains **2** **modules** where [bdayreminder.py](https://githu
 - [Datasets](#datasets)
 - [Tests](#tests)
 - [Cron Job](#cron-job)
+- [Environment variables](#environment-variables)
 - [Public](#public)
 - [Logo](#photo)
 - [License](#license)
 
 # Requirements
 
-**Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, csv and typing to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while those that are not mentioned come with the used Python version.
+**Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, csv and typing to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while those that are not mentioned come with the used Python version. Setting [environment variables](#environment-variables) is recommended for proper run of the app.
 
 # Usage
-After the requirements are met, the app package is set at your directory and terminal is run you have four options<sup>1,2</sup>:
+After the requirements are met, the app package is set at your directory are set and terminal is run you have four options<sup>1,2</sup>:
 1) To allow yourself to run **validation** or **check & send** - the  second argument has to be **0**: 
 ```
 >>> python bdayreminder.py <data_file_path> 0
@@ -177,6 +178,10 @@ Public folder contains three files:
 - [todolist](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/todolist) - the TO DO List.
 
 [//]: # (- [task.pdf]&#40;https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/task.pdf&#41; - the problem for which this program was implemented.)
+
+# Environment variables
+
+To change the primary email from where the emails would be sent - change the environment variables (USR for username & PSW for password) in .env file.
 
 # Logo
 
