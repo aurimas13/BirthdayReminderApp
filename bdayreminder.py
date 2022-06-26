@@ -4,6 +4,7 @@
 # Created by Aurimas A. Nausedas on 06/18/22.
 # Uploaded by Aurimas A. Nausedas on 06/20/22.
 # Updated by Aurimas A. Nausedas on 06/23/22.
+# Updated by Aurimas A. Nausedas on 06/26/22.
 
 # Importing Regex
 import re
@@ -24,8 +25,7 @@ from email.mime.text import MIMEText
 # Importing Union & Any types
 from typing import Union, Any
 
-# Setting environment variables.
-# It can be customized upon entering the details in hidden .env file:
+# Setting environment variables that can be customized upon entering the details in  .env file:
 from dotenv import load_dotenv  # type:ignore
 load_dotenv()
 USR = os.getenv('USR')
