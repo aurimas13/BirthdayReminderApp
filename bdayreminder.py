@@ -264,4 +264,3 @@ if __name__ == '__main__':
     arg_path = sys.argv[1]
     cron_input = sys.argv[2]
     run(arg_path, cron_input)
-
