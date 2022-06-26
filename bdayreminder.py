@@ -24,7 +24,8 @@ from email.mime.text import MIMEText
 # Importing Union & Any types
 from typing import Union, Any
 
-# Setting environment variables:
+# Setting environment variables.
+# It can be customized upon entering the details in hidden .env file:
 from dotenv import load_dotenv  # type:ignore
 load_dotenv()
 USR = os.getenv('USR')
