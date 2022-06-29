@@ -57,8 +57,6 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
     :param send_emails: bool
     :return:
     """
-    list_of_birthdays_in_a_week = []
-    list_to_send = []
     csv_file = convert_birthday_file(input_file)
     birthday_in_a_week = is_birthdate_in_7_days()
 
