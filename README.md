@@ -32,7 +32,7 @@ This repository contains **2** **modules** where [bdayreminder.py](https://githu
 **Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, csv and typing to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while those that are not mentioned come with the used Python version.
 
 # Usage
-After the requirements are met, the app package is set at your directory and terminal is run you have four options<sup>1,2</sup>:
+After the requirements are met, the app package is set at your directory and terminal is run you have four options<sup>1,2,3</sup>:
 1) To allow yourself to run **validation** or **check & send** - the  second argument has to be **0**: 
 ```
 >>> python bdayreminder.py <data_file_path> 0
@@ -94,8 +94,9 @@ Kai Yuen Leung will have birthday in a week.
 Patrick Kienzle will have birthday in a week.
 Emails sent successfully.
 ```
-<br><sup>1</sup> Main module takes two arguments when run from console.
-<br><sup>2</sup> The data used for examples was data_20.csv on 23<sup>th</sup> of June 2022.</br>
+<br><sup>1</sup> <data_file_path> should be something like this /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv but in your directory
+<br><sup>2</sup> Main module takes two arguments when run from console.
+<br><sup>3</sup> The data used for examples was data_20.csv on 23<sup>th</sup> of June 2022.</br>
 # Functions
 
 An overview of functions found inside a module - ***bdayreminder.py***:
