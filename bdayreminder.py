@@ -49,10 +49,6 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
                         result_parsed_date = parse_date(item[2])
                         parsed_date = result_parsed_date['value']
                         fmt = result_parsed_date['format']
-                        # print(fmt)
-                        # parsed_date[], fmt = parse_date(item[2])['value']
-                        # # print(parsed_date)
-                        # # print(type(parsed_date))
                         if is_valid_input(fmt, item, idx, not send_emails) is True:
                             if parsed_date and parsed_date.strftime('%m-%d') == birthday_in_a_week:
                                 list_of_birthdays_in_a_week.append(item)
@@ -74,7 +70,6 @@ def parse_date(date) -> dict:
     :param date: str
     :return: dict
     """
-    # print(date)
     is_parsed = False
     for fmt in ('%Y-%m-%d', '%m-%d'):
         try:
@@ -85,25 +80,6 @@ def parse_date(date) -> dict:
                 result = {'value': 'Wrong format', 'format': None}
     return result
 
-    # for fmt in ('%Y-%m-%d', '%m-%d'):
-    #     try:
-    #         return {
-    #             'isError': False,
-    #             'value': datetime.strptime(date, fmt),
-    #             'format': fmt
-    #         }
-    #     except ValueError:
-    #         return {
-    #             'isError': True,
-    #             'value': 'Wrong format',
-    #             'format': None
-    #         }
-
-    # return f'ERROR: Wrong format', None
-    # if fmt  == '%Y-%m-%d':
-    #     return datetime.strptime(date, fmt), fmt
-    # elif fmt == '%m-%d':
-    #     return datetime.strptime(date, fmt), fmt
 
 def is_valid_input(fmt, item, idx, to_print) -> bool:
     """
@@ -169,15 +145,6 @@ def is_date_in_past(date, date_format) -> bool:
     return is_past
 
 
-# def contains_name(name) -> bool:
-#     """
-#     Checking if the input of a name column of a csv file contains something or not.
-#     :param name: str
-#     :return: bool
-#     """
-#     return name != ''
-
-
 def is_valid_email(email) -> bool:
     """
     Checking through regex if an email is valid.
@@ -222,7 +189,7 @@ def send_email(name, bday_name, bday_date, days_left, to_email) -> None:
     mailserver.quit()
 
 
-def run(read_path, cron_value) -> None: # geresni pavadinima sugalvoti
+def run(read_path, cron_value) -> None:  # geresni pavadinima sugalvoti
     """
     Inputting the path of a csv data file and running the script without having to input the choices as they are passed.
     :param read_path: object
