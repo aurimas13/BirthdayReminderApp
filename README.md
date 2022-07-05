@@ -150,12 +150,12 @@ By navigating to where [tests.py](https://github.com/aurimas13/BirthdayReminderA
 
 2) To check source files for errors in test file: 
 ```
->>> pyflakes tests.py
+>>> pyflakes Tests/tests.py
 ```
 
 3) To check typing for test file:
 ``` 
->>> python -m pytest tests.py
+>>> python -m pytest Tests/tests.py
 ```
 
 # Cron Job
