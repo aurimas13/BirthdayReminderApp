@@ -79,7 +79,7 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
 
 def try_parsing_date(date) -> Union[Any, Any]: # pakeisti
     """
-    Parsing the input of a date.
+    Parsing the input of a date. Returns datetime if succesful while string if unsuccesful
     :param date: str
     :return: datetime or dict, str or None
     """
@@ -88,7 +88,7 @@ def try_parsing_date(date) -> Union[Any, Any]: # pakeisti
             return datetime.strptime(date, fmt), fmt
         except ValueError:
             pass
-    return {'ERROR': 'Wrong format'}, None
+    return f'ERROR': 'Wrong format', None
 
 
 def is_valid_input(fmt, item, idx, to_print) -> bool:
