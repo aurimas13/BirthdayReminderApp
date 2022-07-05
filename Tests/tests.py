@@ -5,11 +5,10 @@
 # Updated by Aurimas A. Nausedas on 07/05/22.
 
 
-from datetime import datetime, timedelta
 from bdayreminder import parse_date, is_date_in_past, is_valid_email
 
 
-def test_correct_try_parsing_date_ymd():
+def test_correct_parse_date_ymd():
     """
     Testing if the correct date of Y-m-d is parsed.
 
@@ -19,7 +18,7 @@ def test_correct_try_parsing_date_ymd():
     assert parse_date(date) == parse_date('1993-05-09')
 
 
-def test_correct_try_parsing_date_md():
+def test_correct_parse_date_md():
     """
     Testing if the correct date of m-d is parsed.
 
