@@ -75,7 +75,7 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
 #     return (today + timedelta(days=7)).strftime('%m-%d')
 
 
-def try_parsing_date(date) -> Union[Any, Any]:
+def try_parsing_date(date) -> Union[Any, Any]: # pakeisti
     """
     Parsing the input of a date.
     :param date: str
