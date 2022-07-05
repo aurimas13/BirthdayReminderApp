@@ -5,6 +5,7 @@
 # Uploaded by Aurimas A. Nausedas on 06/20/22.
 # Updated by Aurimas A. Nausedas on 06/23/22.
 # Updated by Aurimas A. Nausedas on 06/26/22.
+# Updated by Aurimas A. Nausedas on 06/29/22.
 
 # Importing Regex
 import re
@@ -35,7 +36,6 @@ PSW = os.getenv('PSW')
 def convert_birthday_file(file_path):
     """
     Converting a path of data file to the csv format that can be read.
-
     :param file_path: data file
     :return: object
     """
@@ -52,11 +52,12 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
     """
     Checking validity of an input_file and whether birthday or birthdays are in a week.
     Then appending lists and sending the respective emails if there is at least one birthday in a week.
-
     :param input_file: object
     :param send_emails: bool
     :return:
     """
+    list_of_birthdays_in_a_week = []
+    list_to_send = []
     csv_file = convert_birthday_file(input_file)
     birthday_in_a_week = is_birthdate_in_7_days()
 
@@ -86,7 +87,6 @@ def is_birthdate_in_7_days() -> str:
 def try_parsing_date(date) -> Union[Any, Any]:
     """
     Parsing the input of a date.
-
     :param date: str
     :return: datetime or dict, str or None
     """
@@ -101,7 +101,6 @@ def try_parsing_date(date) -> Union[Any, Any]:
 def is_valid_input(fmt, item, idx, to_print) -> bool:
     """
     Validating inputs of items provided.
-
     :param fmt: str
     :param item: str
     :param idx: int
@@ -131,7 +130,6 @@ def send_multiple_emails(birthday_individuals, to_send) -> None:
     """
     Sending emails to every recipient of the to_send list and not to the list of birthday_individual persons.
     Defining variables and passing the items of a list to send_email function.
-
     :param birthday_individuals: list
     :param to_send: list
     :return:
@@ -149,7 +147,6 @@ def send_multiple_emails(birthday_individuals, to_send) -> None:
 def is_date_in_past(date, date_format) -> bool:
     """
     Looking if date is in the past.
-
     :param date: str
     :param date_format: str
     :return: bool
@@ -167,7 +164,6 @@ def is_date_in_past(date, date_format) -> bool:
 def is_not_empty_name(name) -> bool:
     """
     Checking if the input of a name column of csv file is not empty.
-
     :param name: str
     :return: bool
     """
@@ -179,7 +175,6 @@ def is_not_empty_name(name) -> bool:
 def is_valid_email(email) -> bool:
     """
     Checking through regex if an email is valid.
-
     :param email: str
     :return: bool
     """
@@ -193,7 +188,6 @@ def is_valid_email(email) -> bool:
 def send_email(name, bday_name, bday_date, days_left, to_email) -> None:
     """
     Sending an email to one recipient from the csv file by defining an SMTP client session object.
-
     :param name: str
     :param bday_name: str
     :param bday_date: str
@@ -225,7 +219,6 @@ def send_email(name, bday_name, bday_date, days_left, to_email) -> None:
 def run(read_path, cron_value) -> None:
     """
     Inputting the path of a csv data file and running the script without having to input the choices as they are passed.
-
     :param read_path: object
     :param cron_value: int or str
     :return:
@@ -244,7 +237,6 @@ def run(read_path, cron_value) -> None:
 def choose_options(read_path) -> None:
     """
     Asking for input and choosing what to run.
-
     :param read_path: object
     :return:
     """

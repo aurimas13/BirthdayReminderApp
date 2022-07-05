@@ -23,20 +23,19 @@ This repository contains **2** **modules** where [bdayreminder.py](https://githu
 - [Datasets](#datasets)
 - [Tests](#tests)
 - [Cron Job](#cron-job)
-- [Environment variables](#environment-variables)
 - [Public](#public)
 - [Logo](#photo)
 - [License](#license)
 
 # Requirements
 
-**Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, csv and typing to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while those that are not mentioned come with the used Python version. Setting [environment variables](#environment-variables) is recommended if you wish to use your email for proper run of the app.
+**Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, csv and typing to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while those that are not mentioned come with the used Python version.
 
 # Usage
-After the requirements are met, the app package is set at your directory are set and terminal is run you have four options<sup>1,2</sup>:
+After the requirements are met, the app package is set at your directory and terminal is run you have four options<sup>1,2,3</sup>:
 1) To allow yourself to run **validation** or **check & send** - the  second argument has to be **0**: 
 ```
->>> python bdayreminder.py <data_file_path> 0
+>>> python bdayreminder.py <directory_leading_to_data_file> 0
 Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
 >>> 1
 ERROR: Invalid email for Laura Dreyfuss at row 6 
@@ -46,7 +45,7 @@ ERROR: Date is in the future for Tom Brady at row 12. Date given is 2075-10-22
 ERROR: Invalid email for Ching Yeung Michael Tam at row 19
 '''
 '''
->>> python bdayreminder.py <data_file_path> 0
+>>> python bdayreminder.py <directory_leading_to_data_file> 0
 Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
 >>> 2
 Kai Yuen Leung will have birthday in a week.
@@ -56,7 +55,7 @@ Emails sent successfully.
 2) To run **validation** or **check & send** another way - the second argument has to be any **other number** or a **string**:
 
 ```
->>> python bdayreminder.py <data_file_path> 3
+>>> python bdayreminder.py <directory_leading_to_data_file> 3
 Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
 >>> 3
 Please choose either 1 or 2
@@ -67,7 +66,7 @@ ERROR: Invalid date for Anna Higgins at row 11. Date given is 02-30
 ERROR: Date is in the future for Tom Brady at row 12. Date given is 2075-10-22 
 ERROR: Invalid email for Ching Yeung Michael Tam at row 19 
 
->>> python bdayreminder.py <data_file_path> versada
+>>> python bdayreminder.py <directory_leading_to_data_file> versada
 Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
 >>> versada
 Please choose either 1 or 2
@@ -80,7 +79,7 @@ Emails sent successfully.
 3) To **validate** birthday persons **data file** for errors set the second argument to be **1**:
 
 ```
->>> python bdayreminder.py <data_file_path> 1
+>>> python bdayreminder.py <directory_leading_to_data_file> 1
 ERROR: Invalid email for Laura Dreyfuss at row 6 
 ERROR: Empty name field is for email TheoGermaine@goal.com at row 7 
 ERROR: Invalid date for Anna Higgins at row 11. Date given is 02-30 
@@ -90,13 +89,15 @@ ERROR: Invalid email for Ching Yeung Michael Tam at row 19
 4) To **check** birthday persons **data file** and **send emails** set the second argument to be **2**:
 
 ```
->>> python bdayreminder.py <data_file_path> 2
+>>> python bdayreminder.py <directory_leading_to_data_file> 2
 Kai Yuen Leung will have birthday in a week.
 Patrick Kienzle will have birthday in a week.
 Emails sent successfully.
 ```
-<br><sup>1</sup> Main module takes two arguments when run from terminal.
-<br><sup>2</sup> The data used for examples was data_20.csv on 23<sup>th</sup> of June 2022.</br>
+<br><sup>1</sup> **<directory_leading_to_data_file>** should be something like this /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv but in your directory. </br>
+<br><sup>2</sup> Main module takes two arguments when run from console. </br>
+<br><sup>3</sup> The data used for examples was data_20.csv on 23<sup>th</sup> of June 2022.</br>
+
 # Functions
 
 An overview of functions found inside a module - ***bdayreminder.py***:
@@ -131,8 +132,7 @@ An overview of functions found inside a module - [tests.py](https://github.com/a
 - *test_is_not_empty_name_full()* tests if name provided is a string.
 - *test_is_valid_email_good()* tests if the email address is valid.
 - *test_is_valid_email_bad()* tests if the email address is invalid.
-- *test_is_birthdate_in_7_days()* tests if the birthday is indeed after 7 days.
-
+- *test_is_birthdate_in_7_days()* tests if the function is indeed after 7 days.
 
 By navigating to where [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) is held or to the folder where the [BirthdayReminderApp](https://github.com/aurimas13/BirthdayReminderApp#birthday-reminder-app) program is extracted one can run these commands:
 
@@ -158,10 +158,6 @@ By navigating to where [tests.py](https://github.com/aurimas13/BirthdayReminderA
 >>> python -m pytest tests.py
 ```
 
-# Environment variables
-
-To change the primary email from where the emails would be sent - change the environment variables (USR for username & PSW for password) in .env file.
-
 # Cron Job
 
 To build cron job in mac terminal run:
@@ -169,13 +165,17 @@ To build cron job in mac terminal run:
 >>> crontab -e
 ```
 
-The syntax for cronjob when entering terminal could look like this (cd to the directory where BirthdayReminderApp folder is & where Python is installed)
+The syntax for cronjob when entering terminal could look like this<sup>1,2,3</sup>)
 ``` 
-           >>> 0 6 * * * cd <directory_app_path> && <python_source_code> main.py <data_file_path> 2
-[Optional] >>> 0 6 * * * cd <directory_app_path> && <python_source_code> main.py <data_file_path> 2 >> Public/birthdays.txt
+>>> 0 6 * * * cd <directory_to_app> && <directory_to_python> bdayreminder.py <directory_leading_to_data_file> 2
+[Optional] >>> 0 6 * * * cd <directory_to_app> && <directory_to_python> bdayreminder.py <directory_leading_to_data_file> 2 >> Public/birthdays.txt
 ```
+<br><sup>1</sup> **<directory_to_app>** - should be the directory where BirthdayReminderApp folder is like /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp </br>
+<br><sup>2</sup> **<directory_to_python>** should be where you installed python on your machine like /Users/aurimasnausedas/opt/miniconda3/envs/symmetric/bin/python </br>
+<br><sup>3</sup> **<directory_leading_to_data_file>** should be the directory of data file like /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp </br>
 
 Syntax customization for Cron Job can be checked [here](https://crontab.guru/).
+
 # Public
 
 Public folder contains three files: 
