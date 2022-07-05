@@ -94,8 +94,8 @@ Kai Yuen Leung will have birthday in a week.
 Patrick Kienzle will have birthday in a week.
 Emails sent successfully.
 ```
-<br><sup>1</sup> <directory_leading_to_ata_file_path> should be something like this /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv but in your directory
-<br><sup>2</sup> Main module takes two arguments when run from console.
+<br><sup>1</sup> <directory_leading_to_ata_file_path> should be something like this /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv but in your directory. </br>
+<br><sup>2</sup> Main module takes two arguments when run from console. </br>
 <br><sup>3</sup> The data used for examples was data_20.csv on 23<sup>th</sup> of June 2022.</br>
 # Functions
 
@@ -169,7 +169,7 @@ The syntax for cronjob when entering terminal could look like this<sup>1,2,3</su
 >>> 0 6 * * * cd <directory_app_path> && <python_source_code> bdayreminder.py <directory_leading_to_data_file_path> 2
 [Optional] >>> 0 6 * * * cd <directory_app_path> && <python_source_code> bdayreminder.py <directory_leading_to_data_file_path> 2 >> Public/birthdays.txt
 ```
-<br><sup>1</sup> <directory_app_path> - cd to the directory where BirthdayReminderApp folder is & where Python is installed
+<br><sup>1</sup> <directory_app_path> - cd to the directory where BirthdayReminderApp folder is (like this& where Python is installed
 <br><sup>2</sup> <python_source_code> Main module takes two arguments when run from console.
 <br><sup>3</sup> <directory_leading_to_ata_file_path> should be something like this /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv but in your directory
 
