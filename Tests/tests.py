@@ -61,26 +61,6 @@ def test_is_date_in_past_past_month_day():
     assert is_date_in_past(date_future, date_format) is True
 
 
-# def test_is_name_empty():
-#     """
-#     Testing if name provided is empty.
-#
-#     :assert: bool
-#     """
-#     name = ''
-#     assert is_name_empty is False, 'The name should be something'
-
-
-# def test_contains_name_full():
-#     """
-#     Testing if name provided is a string.
-#
-#     :asssert: bool
-#     """
-#     name = 'Alex'
-#     assert contains_name(name) is True, 'The name should contain at least one character'
-
-
 def test_is_valid_email_good():
     """
     Testing if the email address is valid.
@@ -99,13 +79,3 @@ def test_is_valid_email_bad():
     """
     bad_email = 'andy.whatever@gmail.one.yahoo.com'
     assert is_valid_email(bad_email) is False
-
-
-# def test_is_birthdate_in_7_days():
-#     """
-#     Testing if birthdate_in_7_days() is indeed after 7 days.
-#
-#     :return: bool
-#     """
-#     now = datetime.now().date()
-#     assert is_birthdate_in_7_days() == (now + timedelta(days=7)).strftime("%m-%d")
