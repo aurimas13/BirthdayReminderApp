@@ -12,8 +12,6 @@
 import re
 from datetime import datetime, timedelta
 import csv
-import yaml
-import json
 import os
 import sys
 import smtplib
@@ -46,24 +44,27 @@ DATE_AFTER_7_DAYS = (datetime.now().date() + timedelta(days=7)).strftime('%m-%d'
 #                 try:
 #                     with open(file, "r") as csv_file:
 #                         csv_reader = csv.reader(csv_file)
+#                         next(csv_reader)
+#                         return csv_reader
+# file_name.close()
 #                     return "CSV"
 #                 except csv.Error:
 #                     print("The file is not in any acceptable format")
-def open_birthday_file(file_path):
-    """
-    Opening a data file in a csv format to be read.
-    :param file_path: data file
-    :return: object
-    """
-    try:
-        file_name = open(file_path, 'r')
-        csv_reader = csv.reader(file_name)
-        next(csv_reader)
-        return csv_reader
-        file_name.close() # ar sitas po return gerai?
-    except csv.Error:
-        sys.stdout.write('Wrong input data file')
-        sys.exit()
+# def open_birthday_file(file_path):
+#     """
+#     Opening a data file in a csv format to be read.
+#     :param file_path: data file
+#     :return: object
+#     """
+#     try:
+#         file_name = open(file_path, 'r')
+#         csv_reader = csv.reader(file_name)
+#         next(csv_reader)
+#         file_name.close()
+#         return csv_reader
+#     except csv.Error:
+#         sys.stdout.write('Wrong input data file')
+#         sys.exit()
 
 
 def validate_data_and_send_emails(input_file, send_emails=False) -> None:
@@ -76,26 +77,42 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
     """
     list_of_birthdays_in_a_week = []
     list_to_send = []
-    csv_file = open_birthday_file(input_file)
+    # csv_file = open_birthday_file(input_file)
     birthday_in_a_week = DATE_AFTER_7_DAYS
-    if csv_file:
-        for idx, item in enumerate(csv_file):
-            try:
-                parsed_date, fmt = try_parsing_date(item[2])
-                # print(parsed_date)
-                # print(type(parsed_date))
-                if is_valid_input(fmt, item, idx, not send_emails) is True:
-                    if parsed_date and parsed_date.strftime('%m-%d') == birthday_in_a_week:
-                        list_of_birthdays_in_a_week.append(item)
-                    else:
-                        list_to_send.append(item)
-            except Exception as error:
-                sys.stderr.write(f'ERROR for {item} : {error}\n')
-        if send_emails:
-            send_multiple_emails(list_of_birthdays_in_a_week, list_to_send)
+    if not os.path.exists(input_file):
+        raise Exception('ERROR file doesn\'t exist')
+    elif input_file.endswith('csv'):
+        try:
+            with open(input_file) as csv_file:
+                opened_file = csv.reader(csv_file)
+                next(opened_file)
+        #     with open(input_file, newline='') as csvfile:
+        #         dialect = csv.Sniffer().sniff(csvfile.read(1024))
+        #         csvfile.seek(0)
+        #         opened_file = csv.reader(csvfile, dialect)
+        #         next(opened_file)
+        #         print(opened_file)
+                for idx, item in enumerate(opened_file):
+                    try:
+                        parsed_date, fmt = try_parsing_date(item[2])
+                        # print(parsed_date)
+                        # print(type(parsed_date))
+                        if is_valid_input(fmt, item, idx, not send_emails) is True:
+                            if parsed_date and parsed_date.strftime('%m-%d') == birthday_in_a_week:
+                                list_of_birthdays_in_a_week.append(item)
+                            else:
+                                list_to_send.append(item)
+                    except Exception as error:
+                        sys.stderr.write(f'ERROR for {item} : {error}\n')
+                if send_emails:
+                    send_multiple_emails(list_of_birthdays_in_a_week, list_to_send)
+        except Exception as error:
+            sys.stderr.write(f'Malformed csv file : {error}\n')
     else:
-        print('WRONG')
+        raise Exception('ERROR: Wrong data format file')
 
+    # except csv.Error:
+    #         print("The file is not in any acceptable format")
 # def is_birthdate_in_7_days() -> str:
 #     """
 #     Finding the date for the upcoming birthdays in a week
