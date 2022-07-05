@@ -12,6 +12,8 @@
 import re
 from datetime import datetime, timedelta
 import csv
+import yaml
+import json
 import os
 import sys
 import smtplib
@@ -25,6 +27,15 @@ PSW = os.getenv('PSW')
 
 DATE_AFTER_7_DAYS = (datetime.now().date() + timedelta(days=7)).strftime('%m-%d') # global ar parasyti? paresearchinti
 
+def check_data_file(file_type):
+    with open(the_file, "r") as f:
+        check = f.read(1)
+        if check == "{" or check == "[":
+            file_type = "json"
+        elif check == "<":
+            file_type = "yaml"
+        else:
+            file_type = "csv"
 def open_birthday_file(file_path):
     """
     Opening a data file in a csv format to be read.
@@ -37,8 +48,9 @@ def open_birthday_file(file_path):
         next(csv_reader)
         return csv_reader
         file_name.close() # ar sitas po return gerai?
-    except Exception:
+    except csv.Error:
         sys.stdout.write('Wrong input data file')
+        sys.exit()
 
 
 def validate_data_and_send_emails(input_file, send_emails=False) -> None:
@@ -53,20 +65,23 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
     list_to_send = []
     csv_file = open_birthday_file(input_file)
     birthday_in_a_week = DATE_AFTER_7_DAYS
-
-    for idx, item in enumerate(csv_file):
-        try:
-            parsed_date, fmt = try_parsing_date(item[2])
-            if is_valid_input(fmt, item, idx, not send_emails) is True:
-                if parsed_date and parsed_date.strftime('%m-%d') == birthday_in_a_week:
-                    list_of_birthdays_in_a_week.append(item)
-                else:
-                    list_to_send.append(item)
-        except Exception as error:
-            sys.stderr.write(f'ERROR for {item} : {error}\n')
-    if send_emails:
-        send_multiple_emails(list_of_birthdays_in_a_week, list_to_send)
-
+    if csv_file:
+        for idx, item in enumerate(csv_file):
+            try:
+                parsed_date, fmt = try_parsing_date(item[2])
+                # print(parsed_date)
+                # print(type(parsed_date))
+                if is_valid_input(fmt, item, idx, not send_emails) is True:
+                    if parsed_date and parsed_date.strftime('%m-%d') == birthday_in_a_week:
+                        list_of_birthdays_in_a_week.append(item)
+                    else:
+                        list_to_send.append(item)
+            except Exception as error:
+                sys.stderr.write(f'ERROR for {item} : {error}\n')
+        if send_emails:
+            send_multiple_emails(list_of_birthdays_in_a_week, list_to_send)
+    else:
+        print('WRONG')
 
 # def is_birthdate_in_7_days() -> str:
 #     """
@@ -83,13 +98,19 @@ def try_parsing_date(date) -> Union[Any, Any]: # pakeisti
     :param date: str
     :return: datetime or dict, str or None
     """
+    # print(date)
     for fmt in ('%Y-%m-%d', '%m-%d'):
         try:
             return datetime.strptime(date, fmt), fmt
         except ValueError:
-            pass
-    return f'ERROR': 'Wrong format', None
+            # print(type(date))
+            return f'ERROR: Wrong format', None
 
+    # return f'ERROR: Wrong format', None
+    # if fmt  == '%Y-%m-%d':
+    #     return datetime.strptime(date, fmt), fmt
+    # elif fmt == '%m-%d':
+    #     return datetime.strptime(date, fmt), fmt
 
 def is_valid_input(fmt, item, idx, to_print) -> bool:
     """
