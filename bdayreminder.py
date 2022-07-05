@@ -27,15 +27,28 @@ PSW = os.getenv('PSW')
 
 DATE_AFTER_7_DAYS = (datetime.now().date() + timedelta(days=7)).strftime('%m-%d') # global ar parasyti? paresearchinti
 
-def check_data_file(file_type):
-    with open(the_file, "r") as f:
-        check = f.read(1)
-        if check == "{" or check == "[":
-            file_type = "json"
-        elif check == "<":
-            file_type = "yaml"
-        else:
-            file_type = "csv"
+# def check_data_file(file):
+#     with open(file, "r") as f:
+#         check = f.read(1)
+#         if check == "{" or check == "[":
+#             file_type = "json"
+#         elif check == "---":
+#             file_type = "yaml"
+#         else:
+#             file_type = "csv"
+#
+#         if file_type == "json":
+#             try:
+#                 loaded = json.load(file)
+#                 return "JSON"
+#             except json.JSONDecodeError:
+#                 del loaded
+#                 try:
+#                     with open(file, "r") as csv_file:
+#                         csv_reader = csv.reader(csv_file)
+#                     return "CSV"
+#                 except csv.Error:
+#                     print("The file is not in any acceptable format")
 def open_birthday_file(file_path):
     """
     Opening a data file in a csv format to be read.
