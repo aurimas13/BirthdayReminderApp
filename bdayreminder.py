@@ -8,7 +8,6 @@
 # Updated by Aurimas A. Nausedas on 06/29/22.
 # Updated by Aurimas A. Nausedas on 07/05/22.
 
-
 import re
 from datetime import datetime, timedelta
 import csv
@@ -17,54 +16,14 @@ import sys
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-from typing import Union, Any
 from dotenv import load_dotenv  # type:ignore
 load_dotenv()
+
+
 USR = os.getenv('USR')
 PSW = os.getenv('PSW')
-
-DATE_AFTER_7_DAYS = (datetime.now().date() + timedelta(days=7)).strftime('%m-%d') # global ar parasyti? paresearchinti
-
-# def check_data_file(file):
-#     with open(file, "r") as f:
-#         check = f.read(1)
-#         if check == "{" or check == "[":
-#             file_type = "json"
-#         elif check == "---":
-#             file_type = "yaml"
-#         else:
-#             file_type = "csv"
-#
-#         if file_type == "json":
-#             try:
-#                 loaded = json.load(file)
-#                 return "JSON"
-#             except json.JSONDecodeError:
-#                 del loaded
-#                 try:
-#                     with open(file, "r") as csv_file:
-#                         csv_reader = csv.reader(csv_file)
-#                         next(csv_reader)
-#                         return csv_reader
-# file_name.close()
-#                     return "CSV"
-#                 except csv.Error:
-#                     print("The file is not in any acceptable format")
-# def open_birthday_file(file_path):
-#     """
-#     Opening a data file in a csv format to be read.
-#     :param file_path: data file
-#     :return: object
-#     """
-#     try:
-#         file_name = open(file_path, 'r')
-#         csv_reader = csv.reader(file_name)
-#         next(csv_reader)
-#         file_name.close()
-#         return csv_reader
-#     except csv.Error:
-#         sys.stdout.write('Wrong input data file')
-#         sys.exit()
+# global variable used anywhere
+DATE_AFTER_SEVEN_DAYS = (datetime.now().date() + timedelta(days=7)).strftime('%m-%d')
 
 
 def validate_data_and_send_emails(input_file, send_emails=False) -> None:
@@ -77,8 +36,7 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
     """
     list_of_birthdays_in_a_week = []
     list_to_send = []
-    # csv_file = open_birthday_file(input_file)
-    birthday_in_a_week = DATE_AFTER_7_DAYS
+    birthday_in_a_week = DATE_AFTER_SEVEN_DAYS
     if not os.path.exists(input_file):
         raise Exception('ERROR file doesn\'t exist')
     elif input_file.endswith('csv'):
@@ -86,17 +44,15 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
             with open(input_file) as csv_file:
                 opened_file = csv.reader(csv_file)
                 next(opened_file)
-        #     with open(input_file, newline='') as csvfile:
-        #         dialect = csv.Sniffer().sniff(csvfile.read(1024))
-        #         csvfile.seek(0)
-        #         opened_file = csv.reader(csvfile, dialect)
-        #         next(opened_file)
-        #         print(opened_file)
                 for idx, item in enumerate(opened_file):
                     try:
-                        parsed_date, fmt = try_parsing_date(item[2])
-                        # print(parsed_date)
-                        # print(type(parsed_date))
+                        result_parsed_date = parse_date(item[2])
+                        parsed_date = result_parsed_date['value']
+                        fmt = result_parsed_date['format']
+                        # print(fmt)
+                        # parsed_date[], fmt = parse_date(item[2])['value']
+                        # # print(parsed_date)
+                        # # print(type(parsed_date))
                         if is_valid_input(fmt, item, idx, not send_emails) is True:
                             if parsed_date and parsed_date.strftime('%m-%d') == birthday_in_a_week:
                                 list_of_birthdays_in_a_week.append(item)
@@ -111,30 +67,37 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
     else:
         raise Exception('ERROR: Wrong data format file')
 
-    # except csv.Error:
-    #         print("The file is not in any acceptable format")
-# def is_birthdate_in_7_days() -> str:
-#     """
-#     Finding the date for the upcoming birthdays in a week
-#     :return: str
-#     """
-#     today = datetime.now().date()
-#     return (today + timedelta(days=7)).strftime('%m-%d')
 
-
-def try_parsing_date(date) -> Union[Any, Any]: # pakeisti
+def parse_date(date) -> dict:
     """
     Parsing the input of a date. Returns datetime if succesful while string if unsuccesful
     :param date: str
-    :return: datetime or dict, str or None
+    :return: dict
     """
     # print(date)
+    is_parsed = False
     for fmt in ('%Y-%m-%d', '%m-%d'):
         try:
-            return datetime.strptime(date, fmt), fmt
+            result = {'value': datetime.strptime(date, fmt), 'format': fmt}
+            is_parsed = True
         except ValueError:
-            # print(type(date))
-            return f'ERROR: Wrong format', None
+            if not is_parsed:
+                result = {'value': 'Wrong format', 'format': None}
+    return result
+
+    # for fmt in ('%Y-%m-%d', '%m-%d'):
+    #     try:
+    #         return {
+    #             'isError': False,
+    #             'value': datetime.strptime(date, fmt),
+    #             'format': fmt
+    #         }
+    #     except ValueError:
+    #         return {
+    #             'isError': True,
+    #             'value': 'Wrong format',
+    #             'format': None
+    #         }
 
     # return f'ERROR: Wrong format', None
     # if fmt  == '%Y-%m-%d':
@@ -197,6 +160,7 @@ def is_date_in_past(date, date_format) -> bool:
     """
     now = datetime.now().date()
     is_past = True
+    # print(date,date_format)
     if date_format == '%Y-%m-%d':
         if datetime.strptime(date, date_format).date() < now:
             is_past = True
