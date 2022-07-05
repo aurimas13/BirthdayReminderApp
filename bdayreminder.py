@@ -6,6 +6,8 @@
 # Updated by Aurimas A. Nausedas on 06/23/22.
 # Updated by Aurimas A. Nausedas on 06/26/22.
 # Updated by Aurimas A. Nausedas on 06/29/22.
+# Updated by Aurimas A. Nausedas on 07/05/22.
+
 
 import re
 from datetime import datetime, timedelta
@@ -91,7 +93,7 @@ def try_parsing_date(date) -> Union[Any, Any]: # pakeisti
 
 def is_valid_input(fmt, item, idx, to_print) -> bool:
     """
-    Validating inputs of items provided.
+    Validating inputs of items provided from data file.
     :param fmt: str
     :param item: str
     :param idx: int
@@ -154,7 +156,7 @@ def is_date_in_past(date, date_format) -> bool:
 
 def contains_name(name) -> bool:
     """
-    Checking if the input of a name column of a csv file contains something or is empty.
+    Checking if the input of a name column of a csv file contains something or not.
     :param name: str
     :return: bool
     """
