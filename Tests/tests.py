@@ -2,6 +2,7 @@
 # Created by Aurimas A. Nausedas on 06/21/22.
 # Updated by Aurimas A. Nausedas on 06/23/22.
 # Updated by Aurimas A. Nausedas on 06/26/22.
+# Updated by Aurimas A. Nausedas on 07/05/22.
 
 from datetime import datetime, timedelta
 from bdayreminder import try_parsing_date, is_date_in_past, is_not_empty_name, is_valid_email, is_birthdate_in_7_days
