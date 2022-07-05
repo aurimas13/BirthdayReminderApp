@@ -7,31 +7,21 @@
 # Updated by Aurimas A. Nausedas on 06/26/22.
 # Updated by Aurimas A. Nausedas on 06/29/22.
 
-# Importing Regex
 import re
-
-# Importing time modules
 from datetime import datetime, timedelta
-
-# Importing csv, os & sys
 import csv
 import os
 import sys
-
-# Setting email proxies
 import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
-
-# Importing Union & Any types
 from typing import Union, Any
-
-# Setting environment variables that can be customized upon entering the details in  .env file:
 from dotenv import load_dotenv  # type:ignore
 load_dotenv()
 USR = os.getenv('USR')
 PSW = os.getenv('PSW')
 
+DATE_AFTER_7_DAYS = (datetime.now().date() + timedelta(days=7)).strftime('%m-%d') # global ar parasyti? paresearchinti
 
 def open_birthday_file(file_path):
     """
