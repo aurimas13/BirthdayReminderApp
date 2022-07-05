@@ -6,7 +6,7 @@
 
 
 from datetime import datetime, timedelta
-from bdayreminder import try_parsing_date, is_date_in_past, is_not_empty_name, is_valid_email, is_birthdate_in_7_days
+from bdayreminder import parse_date, is_date_in_past, contains_name, is_valid_email
 
 
 def test_correct_try_parsing_date_ymd():
@@ -72,14 +72,14 @@ def test_is_not_empty_name_empty():
     assert is_not_empty_name(name) is False, 'The name should be something'
 
 
-def test_is_not_empty_name_full():
+def test_contains_name_full():
     """
     Testing if name provided is a string.
 
     :asssert: bool
     """
     name = 'Alex'
-    assert is_not_empty_name(name) is True, 'The name should contain at least one character'
+    assert contains_name(name) is True, 'The name should contain at least one character'
 
 
 def test_is_valid_email_good():
@@ -102,11 +102,11 @@ def test_is_valid_email_bad():
     assert is_valid_email(bad_email) is False
 
 
-def test_is_birthdate_in_7_days():
-    """
-    Testing if birthdate_in_7_days() is indeed after 7 days.
-
-    :return: bool
-    """
-    now = datetime.now().date()
-    assert is_birthdate_in_7_days() == (now + timedelta(days=7)).strftime("%m-%d")
+# def test_is_birthdate_in_7_days():
+#     """
+#     Testing if birthdate_in_7_days() is indeed after 7 days.
+#
+#     :return: bool
+#     """
+#     now = datetime.now().date()
+#     assert is_birthdate_in_7_days() == (now + timedelta(days=7)).strftime("%m-%d")
