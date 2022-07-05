@@ -94,7 +94,7 @@ Kai Yuen Leung will have birthday in a week.
 Patrick Kienzle will have birthday in a week.
 Emails sent successfully.
 ```
-<br><sup>1</sup> <ddirectory_leading_to_ata_file_path> should be something like this /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv but in your directory
+<br><sup>1</sup> <directory_leading_to_ata_file_path> should be something like this /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv but in your directory
 <br><sup>2</sup> Main module takes two arguments when run from console.
 <br><sup>3</sup> The data used for examples was data_20.csv on 23<sup>th</sup> of June 2022.</br>
 # Functions
@@ -164,13 +164,17 @@ To build cron job in mac terminal run:
 >>> crontab -e
 ```
 
-The syntax for cronjob when entering terminal could look like this (cd to the directory where BirthdayReminderApp folder is & where Python is installed)
+The syntax for cronjob when entering terminal could look like this<sup>1,2,3</sup>)
 ``` 
 >>> 0 6 * * * cd <directory_app_path> && <python_source_code> main.py <directory_leading_to_data_file_path> 2
 [Optional] >>> 0 6 * * * cd <directory_app_path> && <python_source_code> main.py <directory_leading_to_data_file_path> 2 >> Public/birthdays.txt
 ```
 
 Syntax customization for Cron Job can be checked [here](https://crontab.guru/).
+ (cd to the directory where BirthdayReminderApp folder is & where Python is installed
+<br><sup>1</sup> <directory_leading_to_ata_file_path> should be something like this /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv but in your directory
+<br><sup>2</sup> Main module takes two arguments when run from console.
+<br><sup>3</sup> The data used for examples was data_20.csv on 23<sup>th</sup> of June 2022.</br>
 # Public
 
 Public folder contains three files: 
