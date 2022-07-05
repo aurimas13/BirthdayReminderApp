@@ -154,7 +154,7 @@ def is_date_in_past(date, date_format) -> bool:
 
 def contains_name(name) -> bool:
     """
-    Checking if the input of a name column of csv file contains something or is empty.
+    Checking if the input of a name column of a csv file contains something or is empty.
     :param name: str
     :return: bool
     """
