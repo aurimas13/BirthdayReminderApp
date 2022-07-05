@@ -6,7 +6,7 @@
 
 
 from datetime import datetime, timedelta
-from bdayreminder import parse_date, is_date_in_past, contains_name, is_valid_email
+from bdayreminder import parse_date, is_date_in_past, is_valid_email
 
 
 def test_correct_try_parsing_date_ymd():
@@ -16,7 +16,7 @@ def test_correct_try_parsing_date_ymd():
     :assert: bool
     """
     date = '1993-05-09'
-    assert try_parsing_date(date) == try_parsing_date('1993-05-09')
+    assert parse_date(date) == parse_date('1993-05-09')
 
 
 def test_correct_try_parsing_date_md():
@@ -26,7 +26,7 @@ def test_correct_try_parsing_date_md():
     :assert: bool
     """
     date = '08-29'
-    assert try_parsing_date(date) == try_parsing_date('08-29')
+    assert parse_date(date) == parse_date('08-29')
 
 
 def test_is_date_in_past_old():
@@ -62,24 +62,24 @@ def test_is_date_in_past_past_month_day():
     assert is_date_in_past(date_future, date_format) is True
 
 
-def test_is_not_empty_name_empty():
-    """
-    Testing if name provided is empty.
+# def test_is_name_empty():
+#     """
+#     Testing if name provided is empty.
+#
+#     :assert: bool
+#     """
+#     name = ''
+#     assert is_name_empty is False, 'The name should be something'
 
-    :assert: bool
-    """
-    name = ''
-    assert is_not_empty_name(name) is False, 'The name should be something'
 
-
-def test_contains_name_full():
-    """
-    Testing if name provided is a string.
-
-    :asssert: bool
-    """
-    name = 'Alex'
-    assert contains_name(name) is True, 'The name should contain at least one character'
+# def test_contains_name_full():
+#     """
+#     Testing if name provided is a string.
+#
+#     :asssert: bool
+#     """
+#     name = 'Alex'
+#     assert contains_name(name) is True, 'The name should contain at least one character'
 
 
 def test_is_valid_email_good():
