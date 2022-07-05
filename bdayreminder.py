@@ -33,9 +33,9 @@ USR = os.getenv('USR')
 PSW = os.getenv('PSW')
 
 
-def convert_birthday_file(file_path):
+def open_birthday_file(file_path):
     """
-    Converting a path of data file to the csv format that can be read.
+    Opening a data file in a csv format to be read.
     :param file_path: data file
     :return: object
     """
@@ -44,6 +44,7 @@ def convert_birthday_file(file_path):
         csv_reader = csv.reader(file_name)
         next(csv_reader)
         return csv_reader
+        file_name.close() # ar sitas po return gerai?
     except Exception:
         sys.stdout.write('Wrong input data file')
 
@@ -58,7 +59,7 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
     """
     list_of_birthdays_in_a_week = []
     list_to_send = []
-    csv_file = convert_birthday_file(input_file)
+    csv_file = open_birthday_file(input_file)
     birthday_in_a_week = is_birthdate_in_7_days()
 
     for idx, item in enumerate(csv_file):
