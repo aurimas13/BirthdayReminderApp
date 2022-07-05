@@ -50,7 +50,7 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
     list_of_birthdays_in_a_week = []
     list_to_send = []
     csv_file = open_birthday_file(input_file)
-    birthday_in_a_week = is_birthdate_in_7_days()
+    birthday_in_a_week = DATE_AFTER_7_DAYS
 
     for idx, item in enumerate(csv_file):
         try:
@@ -66,13 +66,13 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
         send_multiple_emails(list_of_birthdays_in_a_week, list_to_send)
 
 
-def is_birthdate_in_7_days() -> str:
-    """
-    Finding the date for the upcoming birthdays in a week
-    :return: str
-    """
-    today = datetime.now().date()
-    return (today + timedelta(days=7)).strftime('%m-%d')
+# def is_birthdate_in_7_days() -> str:
+#     """
+#     Finding the date for the upcoming birthdays in a week
+#     :return: str
+#     """
+#     today = datetime.now().date()
+#     return (today + timedelta(days=7)).strftime('%m-%d')
 
 
 def try_parsing_date(date) -> Union[Any, Any]:
