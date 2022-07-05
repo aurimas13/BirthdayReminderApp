@@ -207,7 +207,7 @@ def send_email(name, bday_name, bday_date, days_left, to_email) -> None:
     mailserver.quit()
 
 
-def run(read_path, cron_value) -> None:
+def run(read_path, cron_value) -> None: # geresni pavadinima sugalvoti
     """
     Inputting the path of a csv data file and running the script without having to input the choices as they are passed.
     :param read_path: object
