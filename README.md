@@ -22,6 +22,7 @@ This repository contains **2** **modules** where [bdayreminder.py](https://githu
 - [Functions](#functions)
 - [Datasets](#datasets)
 - [Tests](#tests)
+- [Error](#errors)
 - [Cron Job](#cron-job)
 - [Public](#public)
 - [Logo](#photo)
@@ -33,7 +34,7 @@ This repository contains **2** **modules** where [bdayreminder.py](https://githu
 
 # Usage
 After the requirements are met, the app package is set at your directory and terminal is run you have four options<sup>1,2,3</sup>:
-1) To allow yourself to run **validation** or **check & send** - the  second argument has to be **0**: 
+1) To allow yourself to run **validation** or **check & send** - the  second argument has to be any **other number**: 
 ```
 >>> python bdayreminder.py <data_file_path> 0
 Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
@@ -52,7 +53,7 @@ Kai Yuen Leung will have birthday in a week.
 Patrick Kienzle will have birthday in a week.
 Emails sent successfully.
 ```
-2) To run **validation** or **check & send** another way - the second argument has to be any **other number** or a **string**:
+2) To run **validation** or **check & send** another way - the second argument has to be any **other number**:
 
 ```
 >>> python bdayreminder.py <data_file_path> 3
@@ -65,15 +66,6 @@ ERROR: Empty name field is for email TheoGermaine@goal.com at row 7
 ERROR: Invalid date for Anna Higgins at row 11. Date given is 02-30 
 ERROR: Date is in the future for Tom Brady at row 12. Date given is 2075-10-22 
 ERROR: Invalid email for Ching Yeung Michael Tam at row 19 
-
->>> python bdayreminder.py <data_file_path> versada
-Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
->>> versada
-Please choose either 1 or 2
->>> 2
-Kai Yuen Leung will have birthday in a week.
-Patrick Kienzle will have birthday in a week.
-Emails sent successfully.
 ```
 
 3) To **validate** birthday persons **data file** for errors set the second argument to be **1**:
@@ -159,7 +151,15 @@ By navigating to the program/app folder where it is extracted - [BirthdayReminde
 ``` 
 >>> python -m pytest Tests/tests.py
 ```
+# Errors
 
+There could be a few errors that are coded:
+1) 2nd argument error:
+```
+>>>  python bdayreminder.py Datasets/data_20.csv versada
+Argument passed not an integer
+```
+2)
 # Cron Job
 
 To build cron job in mac terminal run:
