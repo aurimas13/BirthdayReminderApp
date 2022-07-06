@@ -28,7 +28,7 @@ DATE_AFTER_SEVEN_DAYS = (datetime.now().date() + timedelta(days=7)).strftime('%m
 
 def validate_data_and_send_emails(input_file, send_emails=False) -> None:
     """
-    Checking validity of an input_file and whether birthday or birthdays are in a week.
+    Checking the validity of an input_file and whether birthday or birthdays are in a week.
     Then appending lists and sending the respective emails if there is at least one birthday in a week.
     :param input_file: object
     :param send_emails: bool
@@ -44,12 +44,12 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
             with open(input_file) as csv_file:
                 opened_file = csv.reader(csv_file)
                 next(opened_file)
-                for idx, item in enumerate(opened_file):
+                for index, item in enumerate(opened_file):
                     try:
                         result_parsed_date = parse_date(item[2])
                         parsed_date = result_parsed_date['value']
-                        fmt = result_parsed_date['format']
-                        if is_valid_input(fmt, item, idx, not send_emails) is True:
+                        date_format = result_parsed_date['format']
+                        if is_valid_input(date_format, item, index, not send_emails) is True:
                             if parsed_date and parsed_date.strftime('%m-%d') == birthday_in_a_week:
                                 list_of_birthdays_in_a_week.append(item)
                             else:
@@ -66,14 +66,14 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
 
 def parse_date(date) -> dict:
     """
-    Parsing the input of a date. Returns datetime if succesful while string if unsuccesful
+    Parsing the input of a date and returning a dict that contains date and date_format.
     :param date: str
     :return: dict
     """
     is_parsed = False
-    for fmt in ('%Y-%m-%d', '%m-%d'):
+    for date_format in ('%Y-%m-%d', '%m-%d'):
         try:
-            result = {'value': datetime.strptime(date, fmt), 'format': fmt}
+            result = {'value': datetime.strptime(date, date_format), 'format': date_format}
             is_parsed = True
         except ValueError:
             if not is_parsed:
@@ -81,49 +81,47 @@ def parse_date(date) -> dict:
     return result
 
 
-def is_valid_input(fmt, item, idx, to_print) -> bool:
+def is_valid_input(date_format, item, index, to_print) -> bool:
     """
-    Validating inputs of items provided from data file.
-    :param fmt: str
+    Validating inputs of items provided from the data file.
+    :param date_format: str
     :param item: str
-    :param idx: int
+    :param index: int
     :param to_print: bool
     :return: bool
     """
-    res = False
+    result = False
     error_message = None
-    if fmt is None:
-        error_message = f'ERROR: Invalid date for {item[0]} at row {idx+2}. Date given is {item[2]} '
-    elif not is_date_in_past(item[2], fmt):
-        error_message = f'ERROR: Date is in the future for {item[0]} at row {idx+2}. Date given is {item[2]} '
+    if date_format is None:
+        error_message = f'ERROR: Invalid date for {item[0]} at row {index+2}. Date given is {item[2]} '
+    elif not is_date_in_past(item[2], date_format):
+        error_message = f'ERROR: Date is in the future for {item[0]} at row {index+2}. Date given is {item[2]} '
     elif item[0] == "":
-        error_message = f'ERROR: Empty name field is for email {item[1]} at row {idx+2} '
+        error_message = f'ERROR: Empty name field is for email {item[1]} at row {index+2} '
     elif not is_valid_email(item[1]):
-        error_message = f'ERROR: Invalid email for {item[0]} at row {idx+2} '
+        error_message = f'ERROR: Invalid email for {item[0]} at row {index+2} '
     else:
-        res = True
+        result = True
 
     if to_print and error_message is not None:
         sys.stderr.write(f'{error_message}\n')
 
-    return res
+    return result
 
 
 def send_multiple_emails(birthday_individuals, to_send) -> None:
     """
-    Sending emails to every recipient of the to_send list and not to the list of birthday_individual persons.
+    Sending emails to every recipient of the to_send list and not to the list of birthday_individuals person or persons.
     Defining variables and passing the items of a list to send_email function.
     :param birthday_individuals: list
     :param to_send: list
     :return:
     """
     days_left = '7 day'
-    today = datetime.now().date()
-    future_date = (today + timedelta(days=7)).strftime('%m-%d')
     for bday in birthday_individuals:
         sys.stdout.write(f'{bday[0]} will have birthday in a week.\n')
         for item in to_send:
-            send_email(item[0], bday[0], future_date, days_left, item[1])
+            send_email(item[0], bday[0], DATE_AFTER_SEVEN_DAYS, days_left, item[1])
     sys.stdout.write('Emails sent successfully.\n')
 
 
