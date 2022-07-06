@@ -195,15 +195,19 @@ def run(read_path, cron_value) -> None:
     :param cron_value: int or str
     :return:
     """
-    if cron_value.isdigit() and int(cron_value) == 1:
-        validate_data_and_send_emails(read_path, send_emails=False)
-    elif cron_value.isdigit() and int(cron_value) == 2:
-        validate_data_and_send_emails(read_path, send_emails=True)
-    else:
-        sys.stdout.write(
-            'Choose 1 to validate if input data file is correct or 2 to check for '
-            'upcoming birthdays and send respective emails\n')
-        choose_options(read_path)
+    try:
+        value = int(cron_value)
+        if cron_value.isdigit() and value == 1:
+            validate_data_and_send_emails(read_path, send_emails=False)
+        elif cron_value.isdigit() and value == 2:
+            validate_data_and_send_emails(read_path, send_emails=True)
+        else:
+            sys.stdout.write(
+                'Choose 1 to validate if input data file is correct or 2 to check for '
+                'upcoming birthdays and send respective emails\n')
+            choose_options(read_path)
+    except Exception:
+        sys.stdout.write('Argument passed not an integer\n')
 
 
 def choose_options(read_path) -> None:
