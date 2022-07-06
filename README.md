@@ -133,7 +133,7 @@ An overview of functions found inside a module - [tests.py](https://github.com/a
 - *test_is_valid_email_good()* tests if the email address is valid.
 - *test_is_valid_email_bad()* tests if the email address is invalid.
 
-By navigating to the program/app folder where it is extracted- [BirthdayReminderApp](https://github.com/aurimas13/BirthdayReminderApp#birthday-reminder-app) - one folder before where [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) is held and one can run these test commands:
+By navigating to the program/app folder where it is extracted - [BirthdayReminderApp](https://github.com/aurimas13/BirthdayReminderApp#birthday-reminder-app) - one folder before where [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) is held and one can run these test commands:
 
 [//]: # ([comment]: <> &#40;For DocTest run this command in terminal:&#41;)
 
