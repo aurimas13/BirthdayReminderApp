@@ -190,7 +190,7 @@ To build cron job in mac terminal run:
 >>> crontab -e
 ```
 
-The syntax for cronjob when entering terminal could look like this<sup>1,2,3</sup>)
+The syntax for cronjob when entering terminal could look like this:<sup>1,2,3</sup>
 ``` 
 >>> 0 6 * * * cd <directory_to_app> && <directory_to_python> bdayreminder.py <data_file_path> 2
 [Optional] >>> 0 6 * * * cd <directory_to_app> && <directory_to_python> bdayreminder.py <data_file_path> 2 >> Public/birthdays.txt
