@@ -228,5 +228,9 @@ def choose_options(read_path) -> None:
 
 if __name__ == '__main__':
     arg_path = sys.argv[1]
-    cron_input = sys.argv[2]
+    if len(sys.argv) < 3:
+        cron_input = '0'
+    else:
+        cron_input = sys.argv[2]
+
     run(arg_path, cron_input)
