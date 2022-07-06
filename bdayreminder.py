@@ -114,7 +114,7 @@ def is_valid_input(date_format, item, index, to_print) -> bool:
 def send_multiple_emails(birthday_individuals, to_send) -> None:
     """
     Sending emails to every recipient of the to_send list and not to the list of birthday_individuals person or persons.
-    Defining variables and passing the items of a list to send_email function.
+    Defining variables and passing the items of a list to a send_email function.
     :param birthday_individuals: list
     :param to_send: list
     :return:
@@ -136,7 +136,6 @@ def is_date_in_past(date, date_format) -> bool:
     """
     now = datetime.now().date()
     is_past = True
-    # print(date,date_format)
     if date_format == '%Y-%m-%d':
         if datetime.strptime(date, date_format).date() < now:
             is_past = True
@@ -160,7 +159,7 @@ def is_valid_email(email) -> bool:
 
 def send_email(name, bday_name, bday_date, days_left, to_email) -> None:
     """
-    Sending an email to one recipient from the csv file by defining an SMTP client session object.
+    Sending an email to one recipient (name & to_email) from the csv file by defining an SMTP client session object.
     :param name: str
     :param bday_name: str
     :param bday_date: str
@@ -209,7 +208,7 @@ def run(read_path, cron_value) -> None:
 
 def choose_options(read_path) -> None:
     """
-    Asking for input and choosing what to run.
+    Asking for an input and choosing what option to run.
     :param read_path: object
     :return:
     """
