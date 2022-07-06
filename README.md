@@ -94,7 +94,7 @@ Kai Yuen Leung will have birthday in a week.
 Patrick Kienzle will have birthday in a week.
 Emails sent successfully.
 ```
-<br><sup>1</sup> **<directory_leading_to_data_file>** should be something like this /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv but in your directory. </br>
+<br><sup>1</sup> **<directory_leading_to_data_file>** should look like this but in your directory: /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp/Datasets/data_20.csv </br>
 <br><sup>2</sup> Main module takes two arguments when run from console. </br>
 <br><sup>3</sup> The data used for examples was data_20.csv on 23<sup>th</sup> of June 2022.</br>
 
