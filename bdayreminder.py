@@ -188,18 +188,18 @@ def send_email(name, bday_name, bday_date, days_left, to_email) -> None:
     mailserver.quit()
 
 
-def run(read_path, cron_value) -> None:
+def run(read_path, cron_input) -> None:
     """
     Inputting the path of a csv data file and running the script without having to input the choices as they are passed.
     :param read_path: object
-    :param cron_value: int or str
+    :param cron_input: str
     :return:
     """
     try:
-        value = int(cron_value)
-        if cron_value.isdigit() and value == 1:
+        value = int(cron_input)
+        if cron_input.isdigit() and value == 1:
             validate_data_and_send_emails(read_path, send_emails=False)
-        elif cron_value.isdigit() and value == 2:
+        elif cron_input.isdigit() and value == 2:
             validate_data_and_send_emails(read_path, send_emails=True)
         else:
             sys.stdout.write(
