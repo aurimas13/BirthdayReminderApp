@@ -19,6 +19,7 @@ This repository contains **2** **modules** where [bdayreminder.py](https://githu
 - [Table of contents](#table-of-contents)
 - [Requirements](#requirements)
 - [Environment variables](#environment-variables)
+- [Gmail with two-factor authentication](#gmail-with-two-factor-authentication)
 - [Usage](#usage)
 - [Functions](#functions)
 - [Datasets](#datasets)
@@ -34,12 +35,14 @@ This repository contains **2** **modules** where [bdayreminder.py](https://githu
 **Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, csv and typing to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while those that are not mentioned come with the used Python version.
 
 # Environment variables
-To be able to send emails you will need to set up environment variables. To do this locally, please create a `.env` file and add two env vars to it with valid values, like this
+To be able to send emails you will need to set up environment variables. To do this locally, please create a `.env` file and add two env variables to it with valid values, like this:<sup>1</sup>
 ```
 USR=<youremail>
-PSW=<yourpassword>
+PSW=<yourpassword> or <token>
 ```
-
+<br><sup>1</sup> If you will send from gmail then to set up proper environment variable password you will need to create a token. Further info on this under [Gmail with two-factor authentication](##gmail-with-two-factor-authentication) section. </br>
+# Gmail with two-factor authentication
+To be able to send the email after setting Gmail email at environment variable you will need to create a token. Details on how to do it can be found [here](https://stackoverflow.com/questions/26736062/sending-email-fails-when-two-factor-authentication-is-on-for-gmail).
 # Usage
 After the requirements are met, the app package is set at your directory and terminal is run you have four options<sup>1,2,3</sup>:
 1) To allow yourself to run **validation** or **check & send** providing the Python file and data file as arguments. You will then be prompted choose either option 1 (validate) or 2 (validate and send): 
