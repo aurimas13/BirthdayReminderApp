@@ -182,6 +182,7 @@ Argument passed not an integer
 ```
 
 There are more yet these would be the most common.
+
 # Cron Job
 
 To build cron job in mac terminal run:
