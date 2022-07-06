@@ -18,6 +18,7 @@ This repository contains **2** **modules** where [bdayreminder.py](https://githu
 
 - [Table of contents](#table-of-contents)
 - [Requirements](#requirements)
+- [Environment variables](#environment-variables)
 - [Usage](#usage)
 - [Functions](#functions)
 - [Datasets](#datasets)
@@ -32,11 +33,18 @@ This repository contains **2** **modules** where [bdayreminder.py](https://githu
 
 **Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, csv and typing to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while those that are not mentioned come with the used Python version.
 
+# Environment variables
+To be able to send emails you will need to set up environment variables. To do this locally, please create a `.env` file and add two env vars to it with valid values, like this
+```
+USR=<youremail>
+PSW=<yourpassword>
+```
+
 # Usage
 After the requirements are met, the app package is set at your directory and terminal is run you have four options<sup>1,2,3</sup>:
-1) To allow yourself to run **validation** or **check & send** - the  second argument has to be any **other number**: 
+1) To allow yourself to run **validation** or **check & send** providing the Python file and data file as arguments. You will then be prompted choose either option 1 (validate) or 2 (validate and send): 
 ```
->>> python bdayreminder.py <data_file_path> 0
+>>> python bdayreminder.py <data_file_path>
 Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
 >>> 1
 ERROR: Invalid email for Laura Dreyfuss at row 6 
@@ -46,14 +54,14 @@ ERROR: Date is in the future for Tom Brady at row 12. Date given is 2075-10-22
 ERROR: Invalid email for Ching Yeung Michael Tam at row 19
 '''
 '''
->>> python bdayreminder.py <data_file_path> 0
+>>> python bdayreminder.py <data_file_path>
 Choose 1 to validate if input data file is correct or 2 to check for upcoming birthdays and send respective emails
 >>> 2
 Kai Yuen Leung will have birthday in a week.
 Patrick Kienzle will have birthday in a week.
 Emails sent successfully.
 ```
-2) To run **validation** or **check & send** another way - the second argument has to be any **other number**:
+2) To run **validation** or **check & send** providing the Python file, data file and any number other than 1 or 2 as arguments. You will then be prompted choose either option 1 (validate) or 2 (validate and send), as no other numbers are options: 
 
 ```
 >>> python bdayreminder.py <data_file_path> 3
@@ -68,7 +76,7 @@ ERROR: Date is in the future for Tom Brady at row 12. Date given is 2075-10-22
 ERROR: Invalid email for Ching Yeung Michael Tam at row 19 
 ```
 
-3) To **validate** birthday persons **data file** for errors set the second argument to be **1**:
+3) You can avoid having the prompt displayed to you altogether. To **validate** birthday persons **data file** for errors set the second argument to be **1**:
 
 ```
 >>> python bdayreminder.py <data_file_path> 1
