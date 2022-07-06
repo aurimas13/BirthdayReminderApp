@@ -133,15 +133,18 @@ An overview of functions found inside a module - [tests.py](https://github.com/a
 - *test_is_valid_email_good()* tests if the email address is valid.
 - *test_is_valid_email_bad()* tests if the email address is invalid.
 
-By navigating to where [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) is held or to the folder where the [BirthdayReminderApp](https://github.com/aurimas13/BirthdayReminderApp#birthday-reminder-app) program is extracted one can run these commands:
+By navigating to the program/app folder where it is extracted- [BirthdayReminderApp](https://github.com/aurimas13/BirthdayReminderApp#birthday-reminder-app) - one folder before where [tests.py](https://github.com/aurimas13/BirthdayReminderApp/blob/main/Tests/tests.py) is held and one can run these test commands:
 
-[comment]: <> (For DocTest run this command in terminal:)
+[//]: # ([comment]: <> &#40;For DocTest run this command in terminal:&#41;)
 
-[comment]: <> (``` python)
+[//]: # ()
+[//]: # ([comment]: <> &#40;``` python&#41;)
 
-[comment]: <> (> python -m doctest -v calculator.py)
+[//]: # ()
+[//]: # ([comment]: <> &#40;> python -m doctest -v calculator.py&#41;)
 
-[comment]: <> (```)
+[//]: # ()
+[//]: # ([comment]: <> &#40;```&#41;)
 1) To check source files for errors in the project folder:
 ```
 >>> pyflakes .
