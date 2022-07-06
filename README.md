@@ -171,7 +171,7 @@ The syntax for cronjob when entering terminal could look like this<sup>1,2,3</su
 ```
 <br><sup>1</sup> **<directory_to_app>** - should be the directory where BirthdayReminderApp folder is like /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp </br>
 <br><sup>2</sup> **<directory_to_python>** should be where you installed python on your machine like /Users/aurimasnausedas/opt/miniconda3/envs/symmetric/bin/python </br>
-<br><sup>3</sup> **<data_file_path>** should be in the directory of app like /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp by setting to Datasets/data_20.csv by </br>
+<br><sup>3</sup> **<data_file_path>** should be the dataset in the directory of app like in /Users/aurimasnausedas/Documents/Python/BirthdayReminderApp by setting it to Datasets/data_20.csv </br>
 
 Syntax customization for Cron Job can be checked [here](https://crontab.guru/).
 
