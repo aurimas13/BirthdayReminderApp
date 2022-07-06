@@ -154,7 +154,7 @@ By navigating to the program/app folder where it is extracted - [BirthdayReminde
 # Errors
 
 There could be a few errors that are coded:
-1) 2nd argument error:
+1) 2nd argument error if the provided 2nd argument is a string:
 ```
 >>>  python bdayreminder.py Datasets/data_20.csv versada
 Argument passed not an integer

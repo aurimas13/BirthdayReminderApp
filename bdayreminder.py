@@ -39,31 +39,31 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
     list_of_birthdays_in_a_week = []
     list_to_send = []
     birthday_in_a_week = DATE_AFTER_SEVEN_DAYS
-    if not os.path.exists(input_file):
-        raise Exception('ERROR file doesn\'t exist')
-    elif input_file.endswith('csv'):
-        try:
-            with open(input_file) as csv_file:
-                opened_file = csv.reader(csv_file)
-                next(opened_file)
-                for index, item in enumerate(opened_file):
-                    try:
-                        result_parsed_date = parse_date(item[2])
-                        parsed_date = result_parsed_date['value']
-                        date_format = result_parsed_date['format']
-                        if is_valid_input(date_format, item, index, not send_emails) is True:
-                            if parsed_date and parsed_date.strftime('%m-%d') == birthday_in_a_week:
-                                list_of_birthdays_in_a_week.append(item)
-                            else:
-                                list_to_send.append(item)
-                    except Exception as error:
-                        sys.stderr.write(f'ERROR for {item} : {error}\n')
-                if send_emails:
-                    send_multiple_emails(list_of_birthdays_in_a_week, list_to_send)
-        except Exception as error:
-            sys.stderr.write(f'Malformed csv file : {error}\n')
-    else:
-        raise Exception('ERROR: Wrong data format file')
+    # if not os.path.exists(input_file):
+    #     raise Exception('ERROR file doesn\'t exist')
+    # elif input_file.endswith('csv'):
+    try:
+        with open(input_file) as csv_file:
+            opened_file = csv.reader(csv_file)
+            next(opened_file)
+            for index, item in enumerate(opened_file):
+                try:
+                    result_parsed_date = parse_date(item[2])
+                    parsed_date = result_parsed_date['value']
+                    date_format = result_parsed_date['format']
+                    if is_valid_input(date_format, item, index, not send_emails) is True:
+                        if parsed_date and parsed_date.strftime('%m-%d') == birthday_in_a_week:
+                            list_of_birthdays_in_a_week.append(item)
+                        else:
+                            list_to_send.append(item)
+                except Exception as error:
+                    sys.stderr.write(f'ERROR for {item} : {error}\n')
+            if send_emails:
+                send_multiple_emails(list_of_birthdays_in_a_week, list_to_send)
+    except Exception as error:
+        sys.stderr.write(f'Malformed csv file : {error}\n')
+    # else:
+    #     raise Exception('ERROR: Wrong data format file')
 
 
 def parse_date(date) -> dict:
@@ -195,19 +195,24 @@ def run(read_path, cron_value) -> None:
     :param cron_value: str
     :return:
     """
-    try:
-        value = int(cron_value)
-        if cron_value.isdigit() and value == 1:
-            validate_data_and_send_emails(read_path, send_emails=False)
-        elif cron_value.isdigit() and value == 2:
-            validate_data_and_send_emails(read_path, send_emails=True)
-        else:
-            sys.stdout.write(
-                'Choose 1 to validate if input data file is correct or 2 to check for '
-                'upcoming birthdays and send respective emails\n')
-            choose_options(read_path)
-    except Exception:
-        sys.stdout.write('Argument passed not an integer\n')
+    if not os.path.exists(read_path):
+        raise Exception('ERROR: File doesn\'t exist')
+    elif read_path.endswith('csv'):
+        try:
+            value = int(cron_value)
+            if cron_value.isdigit() and value == 1:
+                validate_data_and_send_emails(read_path, send_emails=False)
+            elif cron_value.isdigit() and value == 2:
+                validate_data_and_send_emails(read_path, send_emails=True)
+            else:
+                sys.stdout.write(
+                    'Choose 1 to validate if input data file is correct or 2 to check for '
+                    'upcoming birthdays and send respective emails\n')
+                choose_options(read_path)
+        except Exception:
+            sys.stdout.write('Argument passed not an integer\n')
+    else:
+        raise Exception('ERROR: Wrong data format file')
 
 
 def choose_options(read_path) -> None:
