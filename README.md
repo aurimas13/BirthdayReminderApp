@@ -19,7 +19,7 @@ This repository contains **2** **modules** where [bdayreminder.py](https://githu
 - [Table of contents](#table-of-contents)
 - [Requirements](#requirements)
 - [Environment variables](#environment-variables)
-- [Gmail with two-factor authentication](#gmail-with-two-factor-authentication)
+- [Authentication](#authentication)
 - [Usage](#usage)
 - [Functions](#functions)
 - [Datasets](#datasets)
@@ -32,7 +32,7 @@ This repository contains **2** **modules** where [bdayreminder.py](https://githu
 
 # Requirements
 
-**Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, csv and typing to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while those that are not mentioned come with the used Python version.
+**Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, pytest to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while those that are not mentioned come with the used Python version. Also inspect [environment variables](#environment-variables) and [authentication](#authentication) before proceeding further.
 
 # Environment variables
 To be able to send emails you will need to set up environment variables. To do this locally, please create a `.env` file and add two env variables to it with valid values, like this:<sup>1</sup>
@@ -40,7 +40,7 @@ To be able to send emails you will need to set up environment variables. To do t
 USR=<youremail>
 PSW=<yourpassword> or <token>
 ```
-<br><sup>1</sup> If you will send from gmail then to set up proper environment variable password you will need to create a token. Further info on this under [Gmail with two-factor authentication](##gmail-with-two-factor-authentication) section. </br>
+<br><sup>1</sup> If you will send from gmail then to set up proper environment variable password you will need to create a token. Further info on this under [authentication](#authentication) section. </br>
 # Gmail with two-factor authentication
 To be able to send the email after setting Gmail email at environment variable you will need to create a token. Details on how to do it can be found [here](https://stackoverflow.com/questions/26736062/sending-email-fails-when-two-factor-authentication-is-on-for-gmail).
 # Usage
