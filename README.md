@@ -153,7 +153,8 @@ By navigating to the program/app folder where it is extracted - [BirthdayReminde
 ```
 # Errors
 
-There could be arise a few errors like these:
+There could arise a few errors like:
+
 1) 1st argument error if the provided 1st argument is of different format to the csv format:
 ```
 >>> python bdayreminder.py Datasets/data_20.json 1      
