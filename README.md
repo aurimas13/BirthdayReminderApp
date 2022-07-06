@@ -111,6 +111,7 @@ An overview of functions found inside a module - ***bdayreminder.py***:
 - **send_email(name, bday_name, bday_date, days_left, to_email)** sends an email to a recipient (*name*,*to_email*) as a reminder of a birthday (*bday_name*,*bday_date*) in advance (*days_left*).
 - **run(read_path, cron)** takes the csv data file and runs the script without as choices are passed as arguments (*read_path*,*cron*).
 - **choose_options(read_path)** asks for input (*read_path*) and chooses option to run.
+
 [//]: # (- **convert_birthday_file&#40;file_path&#41;** converts a data file &#40;*file_path*&#41; to the csv format that can be read.)
 [//]: # (- **is_birthdate_in_7_days&#40;&#41;** finds the date for the upcoming birthdays in a week.)
 [//]: # (- **is_not_empty_name&#40;name&#41;** checks *name* is not empty.)
