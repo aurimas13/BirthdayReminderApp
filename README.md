@@ -32,7 +32,7 @@ This repository contains **2** **modules** where [bdayreminder.py](https://githu
 
 # Requirements
 
-**Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, pytest to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while those that are not mentioned come with the used Python version. Also inspect [environment variables](#environment-variables) and [authentication](#authentication) before proceeding further.
+**Python 3.9.12** is required to properly execute package's modules, imported libraries and defined functions. Imports of several libraries like dotnet, pytest to name a few are also needed. Some required versions are found [here](https://github.com/aurimas13/BirthdayReminderApp/blob/main/requirements.txt) while those that are not mentioned come with the used Python version. Also inspect [environment variables](#environment-variables) and [authentication](#authentication) before proceeding further. For proper usage of the program you might need to run **python3** rather than proposed **python** as shown in the [Usage](#usage); that depends on the way how you installed python on your machine. 
 
 # Environment variables
 To be able to send emails you will need to set up environment variables. To do this locally, please create a `.env` file and add two env variables to it with valid values, like this:<sup>1</sup>
