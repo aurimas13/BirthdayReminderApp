@@ -153,7 +153,7 @@ By navigating to the program/app folder where it is extracted - [BirthdayReminde
 ```
 # Errors
 
-There could be a few errors that are coded:
+There could be arise a few errors like these:
 1) 1st argument error if the provided 1st argument is of different format to the csv format:
 ```
 >>> python bdayreminder.py Datasets/data_20.json 1      
@@ -164,7 +164,7 @@ Traceback (most recent call last):
     raise Exception('ERROR: Wrong data format file')
 Exception: ERROR: Wrong data format file
 ```
-2) 1st argument error if the provided 1st argument doesn't exist:
+2) 1st argument error if the provided 1st argument of data file doesn't exist:
 ```
 >>> python bdayreminder.py Datasets/data_13.csv 1 
 Traceback (most recent call last):
@@ -179,7 +179,8 @@ Exception: ERROR: File doesn't exist
 >>>  python bdayreminder.py Datasets/data_20.csv versada
 Argument passed not an integer
 ```
-2)
+
+There are a few more yet these would be the most common.
 # Cron Job
 
 To build cron job in mac terminal run:
