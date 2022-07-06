@@ -39,9 +39,6 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
     list_of_birthdays_in_a_week = []
     list_to_send = []
     birthday_in_a_week = DATE_AFTER_SEVEN_DAYS
-    # if not os.path.exists(input_file):
-    #     raise Exception('ERROR file doesn\'t exist')
-    # elif input_file.endswith('csv'):
     try:
         with open(input_file) as csv_file:
             opened_file = csv.reader(csv_file)
@@ -62,8 +59,6 @@ def validate_data_and_send_emails(input_file, send_emails=False) -> None:
                 send_multiple_emails(list_of_birthdays_in_a_week, list_to_send)
     except Exception as error:
         sys.stderr.write(f'Malformed csv file : {error}\n')
-    # else:
-    #     raise Exception('ERROR: Wrong data format file')
 
 
 def parse_date(date) -> dict:
