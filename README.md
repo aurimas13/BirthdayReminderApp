@@ -181,7 +181,7 @@ Exception: ERROR: File doesn't exist
 Argument passed not an integer
 ```
 
-There are a few more yet these would be the most common.
+There are more yet these would be the most common.
 # Cron Job
 
 To build cron job in mac terminal run:
