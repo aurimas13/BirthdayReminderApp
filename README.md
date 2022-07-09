@@ -42,7 +42,7 @@ USR=<youremail>
 PSW=<yourpassword> or <token>
 ```
 <br><sup>1</sup> If you will send from gmail then to set up proper environment variable password you will need to create a token. Further info on this under [authentication](#authentication) section. </br>
-# Gmail with two-factor authentication
+# Authentication
 To be able to send the email after setting Gmail email at environment variable you will need to create a token. Details on how to do it can be found [here](https://stackoverflow.com/questions/26736062/sending-email-fails-when-two-factor-authentication-is-on-for-gmail).
 # Usage
 After the requirements are met, the app package is set at your directory and terminal is run you have four options<sup>1,2,3</sup>:
