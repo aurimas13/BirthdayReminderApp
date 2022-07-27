@@ -1,3 +1,17 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 <p align=center>
   <img height="222px" src="https://github.com/aurimas13/BirthdayReminderApp/blob/main/Public/Logo/birthdaylogo.png"/>
 </p>
